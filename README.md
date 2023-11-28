@@ -11,6 +11,7 @@ This project contains a customized NeoVim setup, tailored for web development wi
   ![](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
   ![](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
   ![](https://img.shields.io/badge/pnpm-yellow?style=for-the-badge&logo=pnpm&logoColor=white)
+  
 - Integration with Prettier and ESLint for standardized and clean code
 - Custom keyboard shortcuts for efficient navigation and editing
 
