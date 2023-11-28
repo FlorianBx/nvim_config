@@ -11,12 +11,18 @@ keymap.set("n", "k", "j", { noremap = true })
 keymap.set("v", "j", "k", { noremap = true })
 keymap.set("v", "k", "j", { noremap = true })
 
+-- Quick close
+keymap.set("n", "<leader>qq", ":q<CR>", opts)
+
+-- Quick save
+keymap.set("n", "<leader>ww", ":w<CR>", opts)
+
 -- Increment / Decrement
 keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
 -- Delete a word backwards
-keymap.set("n", "dw", "vb_d")
+-- keymap.set("n", "dw", "vb_d")
 
 -- Select all
 keymap.set("n", "ga", "gg<S-v>G")
@@ -30,6 +36,14 @@ keymap.set("n", "<S-tab>", ":tabprevious<CR>", opts)
 -- Split windows
 keymap.set("n", "ss", ":split<CR>", opts)
 keymap.set("n", "sv", ":vsplit<CR>", opts)
+keymap.set("n", "st", ":vsplit | terminal<CR>", opts)
+
+-- Close windows
+local close_windows = require("util.close_windows")
+keymap.set("n", "<leader>lq", close_windows.close_left_window, opts)
+keymap.set("n", "<leader>rq", close_windows.close_right_window, opts)
+keymap.set("n", "<leader>tq", close_windows.close_top_window, opts)
+keymap.set("n", "<leader>bq", close_windows.close_bottom_window, opts)
 
 --Move windows
 keymap.set("n", "sh", "<C-w>h", opts)
@@ -52,5 +66,9 @@ end, opts)
 keymap.set("n", "sf", ":Telescope find_files<CR>", opts)
 
 -- rename word
--- vim.keymap.set("n", "<leader>rn", function()
 keymap.set("n", "<leader>rn", ":IncRename ")
+
+-- Layout Terminal
+-- Dans keymap.lua
+local layout_terms = require("util.layout_terms")
+keymap.set("n", "<leader>tt", layout_terms.OpenWindowWithTerminals, { noremap = true, silent = true })
