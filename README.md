@@ -14,42 +14,49 @@ This project contains a customized NeoVim setup, tailored for web development wi
 - Integration with Prettier and ESLint for standardized and clean code
 - Custom keyboard shortcuts for efficient navigation and editing
 
-## Installation
+Installation
+Clone this repository into your NeoVim configuration directory.
+Install the required plugins using your preferred NeoVim plugin manager.
+Restart NeoVim to apply the changes.
+Keyboard Shortcuts
+Enhance your development efficiency with these intuitive shortcuts:
 
-1. Clone this repository into your NeoVim configuration directory.
-2. Install the required plugins using your preferred NeoVim plugin manager.
-3. Restart NeoVim to apply the changes.
+Navigation Swaps:
 
-## Keyboard Shortcuts
+j and k have swapped roles. Now, j moves up, and k moves down. This can be a game-changer for your muscle memory!
+Quick Actions:
 
-The following shortcuts have been configured to enhance your development efficiency:
+<leader>qq - Quickly close the current window.
+<leader>ww - Save your work in a snap.
+Editing:
 
-- `j` / `k` : Swap navigation commands (j becomes k and vice versa)
-- `+` / `-` : Increment / Decrement values
-- `dw` : Delete a word backwards
-- `ga` : Select all text
-- `te` : Open a new tab
-- `tc` : Close the current tab
-- `Tab` : Navigate to the next tab
-- `Shift+Tab` : Navigate to the previous tab
-- `ss` / `sv` : Split window horizontally / vertically
-- `sh` / `sj` / `sk` / `sl` : Move window
-- `Ctrl+[h,j,k,l]` : Resize window
-- `sf` : Find files with Telescope
-- `Leader+rn` : Rename a symbol
+- / - - Easily increment/decrement values.
+  ga - Select all text with ease.
+  Tabs and Windows:
 
-### Diagnostics
+te / tc - Open/close tabs.
+Tab / Shift+Tab - Navigate through tabs.
+ss / sv / st - Split windows to organize your workspace.
+sh / sj / sk / sl - Move between windows.
+Ctrl+[h,j,k,l] - Resize windows for optimal viewing.
+Diagnostics:
 
-- `Ctrl+j` : Go to next diagnostic
+Ctrl+j - Jump to the next diagnostic message.
+Search and Rename:
 
-## Customization
+sf - Find files using Telescope.
+Leader+rn - Rename symbols with precision.
+Window Management:
 
-To add or modify shortcuts, edit the shortcut configuration file (`keymaps.lua`). Default shortcuts are loaded on the `VeryLazy` event.
+<leader>[direction]q - Close windows in different directions (lq, rq, tq, bq).
+Layout Terminal:
 
-## Contributing
+<leader>tt - Set up a layout with multiple terminals.
+Customization
+Feel free to add or modify shortcuts in the keymaps.lua file. Default shortcuts are loaded on the VeryLazy event.
 
-Contributions to this configuration are welcome. If you have suggestions or improvements, feel free to create an issue or a pull request.
+Contributing
+Your ideas and contributions are welcome! Create an issue or a pull request with your suggestions.
 
-## License
-
-This project is licensed under the MIT License. For more details, see the [LICENCE](LICENSE) file.
+License
+Licensed under the MIT License. See LICENCE for details.
