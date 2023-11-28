@@ -1,10 +1,16 @@
-# NeoVim Configuration for VueJS/TailwindCSS/TypeScript Web Development
+# FBNeoVim Configuration for VueJS/TailwindCSS/TypeScript Web Development
+
+![NVim Preview](https://raw.githubusercontent.com/BFlorian91/nvim_config/main/nvim_prev.png?raw=true)
 
 This project contains a customized NeoVim setup, tailored for web development with VueJS, TailwindCSS, TypeScript, Prettier, and ESLint.
 
 ## Key Features
 
-- Full support for VueJS, TailwindCSS, TypeScript
+- Full support for: ![](https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
+  ![](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
+  ![](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+  ![](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+  ![](https://img.shields.io/badge/pnpm-yellow?style=for-the-badge&logo=pnpm&logoColor=white)
 - Integration with Prettier and ESLint for standardized and clean code
 - Custom keyboard shortcuts for efficient navigation and editing
 
@@ -46,4 +52,4 @@ Contributions to this configuration are welcome. If you have suggestions or impr
 
 ## License
 
-This project is licensed under the MIT License. For more details, see the `LICENSE` file.
+This project is licensed under the MIT License. For more details, see the [LICENCE](LICENSE) file.
