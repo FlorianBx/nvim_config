@@ -38,6 +38,12 @@ keymap.set("n", "ss", ":split<CR>", opts)
 keymap.set("n", "sv", ":vsplit<CR>", opts)
 keymap.set("n", "st", ":vsplit | terminal<CR>", opts)
 
+-- Move Windows
+keymap.set("n", "<leader>tj", ":wincmd K<CR>", opts)
+keymap.set("n", "<leader>tk", ":wincmd J<CR>", opts)
+keymap.set("n", "<leader>th", ":wincmd H<CR>", opts)
+keymap.set("n", "<leader>tl", ":wincmd L<CR>", opts)
+
 -- Close windows
 local close_windows = require("util.close_windows")
 keymap.set("n", "<leader>lq", close_windows.close_left_window, opts)
@@ -52,8 +58,8 @@ keymap.set("n", "sk", "<C-w>j", opts)
 keymap.set("n", "sl", "<C-w>l", opts)
 
 -- Resize windows
-keymap.set("n", "<C-l>", "<C-w><", opts)
-keymap.set("n", "<C-h>", "<C-w>>", opts)
+keymap.set("n", "<C-h>", "<C-w><", opts)
+keymap.set("n", "<C-l>", "<C-w>>", opts)
 keymap.set("n", "<C-j>", "<C-w>+", opts)
 keymap.set("n", "<C-k>", "<C-w>-", opts)
 
