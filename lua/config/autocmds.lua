@@ -5,11 +5,17 @@
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("WinEnter", {
-  pattern = "*",
-  command = "set cursorline",
+	pattern = "*",
+	command = "set cursorline",
 })
 
 autocmd("WinLeave", {
-  pattern = "*",
-  command = "set nocursorline",
+	pattern = "*",
+	command = "set nocursorline",
 })
+
+-- Hilgiht Eslint errors
+vim.cmd([[
+highlight LspDiagnosticsDefaultError guifg=Red ctermfg=Red
+highlight LspDiagnosticsUnderlineError gui=undercurl guisp=Red cterm=undercurl
+]])
