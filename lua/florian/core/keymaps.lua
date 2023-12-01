@@ -6,12 +6,15 @@ keymap.set("n", "k", "j", { noremap = true })
 keymap.set("v", "j", "k", { noremap = true })
 keymap.set("v", "k", "j", { noremap = true })
 
----- Move selected ----
--- Move selected text block up with Shift+J
-keymap.set("v", "J", ":m '<-2<CR>gv=gv", opts)
-keymap.set("v", "K", ":m '>+1<CR>gv=gv", opts)
-keymap.set("v", "L", ">gv", opts)
-keymap.set("v", "H", "<gv", opts)
+-- Move selected
+keymap.set("n", "J", ":m .+1<CR>==", vim.tbl_extend('force', opts, {desc = "Move current line down in normal mode"}))
+keymap.set("n", "K", ":m .-2<CR>==", vim.tbl_extend('force', opts, {desc = "Move current line up in normal mode"}))
+
+keymap.set("i", "<C-j>", "<Esc>:m .+1<CR>==gi", vim.tbl_extend('force', opts, {desc = "Move current line down in insert mode"}))
+keymap.set("i", "<C-k>", "<Esc>:m .-2<CR>==gi", vim.tbl_extend('force', opts, {desc = "Move current line up in insert mode"}))
+
+keymap.set("v", "J", ":m '>+1<CR>gv=gv", vim.tbl_extend('force', opts, {desc = "Move selected lines down in visual mode"}))
+keymap.set("v", "K", ":m '<-2<CR>gv=gv", vim.tbl_extend('force', opts, {desc = "Move selected lines up in visual mode"}))
 
 ---- Quick Actions ----
 keymap.set("i", "jj", "<Esc>", opts)
@@ -51,11 +54,11 @@ keymap.set("n", "<leader>tk", ":wincmd J<CR>", opts)
 keymap.set("n", "<leader>th", ":wincmd H<CR>", opts)
 keymap.set("n", "<leader>tl", ":wincmd L<CR>", opts)
 
-local close_windows = require("utils.close_windows")
-keymap.set("n", "<leader>lq", close_windows.close_left_window, opts)
-keymap.set("n", "<leader>rq", close_windows.close_right_window, opts)
-keymap.set("n", "<leader>tq", close_windows.close_top_window, opts)
-keymap.set("n", "<leader>bq", close_windows.close_bottom_window, opts)
+-- local close_windows = require("utils.close_windows")
+-- keymap.set("n", "<leader>lq", close_windows.close_left_window, opts)
+-- keymap.set("n", "<leader>rq", close_windows.close_right_window, opts)
+-- keymap.set("n", "<leader>tq", close_windows.close_top_window, opts)
+-- keymap.set("n", "<leader>bq", close_windows.close_bottom_window, opts)
 
 --Move windows
 keymap.set("n", "sh", "<C-w>h", opts)
@@ -64,12 +67,12 @@ keymap.set("n", "sk", "<C-w>j", opts)
 keymap.set("n", "sl", "<C-w>l", opts)
 
 -- Resize windows
-keymap.set("n", "<C-h>", "<C-w><", opts)
-keymap.set("n", "<C-l>", "<C-w>>", opts)
-keymap.set("n", "<C-j>", "<C-w>+", opts)
-keymap.set("n", "<C-k>", "<C-w>-", opts)
+keymap.set("n", "<A-h>", "<C-w><", opts)
+keymap.set("n", "<A-l>", "<C-w>>", opts)
+keymap.set("n", "<A-j>", "<C-w>+", opts)
+keymap.set("n", "<A-k>", "<C-w>-", opts)
 
 ---- Diagnostics ----
-keymap.set("n", "<C-j>", function()
+keymap.set("n", "<C-->", function()
 	vim.diagnostic.goto_next()
 end, opts)
