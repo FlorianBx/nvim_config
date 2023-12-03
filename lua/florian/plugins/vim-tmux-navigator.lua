@@ -1,3 +1,5 @@
-return {
-  "christoomey/vim-tmux-navigator"
+local tmux = {
+  "christoomey/vim-tmux-navigator",
 }
+
+return tmux

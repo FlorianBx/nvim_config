@@ -1,4 +1,4 @@
-return {
+local nvim_tree_config = {
   "nvim-tree/nvim-tree.lua",
   version = "*",
   lazy = false,
@@ -8,20 +8,20 @@ return {
   config = function()
     local nvimtree = require("nvim-tree")
 
-    -- recommended settings from nvim-tree documentation
+    -- Disable netrw
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
 
-    -- change color for arrows in tree to light blue
+    -- Custom color for arrows in tree
     vim.cmd([[ highlight NvimTreeFolderArrowClosed guifg=#42b883 ]])
     vim.cmd([[ highlight NvimTreeFolderArrowOpen guifg=#42b883 ]])
 
+    -- NvimTree setup
     nvimtree.setup({
       view = {
         width = 35,
         relativenumber = true,
       },
-      -- change folder arrow icons
       renderer = {
         indent_markers = {
           enable = true,
@@ -35,7 +35,6 @@ return {
           },
         },
       },
-      -- disable window_picker
       actions = {
         open_file = {
           window_picker = {
@@ -51,13 +50,13 @@ return {
       },
     })
 
-    local keymap = vim.keymap 
-
-    keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) 
-    keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) 
-    keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) 
-    keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) 
+    -- Key mappings for NvimTree
+    local keymap = vim.keymap
+    keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
+    keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" })
+    keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" })
+    keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
   end,
 }
 
-
+return nvim_tree_config

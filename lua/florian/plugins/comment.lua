@@ -1,5 +1,7 @@
-return {
+local comment = {
   "numToStr/Comment.nvim",
   event = { "BufReadPre", "BufNewFile" },
-  config = true
+  config = true,
 }
+
+return comment

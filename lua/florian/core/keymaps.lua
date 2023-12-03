@@ -1,3 +1,4 @@
+vim.g.mapleader = " "
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
@@ -7,19 +8,39 @@ keymap.set("v", "j", "k", { noremap = true })
 keymap.set("v", "k", "j", { noremap = true })
 
 -- Move selected
-keymap.set("n", "J", ":m .+1<CR>==", vim.tbl_extend('force', opts, {desc = "Move current line down in normal mode"}))
-keymap.set("n", "K", ":m .-2<CR>==", vim.tbl_extend('force', opts, {desc = "Move current line up in normal mode"}))
+keymap.set("n", "J", ":m .+1<CR>==", vim.tbl_extend("force", opts, { desc = "Move current line down in normal mode" }))
+keymap.set("n", "K", ":m .-2<CR>==", vim.tbl_extend("force", opts, { desc = "Move current line up in normal mode" }))
 
-keymap.set("i", "<C-j>", "<Esc>:m .+1<CR>==gi", vim.tbl_extend('force', opts, {desc = "Move current line down in insert mode"}))
-keymap.set("i", "<C-k>", "<Esc>:m .-2<CR>==gi", vim.tbl_extend('force', opts, {desc = "Move current line up in insert mode"}))
+keymap.set(
+  "i",
+  "<C-j>",
+  "<Esc>:m .+1<CR>==gi",
+  vim.tbl_extend("force", opts, { desc = "Move current line down in insert mode" })
+)
+keymap.set(
+  "i",
+  "<C-k>",
+  "<Esc>:m .-2<CR>==gi",
+  vim.tbl_extend("force", opts, { desc = "Move current line up in insert mode" })
+)
 
-keymap.set("v", "J", ":m '>+1<CR>gv=gv", vim.tbl_extend('force', opts, {desc = "Move selected lines down in visual mode"}))
-keymap.set("v", "K", ":m '<-2<CR>gv=gv", vim.tbl_extend('force', opts, {desc = "Move selected lines up in visual mode"}))
+keymap.set(
+  "v",
+  "J",
+  ":m '>+1<CR>gv=gv",
+  vim.tbl_extend("force", opts, { desc = "Move selected lines down in visual mode" })
+)
+keymap.set(
+  "v",
+  "K",
+  ":m '<-2<CR>gv=gv",
+  vim.tbl_extend("force", opts, { desc = "Move selected lines up in visual mode" })
+)
 
 ---- Quick Actions ----
 keymap.set("i", "jj", "<Esc>", opts)
-keymap.set("n", "<leader>qq", ":q<CR>", opts)
-keymap.set("n", "<leader>ww", ":w<CR>", opts)
+keymap.set("n", "<leader>eq", ":q<CR>", opts)
+keymap.set("n", "<leader>ew", ":w<CR>", opts)
 -- Search Telescope
 keymap.set("n", "sf", ":Telescope find_files<CR>", opts)
 -- Increment / Decrement
@@ -32,7 +53,7 @@ keymap.set("n", "ga", "gg<S-v>G")
 
 ---- Windows ----
 keymap.set("n", "<Tab>", function()
-	print("Tab key pressed in Normal mode")
+  print("Tab key pressed in Normal mode")
 end, opts)
 
 -- Tab
@@ -74,5 +95,5 @@ keymap.set("n", "<A-k>", "<C-w>-", opts)
 
 ---- Diagnostics ----
 keymap.set("n", "<C-->", function()
-	vim.diagnostic.goto_next()
+  vim.diagnostic.goto_next()
 end, opts)

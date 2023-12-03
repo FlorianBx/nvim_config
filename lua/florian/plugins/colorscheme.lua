@@ -1,17 +1,19 @@
-return {
+local poimandres = {
   "olivercederborg/poimandres.nvim",
   lazy = false,
   priority = 1000,
+
+  -- poimandres setup
   config = function()
     require("poimandres").setup({
-      -- leave this setup function empty for default config
-      -- or refer to the configuration section
-      -- for configuration options
+      -- Leave this setup function empty for default configuration
     })
   end,
 
-  -- optionally set the colorscheme within lazy config
+  -- Optionally set the colorscheme during initialization
   init = function()
     vim.cmd("colorscheme poimandres")
   end,
 }
+
+return poimandres

@@ -1,4 +1,4 @@
- return {
+local nvim_treesitter_config = {
   {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufReadPre", "BufNewFile" },
@@ -8,21 +8,19 @@
       "windwp/nvim-ts-autotag",
     },
     config = function()
-      -- import nvim-treesitter plugin
       local treesitter = require("nvim-treesitter.configs")
 
-      -- configure treesitter
-      treesitter.setup({ -- enable syntax highlighting
+      -- Configure Treesitter
+      treesitter.setup({
         highlight = {
-          enable = true,
+          enable = true, -- Enable syntax highlighting
         },
-        -- enable indentation
-        indent = { enable = true },
-        -- enable autotagging (w/ nvim-ts-autotag plugin)
+        indent = {
+          enable = true, -- Enable indentation
+        },
         autotag = {
-          enable = true,
+          enable = true, -- Enable autotagging with nvim-ts-autotag plugin
         },
-        -- ensure these language parsers are installed
         ensure_installed = {
           "vue",
           "json",
@@ -32,11 +30,8 @@
           "yaml",
           "html",
           "css",
-          "prisma",
           "markdown",
           "markdown_inline",
-          "svelte",
-          "graphql",
           "bash",
           "fish",
           "lua",
@@ -44,18 +39,17 @@
           "dockerfile",
           "gitignore",
           "query",
-          "c"
+          "c",
         },
         incremental_selection = {
           enable = true,
           keymaps = {
-            init_selection = "ww",
-            node_incremental = "ww",
+            init_selection = "//",
+            node_incremental = "//",
             scope_incremental = false,
             node_decremental = "<bs>",
           },
         },
-        -- enable nvim-ts-context-commentstring plugin for commenting tsx and jsx
         context_commentstring = {
           enable = true,
           enable_autocmd = false,
@@ -64,3 +58,5 @@
     end,
   },
 }
+
+return nvim_treesitter_config

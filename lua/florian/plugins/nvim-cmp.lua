@@ -1,4 +1,4 @@
-return {
+local nvim_cmp_config = {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
   dependencies = {
@@ -11,12 +11,10 @@ return {
   },
   config = function()
     local cmp = require("cmp")
-
     local luasnip = require("luasnip")
-
     local lspkind = require("lspkind")
 
-    -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
+    -- Load vscode style snippets from installed plugins (e.g., friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
 
     local has_words_before = function()
@@ -34,12 +32,12 @@ return {
         end,
       },
       mapping = cmp.mapping.preset.insert({
-        ["<C-k>"] = cmp.mapping.select_prev_item(), 
+        ["<C-k>"] = cmp.mapping.select_prev_item(),
         ["<C-j>"] = cmp.mapping.select_next_item(),
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-        ["<C-e>"] = cmp.mapping.abort(), -- close completion window
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm({ select = false }),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
@@ -52,7 +50,6 @@ return {
             fallback()
           end
         end, { "i", "s" }),
-
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
@@ -63,12 +60,11 @@ return {
           end
         end, { "i", "s" }),
       }),
-      -- sources for autocompletion
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
-        { name = "buffer" }, 
-        { name = "path" }, 
+        { name = "buffer" },
+        { name = "path" },
       }),
       formatting = {
         format = lspkind.cmp_format({
@@ -79,3 +75,5 @@ return {
     })
   end,
 }
+
+return nvim_cmp_config
