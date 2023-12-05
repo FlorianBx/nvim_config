@@ -1,4 +1,3 @@
--- Configuration for neovim/nvim-lspconfig
 local lspconfig_setup = {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
@@ -36,10 +35,15 @@ local lspconfig_setup = {
     lspconfig["tsserver"].setup({ capabilities = capabilities, on_attach = on_attach })
     lspconfig["cssls"].setup({ capabilities = capabilities, on_attach = on_attach })
     lspconfig["tailwindcss"].setup({ capabilities = capabilities, on_attach = on_attach })
+    lspconfig["volar"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "vue" },
+    })
     lspconfig["emmet_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-      filetypes = { "html", "vue", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+      filetypes = { "html", "vue", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
     })
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,

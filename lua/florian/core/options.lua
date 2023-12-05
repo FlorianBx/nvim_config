@@ -1,4 +1,4 @@
-local opt = vim.opt 
+local opt = vim.opt
 
 -- line numbers
 opt.relativenumber = true
@@ -11,7 +11,7 @@ opt.expandtab = true
 opt.autoindent = true
 
 -- line wrapping
-opt.wrap = false 
+opt.wrap = false
 
 -- search settings
 opt.ignorecase = true
@@ -37,3 +37,7 @@ opt.splitbelow = true
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- folding
+opt.foldmethod = "indent"
+opt.foldlevel = 99

@@ -9,8 +9,8 @@ local nvim_treesitter_textobjects_config = {
           lookahead = true,
           keymaps = {
             -- Custom text objects
-            ["a="] = { query = "@assignment.outer", desc = "Select outer part of an assignment" },
-            ["i="] = { query = "@assignment.inner", desc = "Select inner part of an assignment" },
+            ["e="] = { query = "@assignment.outer", desc = "Select outer part of an assignment" },
+            ["n="] = { query = "@assignment.inner", desc = "Select inner part of an assignment" },
             ["l="] = { query = "@assignment.lhs", desc = "Select left hand side of an assignment" },
             ["r="] = { query = "@assignment.rhs", desc = "Select right hand side of an assignment" },
             ["a:"] = { query = "@property.outer", desc = "Select outer part of an object property" },

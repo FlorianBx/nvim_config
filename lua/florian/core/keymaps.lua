@@ -51,18 +51,12 @@ keymap.set("n", "<leader>rn", ":IncRename ")
 -- Select all
 keymap.set("n", "ga", "gg<S-v>G")
 
----- Windows ----
-keymap.set("n", "<Tab>", function()
-  print("Tab key pressed in Normal mode")
-end, opts)
-
 -- Tab
 keymap.set("n", "te", ":tabedit<CR>", opts)
 keymap.set("n", "tc", ":tabclose<CR>", opts)
 -- keymap.set("n", "<tab>", ":tabnext<CR>", opts)
 keymap.set("n", "<S-tab>", ":tabprevious<CR>", opts)
 
--- Split windows
 -- window management
 keymap.set("n", "ss", ":split<CR>", opts)
 keymap.set("n", "sv", ":vsplit<CR>", opts)
@@ -92,6 +86,8 @@ keymap.set("n", "<A-h>", "<C-w><", opts)
 keymap.set("n", "<A-l>", "<C-w>>", opts)
 keymap.set("n", "<A-j>", "<C-w>+", opts)
 keymap.set("n", "<A-k>", "<C-w>-", opts)
+
+-- Folding
 
 ---- Diagnostics ----
 keymap.set("n", "<C-->", function()
