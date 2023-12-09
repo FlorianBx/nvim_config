@@ -87,7 +87,8 @@ keymap.set("n", "<A-l>", "<C-w>>", opts)
 keymap.set("n", "<A-j>", "<C-w>+", opts)
 keymap.set("n", "<A-k>", "<C-w>-", opts)
 
--- Folding
+-- Search
+keymap.set("n", "<leader>nh", ":nohlsearch<CR>", opts, { desc = "Clear highlights" })
 
 ---- Diagnostics ----
 keymap.set("n", "<C-->", function()
