@@ -1,6 +1,6 @@
 # FBNeoVim Configuration for VueJS/TailwindCSS/TypeScript Web Development
 
-![NVim Preview]([https://raw.githubusercontent.com/BFlorian91/nvim_config/main/nvim_prev.png?raw=true](https://github.com/BFlorian91/nvim_config/blob/dev/nvim_prev_new.png?raw=true)
+![NVim Preview]([[https://raw.githubusercontent.com/BFlorian91/nvim_config/main/nvim_prev.png?raw=true](https://github.com/BFlorian91/nvim_config/blob/dev/nvim_prev_new.png?raw=true](https://raw.githubusercontent.com/BFlorian91/nvim_config/dev/nvim_prev_new.png)))
 
 This project contains a customized NeoVim setup, tailored for web development with VueJS, TailwindCSS, TypeScript, Prettier, and ESLint.
 
