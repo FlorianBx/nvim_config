@@ -2,7 +2,6 @@
 
 ![Nvim Preview](https://raw.githubusercontent.com/BFlorian91/nvim_config/dev/nvim_prev_new.png)
 
-
 This project contains a customized NeoVim setup, tailored for web development with VueJS, TailwindCSS, TypeScript, Prettier, and ESLint.
 
 ## Key Features
@@ -19,50 +18,47 @@ This project contains a customized NeoVim setup, tailored for web development wi
 ## Installation
 
 1. Clone this repository into your NeoVim configuration directory.
-2. Install the required plugins using your preferred NeoVim plugin manager.
+2. Install the required plugins using [lazy.nvim](https://github.com/folke/lazy.nvim) plugins manager.
 3. Restart NeoVim to apply the changes.
 
 ## Keyboard Shortcuts
 
 Enhance your development efficiency with these intuitive shortcuts:
 
+### NeoVim Keymaps
+
 - **Navigation Swaps**:
-
-  - `j` and `k` have swapped roles. Now, `j` moves up, and `k` moves down. This can be a game-changer for your muscle memory!
-
+  - `j` and `k` have swapped roles for more intuitive movement for me.
+- **Move Selected Lines**:
+  - `J` and `K` in normal and visual modes to move lines up and down.
 - **Quick Actions**:
-
-  - `<leader>qq` - Quickly close the current window.
-  - `<leader>ww` - Save your work in a snap.
-
-- **Editing**:
-
-  - `+` / `-` - Easily increment/decrement values.
-  - `ga` - Select all text with ease.
-
-- **Tabs and Windows**:
-
-  - `te` / `tc` - Open/close tabs.
-  - `Tab` / `Shift+Tab` - Navigate through tabs.
-  - `ss` / `sv` / `st` - Split windows to organize your workspace.
-  - `sh` / `sj` / `sk` / `sl` - Move between windows.
-  - `Ctrl+[h,j,k,l]` - Resize windows for optimal viewing.
-
-- **Diagnostics**:
-
-  - `Ctrl+j` - Jump to the next diagnostic message.
-
+  - `jj` in insert mode to escape to normal mode.
+  - `<leader>eq` to quit and `<leader>ew` to save.
+- **Tabs and Window Management**:
+  - `te` to open a new tab, `tc` to close the current tab.
+  - `ss` for horizontal split, `sv` for vertical split.
 - **Search and Rename**:
+  - `sf` to search files with Telescope.
+  - `<leader>rn` to rename symbols.
+- **Treesitter Keymaps**:
+  - Custom text objects like `e=`, `n=`, `a:`, `aa`, etc. for enhanced code manipulation.
+- **Maximizer**:
+  - `<leader>sm` to toggle maximizer.
 
-  - `sf` - Find files using Telescope.
-  - `Leader+rn` - Rename symbols with precision.
+### tmux Keybindings
 
-- **Window Management**:
-
-  - `<leader>[direction]q` - Close windows in different directions (`lq`, `rq`, `tq`, `bq`).
-
-- **Layout Terminal**:
-  - `<leader>tt` - Set up a layout with multiple terminals.
+- **Window and Pane Management**:
+  - `C-a` as the prefix.
+  - `|` and `-` to split windows horizontally and vertically.
+  - `r` to reload tmux configuration.
+  - `j`, `k`, `l`, `h` to resize panes.
+  - `m` to toggle pane zoom.
+- **Mouse Support**:
+  - Mouse mode enabled for easy window and pane management.
+- **Copy Mode**:
+  - `v` to start selection and `y` to copy in vi mode.
+- **TMUX Plugins**:
+  - Plugins like `vim-tmux-navigator`, and `tmux-continuum` for enhanced functionality.
 
 ## Customization
 
