@@ -41,51 +41,24 @@ keymap.set(
 keymap.set("i", "jj", "<Esc>", opts)
 keymap.set("n", "<leader>eq", ":q<CR>", opts)
 keymap.set("n", "<leader>ew", ":w<CR>", opts)
+
 -- Search Telescope
 keymap.set("n", "sf", ":Telescope find_files<CR>", opts)
--- Increment / Decrement
-keymap.set("n", "+", "<C-a>")
-keymap.set("n", "-", "<C-x>")
+
 -- rename word
 keymap.set("n", "<leader>rn", ":IncRename ")
+
 -- Select all
 keymap.set("n", "ga", "gg<S-v>G")
 
 -- Tab
 keymap.set("n", "te", ":tabedit<CR>", opts)
 keymap.set("n", "tc", ":tabclose<CR>", opts)
--- keymap.set("n", "<tab>", ":tabnext<CR>", opts)
-keymap.set("n", "<S-tab>", ":tabprevious<CR>", opts)
 
 -- window management
 keymap.set("n", "ss", ":split<CR>", opts)
 keymap.set("n", "sv", ":vsplit<CR>", opts)
-keymap.set("n", "st", ":vsplit | terminal<CR>", opts)
 keymap.set("n", "sx", "<cmd>close<CR>", { desc = "Close current split" })
-
--- Move Windows
-keymap.set("n", "<leader>tj", ":wincmd K<CR>", opts)
-keymap.set("n", "<leader>tk", ":wincmd J<CR>", opts)
-keymap.set("n", "<leader>th", ":wincmd H<CR>", opts)
-keymap.set("n", "<leader>tl", ":wincmd L<CR>", opts)
-
--- local close_windows = require("utils.close_windows")
--- keymap.set("n", "<leader>lq", close_windows.close_left_window, opts)
--- keymap.set("n", "<leader>rq", close_windows.close_right_window, opts)
--- keymap.set("n", "<leader>tq", close_windows.close_top_window, opts)
--- keymap.set("n", "<leader>bq", close_windows.close_bottom_window, opts)
-
---Move windows
-keymap.set("n", "sh", "<C-w>h", opts)
-keymap.set("n", "sj", "<C-w>k", opts)
-keymap.set("n", "sk", "<C-w>j", opts)
-keymap.set("n", "sl", "<C-w>l", opts)
-
--- Resize windows
-keymap.set("n", "<A-h>", "<C-w><", opts)
-keymap.set("n", "<A-l>", "<C-w>>", opts)
-keymap.set("n", "<A-j>", "<C-w>+", opts)
-keymap.set("n", "<A-k>", "<C-w>-", opts)
 
 -- Search
 keymap.set("n", "<leader>nh", ":nohlsearch<CR>", opts, { desc = "Clear highlights" })
