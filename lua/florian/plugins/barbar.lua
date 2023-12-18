@@ -25,4 +25,7 @@ map("n", "<leader><S-Tab>", "<Cmd>BufferNext<CR>", opts)
 map("n", "<leader><A>", "<Cmd>BufferMoveNext<CR>", opts)
 map("n", "<leader><S-A>", "<Cmd>BufferMovePrevious<CR>", opts)
 
+-- Close buffer
+map("n", "<leader>c", "<Cmd>BufferClose<CR>", opts)
+
 return barbar
