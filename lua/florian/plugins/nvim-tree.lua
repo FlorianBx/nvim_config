@@ -42,6 +42,15 @@ local nvim_tree_config = {
           },
         },
       },
+      diagnostics = {
+        enable = true,
+        icons = {
+          hint = "",
+          info = "",
+          warning = "",
+          error = "",
+        },
+      },
       filters = {
         custom = { ".DS_Store" },
       },
