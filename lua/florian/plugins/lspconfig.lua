@@ -42,13 +42,14 @@ local lspconfig_setup = {
     vim.cmd("highlight DiagnosticUnderlineInfo gui=underline guisp=#75C7F0")
     vim.cmd("highlight DiagnosticUnderlineHint gui=underline guisp=#71D083")
 
-    local servers = { "html", "tsserver", "cssls", "tailwindcss", "volar", "emmet_ls", "lua_ls" }
+    local servers = { "html", "tsserver", "cssls", "tailwindcss", "volar", "emmet_ls", "lua_ls", "angularls" }
     for _, lsp in ipairs(servers) do
       local config = { capabilities = capabilities, on_attach = on_attach }
       if lsp == "volar" then
         config.filetypes = { "vue" }
       elseif lsp == "emmet_ls" then
-        config.filetypes = { "html", "vue", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" }
+        config.filetypes =
+          { "html", "vue", "typescriptreact", "javascriptreact", "angular", "css", "sass", "scss", "less" }
       elseif lsp == "lua_ls" then
         config.settings = {
           Lua = {

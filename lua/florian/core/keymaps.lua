@@ -1,69 +1,45 @@
 vim.g.mapleader = " "
+
 local keymap = vim.keymap
-local opts = { noremap = true, silent = true }
+local keymapOptionsWithDesc = function(desc)
+  return { noremap = true, silent = true, desc = desc }
+end
 
-keymap.set("n", "j", "k", { noremap = true })
-keymap.set("n", "k", "j", { noremap = true })
-keymap.set("v", "j", "k", { noremap = true })
-keymap.set("v", "k", "j", { noremap = true })
+-- Move lines and selections
+keymap.set("n", "J", ":m .+1<CR>==", keymapOptionsWithDesc("Move current line down in normal mode"))
+keymap.set("n", "K", ":m .-2<CR>==", keymapOptionsWithDesc("Move current line up in normal mode"))
+keymap.set("i", "<C-j>", "<Esc>:m .+1<CR>==gi", keymapOptionsWithDesc("Move current line down in insert mode"))
+keymap.set("i", "<C-k>", "<Esc>:m .-2<CR>==gi", keymapOptionsWithDesc("Move current line up in insert mode"))
+keymap.set("v", "J", ":m '>+1<CR>gv=gv", keymapOptionsWithDesc("Move selected lines down in visual mode"))
+keymap.set("v", "K", ":m '<-2<CR>gv=gv", keymapOptionsWithDesc("Move selected lines up in visual mode"))
 
--- Move selected
-keymap.set("n", "J", ":m .+1<CR>==", vim.tbl_extend("force", opts, { desc = "Move current line down in normal mode" }))
-keymap.set("n", "K", ":m .-2<CR>==", vim.tbl_extend("force", opts, { desc = "Move current line up in normal mode" }))
-
-keymap.set(
-  "i",
-  "<C-j>",
-  "<Esc>:m .+1<CR>==gi",
-  vim.tbl_extend("force", opts, { desc = "Move current line down in insert mode" })
-)
-keymap.set(
-  "i",
-  "<C-k>",
-  "<Esc>:m .-2<CR>==gi",
-  vim.tbl_extend("force", opts, { desc = "Move current line up in insert mode" })
-)
-
-keymap.set(
-  "v",
-  "J",
-  ":m '>+1<CR>gv=gv",
-  vim.tbl_extend("force", opts, { desc = "Move selected lines down in visual mode" })
-)
-keymap.set(
-  "v",
-  "K",
-  ":m '<-2<CR>gv=gv",
-  vim.tbl_extend("force", opts, { desc = "Move selected lines up in visual mode" })
-)
-
----- Quick Actions ----
-keymap.set("i", "jj", "<Esc>", opts)
-keymap.set("n", "<leader>eq", ":q<CR>", opts)
-keymap.set("n", "<leader>ew", ":w<CR>", opts)
+-- Quick Actions
+keymap.set("i", "jj", "<Esc>", keymapOptionsWithDesc("Exit insert mode quickly"))
+keymap.set("n", "<leader>eq", ":q<CR>", keymapOptionsWithDesc("Quit current window"))
+keymap.set("n", "<leader>ew", ":w<CR>", keymapOptionsWithDesc("Save current file"))
 
 -- Search Telescope
-keymap.set("n", "sf", ":Telescope find_files<CR>", opts)
+keymap.set("n", "sf", ":Telescope find_files<CR>", keymapOptionsWithDesc("Open Telescope file search"))
 
--- rename word
-keymap.set("n", "<leader>rn", ":IncRename ")
+-- Rename Word
+keymap.set("n", "<leader>rn", ":IncRename ", keymapOptionsWithDesc("Rename word under cursor"))
 
 -- Select all
-keymap.set("n", "ga", "gg<S-v>G")
+keymap.set("n", "ga", "gg<S-v>G", keymapOptionsWithDesc("Select all text in the file"))
 
--- Tab
-keymap.set("n", "te", ":tabedit<CR>", opts)
-keymap.set("n", "tc", ":tabclose<CR>", opts)
+-- Tab Management
+keymap.set("n", "te", ":tabedit<CR>", keymapOptionsWithDesc("Open new tab"))
+keymap.set("n", "tc", ":tabclose<CR>", keymapOptionsWithDesc("Close current tab"))
 
--- window management
-keymap.set("n", "ss", ":split<CR>", opts)
-keymap.set("n", "sv", ":vsplit<CR>", opts)
-keymap.set("n", "sx", "<cmd>close<CR>", { desc = "Close current split" })
+-- Window Management
+keymap.set("n", "ss", ":split<CR>", keymapOptionsWithDesc("Split window horizontally"))
+keymap.set("n", "sv", ":vsplit<CR>", keymapOptionsWithDesc("Split window vertically"))
+keymap.set("n", "sx", "<cmd>close<CR>", keymapOptionsWithDesc("Close current split"))
 
 -- Search
-keymap.set("n", "<leader>nh", ":nohlsearch<CR>", opts, { desc = "Clear highlights" })
+keymap.set("n", "<leader>nh", ":nohlsearch<CR>", keymapOptionsWithDesc("Clear search highlights"))
 
----- Diagnostics ----
+-- Diagnostics
 keymap.set("n", "<C-->", function()
   vim.diagnostic.goto_next()
-end, opts)
+end, keymapOptionsWithDesc("Go to next diagnostic message"))
