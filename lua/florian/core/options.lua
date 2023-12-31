@@ -1,43 +1,35 @@
 local opt = vim.opt
 
--- line numbers
-opt.relativenumber = true
-opt.number = true
+-- Basic UI settings
+opt.relativenumber = true -- Show relative line numbers
+opt.number = true -- Show current line number
+opt.cursorline = true -- Highlight the current line
+opt.signcolumn = "yes" -- Show sign column (for Git signs, Lint markers, etc.)
 
--- tabs & indentation
-opt.tabstop = 2
-opt.shiftwidth = 2
-opt.expandtab = false
-opt.autoindent = true
+-- Color and theme settings
+opt.termguicolors = true -- Enable true color support
+opt.background = "dark" -- Set background theme to dark
 
--- line wrapping
-opt.wrap = false
+-- Text editing settings
+opt.tabstop = 2 -- Number of spaces in a tab
+opt.shiftwidth = 2 -- Number of spaces to use for auto-indent
+opt.expandtab = false -- Use tabs instead of spaces
+opt.autoindent = true -- Auto-indent new lines
+opt.backspace = "indent,eol,start" -- Make backspace key more powerful
 
--- search settings
-opt.ignorecase = true
-opt.smartcase = true
+-- Search settings
+opt.ignorecase = true -- Ignore case in search patterns
+opt.smartcase = true -- Override ignorecase if search pattern contains uppercase letters
 
--- cursor line
-opt.cursorline = true
+-- Window management settings
+opt.splitright = true -- Vertical splits open to the right
+opt.splitbelow = true -- Horizontal splits open below
 
--- (have to use iterm2 or any other true color terminal)
-opt.termguicolors = true
-opt.background = "dark"
-opt.signcolumn = "yes"
+-- File handling settings
+opt.wrap = false -- Do not wrap long lines
+opt.swapfile = false -- Do not create swap files
+opt.clipboard:append("unnamedplus") -- Use system clipboard
 
--- backspace
-opt.backspace = "indent,eol,start"
-
--- clipboard
-opt.clipboard:append("unnamedplus")
-
--- split windows
-opt.splitright = true
-opt.splitbelow = true
-
--- turn off swapfile
-opt.swapfile = false
-
--- folding
-opt.foldmethod = "indent"
-opt.foldlevel = 99
+-- Code folding settings
+opt.foldmethod = "indent" -- Fold based on indentation
+opt.foldlevel = 99 -- Start with all folds open
