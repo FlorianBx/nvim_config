@@ -11,7 +11,6 @@ This project contains a customized NeoVim setup, tailored for web development wi
   ![](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
   ![](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
   ![](https://img.shields.io/badge/pnpm-yellow?style=for-the-badge&logo=pnpm&logoColor=white)
-  
 - Integration with Prettier and ESLint for standardized and clean code
 - Custom keyboard shortcuts for efficient navigation and editing
 
@@ -44,6 +43,26 @@ Enhance your development efficiency with these intuitive shortcuts:
   - Custom text objects like `e=`, `n=`, `a:`, `aa`, etc. for enhanced code manipulation.
 - **Maximizer**:
   - `<leader>sm` to toggle maximizer.
+
+### vim-visual-multi Keybindings
+
+Extend your multi-cursor editing capabilities with `vim-visual-multi`, enabling you to select and edit multiple instances of text simultaneously.
+
+- **Start Multi-Cursor Selection**:
+  - `<C-n>` to start selecting instances of the word under the cursor. Press `<C-n>` again to select the next occurrence.
+- **Skip and Remove Selections**:
+  - `<C-x>` to skip the current occurrence and move to the next.
+  - `<C-p>` to remove the last selected occurrence from the selection.
+- **Select All Occurrences**:
+  - `<C-Down>` to select all occurrences of the word under the cursor in the visible window.
+- **Vertical Block Selection**:
+  - `<C-v>` to start vertical block selection, allowing column-based text selection.
+- **Navigate Selections**:
+  - `n` and `N` to navigate through the selections forward and backward, respectively.
+- **Visual Multi Commands**:
+  - While in visual multi mode, you can use normal mode commands to edit text, such as `d` to delete selections or `c` to change them.
+
+For more detailed usage and commands, check the [vim-visual-multi documentation](https://github.com/mg979/vim-visual-multi/wiki).
 
 ### tmux Keybindings
 
