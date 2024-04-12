@@ -37,7 +37,7 @@ local nvim_lsp_config = {
     end
 
     -- List of LSP servers to configure
-    local servers = { "volar", "tsserver", "tailwindcss", "html", "cssls", "lua_ls", "emmet_ls" }
+    local servers = { "volar", "tsserver", "tailwindcss", "html", "cssls", "lua_ls", "emmet_ls", "marksman" }
     for _, lsp in ipairs(servers) do
       lspconfig[lsp].setup({
         on_attach = on_attach,
