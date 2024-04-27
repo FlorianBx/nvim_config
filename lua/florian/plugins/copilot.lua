@@ -4,4 +4,4 @@ local copilot = {
   },
 }
 
-return copilot
+return {}

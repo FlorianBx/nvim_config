@@ -39,6 +39,8 @@ keymap.set("n", "sx", "<cmd>close<CR>", keymapOptionsWithDesc("Close current spl
 -- Search
 keymap.set("n", "<leader>nh", ":nohlsearch<CR>", keymapOptionsWithDesc("Clear search highlights"))
 
+keymap.set("n", "mp", ":MarkdownPreviewToggle<CR>", keymapOptionsWithDesc("Open markdown preview"))
+
 -- Diagnostics
 keymap.set("n", "<C-->", function()
   vim.diagnostic.goto_next()

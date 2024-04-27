@@ -8,18 +8,18 @@ local conform_config = {
 
     conform.setup({
       formatters_by_ft = {
-        javascript = { "eslint_d" },
-        typescript = { "eslint_d" },
-        vue = { "eslint_d" },
-        javascriptreact = { "eslint_d" },
-        typescriptreact = { "eslint_d" },
-        css = { "eslint_d" },
-        html = { "eslint_d" },
-        json = { "eslint_d" },
-        jsonc = { "eslint_d" },
-        yaml = { "eslint_d" },
-        markdown = { "eslint_d" },
-        graphql = { "eslint_d" },
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        vue = { "prettier" },
+        javascriptreact = { "prettier" },
+        typescriptreact = { "prettier" },
+        css = { "prettier" },
+        html = { "prettier" },
+        json = { "prettier" },
+        jsonc = { "prettier" },
+        yaml = { "prettier" },
+        markdown = { "prettier" },
+        graphql = { "prettier" },
         lua = { "stylua" },
       },
       format_on_save = false,
@@ -30,7 +30,7 @@ local conform_config = {
       -- },
     })
 
-    vim.keymap.set({ "n", "v" }, "<leader>ff", function()
+    vim.keymap.set({ "n", "v" }, "<leader>ft", function()
       conform.format({
         lsp_fallback = true,
         async = false,
