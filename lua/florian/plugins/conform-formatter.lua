@@ -14,7 +14,7 @@ local conform_config = {
         javascriptreact = { "prettier" },
         typescriptreact = { "prettier" },
         css = { "prettier" },
-        html = { "prettier" },
+        html = { "htmlbeautifier" },
         json = { "prettier" },
         jsonc = { "prettier" },
         yaml = { "prettier" },
@@ -34,7 +34,7 @@ local conform_config = {
       conform.format({
         lsp_fallback = true,
         async = false,
-        timeout_ms = 1000,
+        timeout_ms = 500,
       })
     end, { desc = "Format file or range (in visual mode)" })
   end,

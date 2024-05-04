@@ -6,15 +6,13 @@ local indentBlankline = {
       char = "│",
       tab_char = "│",
     },
-    scope = { enabled = false },
+    scope = { enabled = true },
     exclude = {
       filetypes = {
         "help",
         "alpha",
         "dashboard",
         "neo-tree",
-        "Trouble",
-        "trouble",
         "lazy",
         "mason",
         "notify",

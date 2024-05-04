@@ -24,7 +24,7 @@ local lualine = {
         lualine_b = {},
         lualine_c = { "filename" },
         lualine_x = { "location" },
-        lualine_y = {},
+        lualine_y = { "test" },
         lualine_z = {},
       },
       tabline = {},

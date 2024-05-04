@@ -35,6 +35,7 @@ keymap.set("n", "tc", ":tabclose<CR>", keymapOptionsWithDesc("Close current tab"
 keymap.set("n", "ss", ":split<CR>", keymapOptionsWithDesc("Split window horizontally"))
 keymap.set("n", "sv", ":vsplit<CR>", keymapOptionsWithDesc("Split window vertically"))
 keymap.set("n", "sx", "<cmd>close<CR>", keymapOptionsWithDesc("Close current split"))
+keymap.set("n", "sw", "<cmd>only<CR>", keymapOptionsWithDesc("Close all other splits"))
 
 -- Search
 keymap.set("n", "<leader>nh", ":nohlsearch<CR>", keymapOptionsWithDesc("Clear search highlights"))

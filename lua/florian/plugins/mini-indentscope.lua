@@ -28,4 +28,4 @@ local miniIndentscope = {
   end,
 }
 
-return miniIndentscope
+return {} 
