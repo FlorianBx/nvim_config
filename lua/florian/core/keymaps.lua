@@ -37,6 +37,12 @@ keymap.set("n", "sv", ":vsplit<CR>", keymapOptionsWithDesc("Split window vertica
 keymap.set("n", "sx", "<cmd>close<CR>", keymapOptionsWithDesc("Close current split"))
 keymap.set("n", "sw", "<cmd>only<CR>", keymapOptionsWithDesc("Close all other splits"))
 
+-- Resize window
+keymap.set('n', '<S-l>', '<C-w><5', keymapOptionsWithDesc('Resize window left'))
+keymap.set('n', '<S-h>', '<C-w>>5', keymapOptionsWithDesc('Resize window right'))
+keymap.set('n', '<S-k>', '<C-w>+5', keymapOptionsWithDesc('Resize window up'))
+keymap.set('n', '<S-j>', '<C-w>-5', keymapOptionsWithDesc('Resize window down'))
+
 -- Search
 keymap.set("n", "<leader>nh", ":nohlsearch<CR>", keymapOptionsWithDesc("Clear search highlights"))
 
