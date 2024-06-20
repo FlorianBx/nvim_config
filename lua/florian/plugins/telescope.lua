@@ -33,5 +33,6 @@ return {
 		keymap.set("n", "<leader>fr", "<cmd>Telescope Oldfiles<cr>", { desc = "Find in Recent Files" })
 		keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Live Grep" })
 		keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
+		keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find Todos" })
 	end,
 }
