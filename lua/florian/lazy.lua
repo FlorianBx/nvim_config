@@ -12,7 +12,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	{ import = "florian.plugins" }},
+	{ import = "florian.plugins" },
+	{ import = "florian.plugins.lsp" },
+	},
 	{ 
 		checker = {
 			enabled = true,
@@ -21,4 +23,4 @@ require("lazy").setup({
 		change_detection = {
 			notify = false,
 		},
-	})
+})
