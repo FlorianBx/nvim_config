@@ -29,7 +29,7 @@ local conform_config = {
 			-- },
 		})
 
-					vim.keymap.set({ "n", "v" }, "<leader>kk", function()
+		vim.keymap.set({ "n", "v" }, "<leader>kk", function()
 			conform.format({
 				lsp_fallback = true,
 				async = false,
