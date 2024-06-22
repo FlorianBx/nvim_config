@@ -32,7 +32,7 @@ return {
 
 				opts.desc = "Show LSP type definition"
 				keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)
-			end
+			end,
 		})
 
 		-- Add additional capabilities supported by nvim-cmp
@@ -44,20 +44,64 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
+		mason_lspconfig.setup({
+			ensure_installed = { "tsserver", "emmet_ls" },
+		})
+
 		mason_lspconfig.setup_handlers({
 			function(server_name)
 				lspconfig[server_name].setup({
 					capabilities = capabilities,
 				})
 			end,
+			["volar"] = function()
+				local volar = require("lspconfig").volar
+				volar.setup({
+					capabilities = capabilities,
+					filetypes = { "vue" },
+				})
+			end,
+			["tsserver"] = function()
+				local tsserver = require("lspconfig").tsserver
+				tsserver.setup({
+					capabilities = capabilities,
+					init_options = {
+						plugins = {
+							{
+								name = "@vue/typescript-plugin",
+								location = "/Users/florian/Library/pnpm/global/5/node_modules/@vue/typescript-plugin",
+								filetypes = { "typescript", "vue", "typescriptreact" },
+							},
+						},
+					},
+				})
+			end,
 			["emmet_ls"] = function()
 				local emmet_ls = require("lspconfig").emmet_ls
 				emmet_ls.setup({
 					capabilities = capabilities,
-					filetypes = { "html", "css", "scss", "javascript", "typescriptreact", "javascriptreact", "vue", "angular", "svelte" },
-					init_options = { },
+					filetypes = {
+						"html",
+						"css",
+						"scss",
+						"javascript",
+						"typescriptreact",
+						"javascriptreact",
+						"vue",
+						"angular",
+						"svelte",
+					},
+					init_options = {},
 				})
 			end,
+			["unocss"] = function()
+				if vim.fn.glob(vim.loop.cwd() .. "/node_modules/unocss") ~= "" then
+					lspconfig.unocss.setup({
+						capabilities = capabilities,
+						filetypes = { "html", "javascriptreact", "rescript", "typescriptreact", "vue", "svelte" },
+					})
+				end
+			end,
 		})
-	end
+	end,
 }

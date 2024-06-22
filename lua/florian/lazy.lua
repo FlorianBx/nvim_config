@@ -14,13 +14,27 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	{ import = "florian.plugins" },
 	{ import = "florian.plugins.lsp" },
+}, {
+	checker = {
+		enabled = true,
+		notify = false,
 	},
-	{ 
-		checker = {
-			enabled = true,
-			notify = false,
+	change_detection = {
+		notify = false,
+	},
+	performance = {
+		rtp = {
+			-- disable some rtp plugins
+			disabled_plugins = {
+				"gzip",
+				-- "matchit",
+				-- "matchparen",
+				-- "netrwPlugin",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
 		},
-		change_detection = {
-			notify = false,
-		},
+	},
 })
