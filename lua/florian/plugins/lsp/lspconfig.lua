@@ -12,13 +12,15 @@ return {
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 		local keymap = vim.keymap
 
+		vim.o.updatetime = 100
+
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
 				local opts = { buffer = ev.buf, silent = true }
 
 				-- Keybinds
-				opts.desc = " Show LSP references"
+				opts.desc = "Show LSP references"
 				keymap.set("n", "gr", vim.lsp.buf.references, opts)
 
 				opts.desc = "Show LSP declaration"
@@ -33,6 +35,40 @@ return {
 				opts.desc = "Show LSP type definition"
 				keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)
 			end,
+		})
+
+		-- Function for displaying LSP diagnostics in a floating window
+		function _G.show_diagnostics()
+			local opts = {
+				focusable = false,
+				close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+				border = "rounded",
+				source = "always",
+				prefix = " ",
+			}
+			vim.diagnostic.open_float(nil, opts)
+		end
+
+		-- Associate diagnostics to CursorHold
+		vim.cmd([[
+      augroup ShowDiagnostics
+        autocmd!
+        autocmd CursorHold * lua _G.show_diagnostics()
+      augroup END
+    ]])
+
+		-- Desactivate virtual text
+		vim.diagnostic.config({
+			virtual_text = false,
+		})
+
+		-- LSP handlers
+		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+			border = "rounded",
+		})
+
+		vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+			border = "rounded",
 		})
 
 		-- Add additional capabilities supported by nvim-cmp
