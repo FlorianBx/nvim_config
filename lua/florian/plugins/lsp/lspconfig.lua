@@ -81,7 +81,7 @@ return {
 		end
 
 		mason_lspconfig.setup({
-			ensure_installed = { "tsserver", "emmet_ls" },
+			ensure_installed = { "tsserver", "emmet_ls", "volar" },
 		})
 
 		mason_lspconfig.setup_handlers({
@@ -101,15 +101,6 @@ return {
 				local tsserver = require("lspconfig").tsserver
 				tsserver.setup({
 					capabilities = capabilities,
-					init_options = {
-						plugins = {
-							{
-								name = "@vue/typescript-plugin",
-								location = "/Users/florian/Library/pnpm/global/5/node_modules/@vue/typescript-plugin",
-								filetypes = { "typescript", "vue", "typescriptreact" },
-							},
-						},
-					},
 				})
 			end,
 			["emmet_ls"] = function()
@@ -130,14 +121,14 @@ return {
 					init_options = {},
 				})
 			end,
-			["unocss"] = function()
-				if vim.fn.glob(vim.loop.cwd() .. "/node_modules/unocss") ~= "" then
-					lspconfig.unocss.setup({
-						capabilities = capabilities,
-						filetypes = { "html", "javascriptreact", "rescript", "typescriptreact", "vue", "svelte" },
-					})
-				end
-			end,
+			-- ["unocss"] = function()
+			-- 	if vim.fn.glob(vim.loop.cwd() .. "/node_modules/unocss") ~= "" then
+			-- 		lspconfig.unocss.setup({
+			-- 			capabilities = capabilities,
+			-- 			filetypes = { "html", "javascriptreact", "rescript", "typescriptreact", "vue", "svelte" },
+			-- 		})
+			-- 	end
+			-- end,
 		})
 	end,
 }

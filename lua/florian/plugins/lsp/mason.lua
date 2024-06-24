@@ -18,7 +18,7 @@ return {
 		})
 		mason_lspconfig.setup({
 			ensure_installed = {
-				"vtsls",
+				"tsserver",
 				"volar",
 				"angularls",
 				"svelte",
