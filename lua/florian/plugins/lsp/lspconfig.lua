@@ -34,8 +34,27 @@ return {
 
 				opts.desc = "Show LSP type definition"
 				keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)
+
+				opts.desc = "Show LSP Diagnostic"
+				keymap.set("n", "ge", ':lua ToggleQuickfix()<CR>', opts)
 			end,
 		})
+
+		function ToggleQuickfix()
+			local qf_exists = false
+			for _, win in ipairs(vim.fn.getwininfo()) do
+				if win["quickfix"] == 1 then
+					qf_exists = true
+					break
+				end
+			end
+			if qf_exists then
+				vim.cmd("cclose")
+			else
+				vim.diagnostic.setqflist()
+				vim.cmd("copen")
+			end
+		end
 
 		-- Function for displaying LSP diagnostics in a floating window
 		function _G.show_diagnostics()
