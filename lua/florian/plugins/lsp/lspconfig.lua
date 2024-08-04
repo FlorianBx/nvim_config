@@ -36,7 +36,7 @@ return {
 				keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)
 
 				opts.desc = "Show LSP Diagnostic"
-				keymap.set("n", "ge", ':lua ToggleQuickfix()<CR>', opts)
+				keymap.set("n", "ge", ":lua ToggleQuickfix()<CR>", opts)
 			end,
 		})
 
@@ -138,6 +138,24 @@ return {
 						"svelte",
 					},
 					init_options = {},
+				})
+			end,
+			["eslint"] = function()
+				local eslint = require("lspconfig").eslint
+				eslint.setup({
+					capabilities = capabilities,
+					on_attach = function(client)
+						client.resolved_capabilities.document_formatting = true
+						vim.cmd([[autocmd BufWritePre <buffer> EslintFixAll]])
+					end,
+					settings = {
+						eslint = {
+							enable = true,
+							packageManager = "npm",
+							format = { enable = true },
+							configFile = ".eslintrc.json",
+						},
+					},
 				})
 			end,
 			-- ["unocss"] = function()

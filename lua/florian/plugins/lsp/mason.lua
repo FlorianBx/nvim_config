@@ -26,6 +26,7 @@ return {
 				"prismals",
 				"tailwindcss",
 				"rust_analyzer",
+				"eslint",
 				"html",
 				"cssls",
 				"jsonls",
