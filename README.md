@@ -26,15 +26,10 @@ Enhance your development efficiency with these intuitive shortcuts:
 
 ### NeoVim Keymaps
 
-- **Navigation Swaps**:
-  - `j` and `k` have swapped roles for more intuitive movement for me.
-- **Move Selected Lines**:
-  - `J` and `K` in normal and visual modes to move lines up and down.
 - **Quick Actions**:
   - `jj` in insert mode to escape to normal mode.
   - `<leader>eq` to quit and `<leader>ew` to save.
 - **Tabs and Window Management**:
-  - `te` to open a new tab, `tc` to close the current tab.
   - `ss` for horizontal split, `sv` for vertical split.
 - **Search and Rename**:
   - `sf` to search files with Telescope.
@@ -43,6 +38,8 @@ Enhance your development efficiency with these intuitive shortcuts:
   - Custom text objects like `e=`, `n=`, `a:`, `aa`, etc. for enhanced code manipulation.
 - **Maximizer**:
   - `<leader>sm` to toggle maximizer.
+- **Document the code**
+  - `<leader>ng` 
 
 ### vim-visual-multi Keybindings
 
