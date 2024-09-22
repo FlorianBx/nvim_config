@@ -116,9 +116,9 @@ return {
 					filetypes = { "vue" },
 				})
 			end,
-			["tsserver"] = function()
-				local tsserver = require("lspconfig").tsserver
-				tsserver.setup({
+			["ts_ls"] = function()
+				local ts_ls = require("lspconfig").ts_ls
+				ts_ls.setup({
 					capabilities = capabilities,
 				})
 			end,
