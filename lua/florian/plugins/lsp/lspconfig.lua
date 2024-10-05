@@ -100,7 +100,7 @@ return {
 		end
 
 		mason_lspconfig.setup({
-			ensure_installed = { "tsserver", "emmet_ls", "volar" },
+			ensure_installed = { "ts_ls", "emmet_ls", "volar" },
 		})
 
 		mason_lspconfig.setup_handlers({
