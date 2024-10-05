@@ -100,7 +100,7 @@ return {
 		end
 
 		mason_lspconfig.setup({
-			ensure_installed = { "ts_ls", "emmet_ls", "volar" },
+			ensure_installed = { "ts_ls", "emmet_ls", "volar", "eslint" },
 		})
 
 		mason_lspconfig.setup_handlers({
@@ -141,31 +141,45 @@ return {
 				})
 			end,
 			["eslint"] = function()
-				local eslint = require("lspconfig").eslint
-				eslint.setup({
+				lspconfig.eslint.setup({
 					capabilities = capabilities,
-					on_attach = function(client)
-						client.resolved_capabilities.document_formatting = true
-						vim.cmd([[autocmd BufWritePre <buffer> EslintFixAll]])
+					on_attach = function(client, bufnr)
+						print("ESLint attached to buffer", bufnr)
+						vim.api.nvim_create_autocmd("BufWritePre", {
+							buffer = bufnr,
+							callback = function()
+								vim.lsp.buf.format({ async = false })
+								vim.cmd("EslintFixAll")
+							end,
+						})
 					end,
 					settings = {
-						eslint = {
-							enable = true,
-							packageManager = "npm",
-							format = { enable = true },
-							configFile = ".eslintrc.json",
-						},
+						workingDirectory = { mode = "auto" },
+						format = true,
+						quiet = false,
+						onIgnoredFiles = "warn",
+						run = "onType",
 					},
+					root_dir = lspconfig.util.root_pattern(
+						".eslintrc",
+						".eslintrc.js",
+						".eslintrc.cjs",
+						".eslintrc.yaml",
+						".eslintrc.yml",
+						".eslintrc.json",
+						"package.json"
+					),
+					cmd = { "eslint", "--stdin" },
 				})
 			end,
-			-- ["unocss"] = function()
-			-- 	if vim.fn.glob(vim.loop.cwd() .. "/node_modules/unocss") ~= "" then
-			-- 		lspconfig.unocss.setup({
-			-- 			capabilities = capabilities,
-			-- 			filetypes = { "html", "javascriptreact", "rescript", "typescriptreact", "vue", "svelte" },
-			-- 		})
-			-- 	end
-			-- end,
+		})
+		-- Configure diagnostic display
+		vim.diagnostic.config({
+			virtual_text = true,
+			signs = true,
+			underline = true,
+			update_in_insert = false,
+			severity_sort = true,
 		})
 	end,
 }

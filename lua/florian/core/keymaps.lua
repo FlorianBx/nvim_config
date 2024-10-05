@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 local keymapOptionsWithDesc = function(desc)
-  return { noremap = true, silent = true, desc = desc }
+	return { noremap = true, silent = true, desc = desc }
 end
 
 -- Quick Actions
@@ -20,14 +20,18 @@ keymap.set("n", "sx", "<cmd>close<CR>", keymapOptionsWithDesc("Close current spl
 keymap.set("n", "sw", "<cmd>only<CR>", keymapOptionsWithDesc("Close all other splits"))
 
 -- Resize window
-keymap.set('n', '<S-l>', '<C-w><5', keymapOptionsWithDesc('Resize window left'))
-keymap.set('n', '<S-h>', '<C-w>>5', keymapOptionsWithDesc('Resize window right'))
-keymap.set('n', '<S-k>', '<C-w>+5', keymapOptionsWithDesc('Resize window up'))
-keymap.set('n', '<S-j>', '<C-w>-5', keymapOptionsWithDesc('Resize window down'))
+keymap.set("n", "<S-l>", "<C-w><5", keymapOptionsWithDesc("Resize window left"))
+keymap.set("n", "<S-h>", "<C-w>>5", keymapOptionsWithDesc("Resize window right"))
+keymap.set("n", "<S-k>", "<C-w>+5", keymapOptionsWithDesc("Resize window up"))
+keymap.set("n", "<S-j>", "<C-w>-5", keymapOptionsWithDesc("Resize window down"))
 
 -- Search
 keymap.set("n", "<leader>nh", ":nohlsearch<CR>", keymapOptionsWithDesc("Clear search highlights"))
 
+-- Fix Eslint
+local eslint_utils = require('utils.eslint')
+
+vim.keymap.set('n', '<leader>ll', eslint_utils.eslint_fix_and_refresh, { noremap = true, silent = true, desc = "ESLint fix and refresh" })
 
 -- Buffers
 local map = vim.api.nvim_set_keymap
