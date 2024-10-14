@@ -39,7 +39,9 @@ Enhance your development efficiency with these intuitive shortcuts:
 - **Maximizer**:
   - `<leader>sm` to toggle maximizer.
 - **Document the code**
-  - `<leader>ng` 
+  - `<leader>ng`
+- **Select all occurrences of a word**
+  -`<leader>*`
 
 ### vim-visual-multi Keybindings
 
