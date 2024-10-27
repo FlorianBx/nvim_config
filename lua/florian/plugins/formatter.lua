@@ -7,6 +7,17 @@ local conform_config = {
 		local conform = require("conform")
 
 		conform.setup({
+			formatters = {
+				prettier = {
+					prepend_args = {
+						"--single-quote",
+						"--jsx-single-quote=false",
+						"--tab-width", "2",
+						"--use-tabs", "false",
+						"--trailing-comma", "es5",
+					},
+				},
+			},
 			formatters_by_ft = {
 				javascript = { "prettier" },
 				typescript = { "prettier" },
@@ -29,7 +40,7 @@ local conform_config = {
 			-- },
 		})
 
-		vim.keymap.set({ "n", "v" }, "<leader>kk", function()
+		vim.keymap.set({ "n", "v" }, "<leader>ll", function()
 			conform.format({
 				lsp_fallback = true,
 				async = false,

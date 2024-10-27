@@ -31,7 +31,7 @@ keymap.set("n", "<leader>nh", ":nohlsearch<CR>", keymapOptionsWithDesc("Clear se
 -- Fix Eslint
 local eslint_utils = require('utils.eslint')
 
-vim.keymap.set('n', '<leader>ll', eslint_utils.eslint_fix_and_refresh, { noremap = true, silent = true, desc = "ESLint fix and refresh" })
+vim.keymap.set('n', '<leader>kk', eslint_utils.eslint_fix_and_refresh, { noremap = true, silent = true, desc = "ESLint fix and refresh" })
 
 -- Buffers
 local map = vim.api.nvim_set_keymap
