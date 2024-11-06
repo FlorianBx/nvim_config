@@ -1,0 +1,68 @@
+{
+  // Préférences de base
+  "coc.preferences.formatOnSave": true,
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "coc.preferences.messageLevel": "error",
+
+  // Suggestions
+  "suggest.noselect": false,
+  "suggest.timeout": 5000,
+  "suggest.triggerAfterInsertEnter": true,
+  "suggest.enablePreselect": true,
+  "suggest.detailField": "preview",
+  "suggest.snippetIndicator": "🔥",
+
+  // Diagnostics
+  "diagnostic.errorSign": "✗",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.infoSign": "i",
+  "diagnostic.hintSign": "➤",
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.virtualTextPrefix": " ❯❯❯ ",
+
+  // TypeScript/JavaScript
+  "typescript.suggest.paths": true,
+  "typescript.suggestionActions.enabled": true,
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.suggest.autoImports": true,
+  "javascript.suggest.paths": true,
+  "javascript.suggestionActions.enabled": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+
+  // HTML/CSS
+  "html.format.enable": true,
+  "html.autoClosingTags": true,
+  "css.validate": true,
+  "css.lint.unknownAtRules": "ignore",
+
+  // ESLint & Prettier
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "angular"
+  ],
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
+  "prettier.printWidth": 100,
+  "prettier.trailingComma": "es5",
+  "prettier.tabWidth": 2,
+  "prettier.endOfLine": "lf",
+
+  // Angular
+  "angular.trace.server": "off",
+  "angular.suggest.includeCompletionsWithSnippetText": true,
+
+  // Espaces de travail
+  "workspace.ignoredFolders": [
+    "$HOME",
+    "**/.git/**",
+    "**/node_modules/**",
+    "**/dist/**"
+  ]
+}

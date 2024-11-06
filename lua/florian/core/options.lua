@@ -33,3 +33,7 @@ opt.clipboard:append("unnamedplus") -- Use system clipboard
 -- Code folding settings
 opt.foldmethod = "indent" -- Fold based on indentation
 opt.foldlevel = 99 -- Start with all folds open
+
+-- Boost the reactivity of the editor (lsp)
+vim.opt.updatetime = 100
+vim.opt.timeoutlen = 300
