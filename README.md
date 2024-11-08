@@ -1,4 +1,4 @@
-# FBNVim Configuration for VueJS/TailwindCSS/TypeScript Web Development
+# FBNVim Configuration for VueJS/Angular/TailwindCSS/TypeScript Web Development
 
 ![Nvim Preview](https://raw.githubusercontent.com/BFlorian91/nvim_config/dev/nvim_prev_new.png)
 
