@@ -36,9 +36,7 @@
   "css.validate": true,
   "css.lint.unknownAtRules": "ignore",
 
-  // ESLint & Prettier
-  "eslint.autoFixOnSave": true,
-  "eslint.validate": [
+  /* "eslint.validate": [
     "javascript",
     "javascriptreact",
     "typescript",
@@ -47,6 +45,17 @@
     "vue",
     "angular"
   ],
+	*/
+
+  // ESLint & Prettier
+  "eslint.autoFixOnSave": false,
+  "eslint.validate": [],
+  "eslint.enable": true,
+  "eslint.onIgnoredFiles": "off",
+  "eslint.quiet": true,
+  "eslint.options": { "overrideConfigFile": null },
+  "eslint.probe": [],
+  "diagnostic.level": "hint",
   "prettier.singleQuote": true,
   "prettier.semi": false,
   "prettier.printWidth": 100,
@@ -59,10 +68,5 @@
   "angular.suggest.includeCompletionsWithSnippetText": true,
 
   // Espaces de travail
-  "workspace.ignoredFolders": [
-    "$HOME",
-    "**/.git/**",
-    "**/node_modules/**",
-    "**/dist/**"
-  ]
+  "workspace.ignoredFolders": ["$HOME", "**/.git/**", "**/node_modules/**", "**/dist/**"]
 }
