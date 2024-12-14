@@ -1,6 +1,6 @@
 {
   // Préférences de base
-  "coc.preferences.formatOnSave": true,
+  "coc.preferences.formatOnSave": false,
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.messageLevel": "error",
 

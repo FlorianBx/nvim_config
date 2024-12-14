@@ -14,12 +14,12 @@ function M.setup()
   })
 
   -- Format on save
-  vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*",
-    callback = function()
-      vim.fn.CocAction("format")
-    end,
-  })
+  -- vim.api.nvim_create_autocmd("BufWritePre", {
+  --   pattern = "*",
+  --   callback = function()
+  --     vim.fn.CocAction("format")
+  --   end,
+  -- })
 
   -- Colors pour les diagnostics
   vim.cmd([[

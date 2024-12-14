@@ -9,6 +9,10 @@ end
 keymap.set("i", "jj", "<Esc>", keymapOptionsWithDesc("Exit insert mode quickly"))
 keymap.set("n", "<leader>eq", ":q<CR>", keymapOptionsWithDesc("Quit current window"))
 keymap.set("n", "<leader>ew", ":w<CR>", keymapOptionsWithDesc("Save current file"))
+-- Paste from yank register (register 0) with Shift+P
+keymap.set("n", "P", '"0p', keymapOptionsWithDesc("Paste from yank register"))
+-- En mode visuel aussi
+keymap.set("v", "P", '"0p', keymapOptionsWithDesc("Paste from yank register"))
 
 -- Select all
 keymap.set("n", "ga", "gg<S-v>G", keymapOptionsWithDesc("Select all text in the file"))
@@ -33,6 +37,8 @@ local eslint_utils = require('utils.eslint')
 
 vim.keymap.set('n', '<leader>kk', eslint_utils.eslint_fix_and_refresh, { noremap = true, silent = true, desc = "ESLint fix and refresh" })
 
+-- Format
+keymap.set("n", "<leader>ll", "<cmd>CocCommand prettier.formatFile<CR>", keymapOptionsWithDesc("Format file"))
 -- Buffers
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
