@@ -63,10 +63,15 @@
   "prettier.tabWidth": 2,
   "prettier.endOfLine": "lf",
 
-  // Angular
-  "angular.trace.server": "off",
-  "angular.suggest.includeCompletionsWithSnippetText": true,
+  // TypeScript/Angular
+  // "typescript.inlayHints.parameterNames.enabled": "literals",
+  "typescript.inlayHints.parameterTypes.enabled": false,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": false,
+  "typescript.preferences.quoteStyle": "single",
+
+ // Angular
+  "angular.trace.server": "messages",
 
   // Espaces de travail
-  "workspace.ignoredFolders": ["$HOME", "**/.git/**", "**/node_modules/**", "**/dist/**"]
+  "workspace.ignoredFolders": ["$HOME", "**/.git/**", "**/node_modules/**", "**/dist/**"],
 }
