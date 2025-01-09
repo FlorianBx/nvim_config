@@ -46,6 +46,8 @@ Enhance your development efficiency with these intuitive shortcuts:
   - `<leader>ng`
 - **Select all occurrences of a word**
   -`<leader>*`
+- **Go to definition**
+  -`<leader>gt`
 
 ### vim-visual-multi Keybindings
 
