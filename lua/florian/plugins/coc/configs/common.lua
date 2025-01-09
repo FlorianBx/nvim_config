@@ -46,6 +46,12 @@ function M.setup()
   keyset("n", "<leader>cl", ":CocList<CR>", { silent = true, desc = "Open CocList" })
   keyset("n", "<leader>cr", ":CocRestart<CR>", { silent = true, desc = "Restart COC" })
   keyset("n", "<leader>cd", ":CocDiagnostics<CR>", { silent = true, desc = "Show diagnostics" })
+
+	-- Code navigation
+	keyset("n", "gt", ":call CocAction('jumpDefinition')<CR>", { silent = true, desc = "Go to definition" })
+	keyset("n", "gy", ":call CocAction('jumpTypeDefinition')<CR>", { silent = true, desc = "Go to type definition" })
+	keyset("n", "gi", ":call CocAction('jumpImplementation')<CR>", { silent = true, desc = "Go to implementation" })
+	keyset("n", "gr", ":call CocAction('jumpReferences')<CR>", { silent = true, desc = "Go to references" })
 end
 
 return M
