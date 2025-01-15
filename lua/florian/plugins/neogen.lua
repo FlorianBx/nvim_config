@@ -12,6 +12,16 @@ return {
             annotation_convention = "tsdoc"
           }
         },
+        javascript = {
+          template = {
+            annotation_convention = "jsdoc"
+          }
+        },
+        vue = {
+          template = {
+            annotation_convention = "jsdoc"
+          }
+        }
       }
     })
   end,

@@ -52,6 +52,16 @@ function M.setup()
 	keyset("n", "gy", ":call CocAction('jumpTypeDefinition')<CR>", { silent = true, desc = "Go to type definition" })
 	keyset("n", "gi", ":call CocAction('jumpImplementation')<CR>", { silent = true, desc = "Go to implementation" })
 	keyset("n", "gr", ":call CocAction('jumpReferences')<CR>", { silent = true, desc = "Go to references" })
+
+	-- Error diagnostics navigation
+	keyset("n", "[g", "<Plug>(coc-diagnostic-prev)", { silent = true, desc = "Previous diagnostic" })
+	keyset("n", "]g", "<Plug>(coc-diagnostic-next)", { silent = true, desc = "Next diagnostic" })
+
+	-- Optionnel : raccourci pour voir la liste des diagnostics
+	keyset("n", "<leader>d", ":CocList diagnostics<CR>", { silent = true, desc = "Show diagnostics list" })
+
+	-- Optionnel : voir les détails de l'erreur
+	keyset("n", "K", ":call CocAction('doHover')<CR>", { silent = true, desc = "Show error details" })
 end
 
 return M
