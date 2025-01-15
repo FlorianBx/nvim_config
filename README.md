@@ -69,6 +69,27 @@ Extend your multi-cursor editing capabilities with `vim-visual-multi`, enabling 
 
 For more detailed usage and commands, check the [vim-visual-multi documentation](https://github.com/mg979/vim-visual-multi/wiki).
 
+### COC (Conquer of Completion) Keymaps
+
+- **Lists and Diagnostics**:
+  - `<leader>dl` to show diagnostics list
+  - `<leader>ol` to show document outline
+  - `<leader>sl` to show workspace symbols
+  - `<leader>cl` to open COC list
+  - `<leader>cr` to restart COC
+  - `<leader>cd` to show diagnostics
+  - `K` to show error details under cursor
+
+- **Code Navigation**:
+  - `gt` to jump to definition
+  - `gy` to jump to type definition
+  - `gi` to jump to implementation
+  - `gr` to jump to references
+
+- **Error Navigation**:
+  - `[g` to go to previous diagnostic
+  - `]g` to go to next diagnostic
+
 ### tmux Keybindings
 
 - **Window and Pane Management**:
