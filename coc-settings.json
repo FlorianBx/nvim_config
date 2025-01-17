@@ -36,6 +36,9 @@
   "css.validate": true,
   "css.lint.unknownAtRules": "ignore",
 
+	// TABBYML
+
+
   /* "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -48,7 +51,6 @@
 	*/
 
   // ESLint & Prettier
-  "eslint.autoFixOnSave": false,
   "eslint.validate": [],
   "eslint.enable": true,
   "eslint.onIgnoredFiles": "off",
@@ -62,6 +64,7 @@
   "prettier.trailingComma": "es5",
   "prettier.tabWidth": 2,
   "prettier.endOfLine": "lf",
+  "eslint.autoFixOnSave": false,
 
   // TypeScript/Angular
   // "typescript.inlayHints.parameterNames.enabled": "literals",
