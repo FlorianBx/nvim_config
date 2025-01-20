@@ -90,6 +90,11 @@ For more detailed usage and commands, check the [vim-visual-multi documentation]
   - `[g` to go to previous diagnostic
   - `]g` to go to next diagnostic
 
+- **Git**:
+  - `<leader>gp` to preview hunk
+  - `<leader>gm` to toggle current line blame
+  - `<leader>lg` to open LazyGit
+  
 ### tmux Keybindings
 
 - **Window and Pane Management**:
