@@ -8,7 +8,7 @@ function M.setup()
   -- Configuration globale pour ESLint
   local config = {
     ["eslint.enable"] = true,
-    ["eslint.autoFixOnSave"] = true,
+    ["eslint.autoFixOnSave"] = false,
     ["eslint.quiet"] = true,
     ["eslint.packageManager"] = "pnpm",
     ["eslint.run"] = "onType",

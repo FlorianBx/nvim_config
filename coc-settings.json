@@ -64,7 +64,13 @@
   "prettier.trailingComma": "es5",
   "prettier.tabWidth": 2,
   "prettier.endOfLine": "lf",
+
   "eslint.autoFixOnSave": false,
+	"eslint.format.enable": false,
+
+	"tailwindCSS.validate": false,
+	  "tailwindCSS.sortStrategy": "none",
+  "tailwindCSS.formatter.enable": false
 
   // TypeScript/Angular
   // "typescript.inlayHints.parameterNames.enabled": "literals",
