@@ -52,5 +52,8 @@ map("n", "<leader><S-Tab>", "<Cmd>BufferLineCycleNext<CR>", opts)
 map("n", "<leader><A>", "<Cmd>BufferMoveNext<CR>", opts)
 map("n", "<leader><S-A>", "<Cmd>BufferMovePrevious<CR>", opts)
 
--- Close buffer
-map("n", "<leader>c", "<Cmd>BufferClose<CR>", opts)
+-- Buffer Management
+keymap.set("n", "<leader>c", "<cmd>lua require('bufferline').close()<CR>", keymapOptionsWithDesc("Close current buffer"))
+keymap.set("n", "<leader>co", "<cmd>lua require('bufferline').close_others()<CR>", keymapOptionsWithDesc("Close other buffers"))
+keymap.set("n", "<leader>cr", "<cmd>lua require('bufferline').close_in_direction('right')<CR>", keymapOptionsWithDesc("Close buffers to the right"))
+keymap.set("n", "<leader>cl", "<cmd>lua require('bufferline').close_in_direction('left')<CR>", keymapOptionsWithDesc("Close buffers to the left"))
