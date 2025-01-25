@@ -13,7 +13,7 @@ opt.background = "dark" -- Set background theme to dark
 -- Text editing settings
 opt.tabstop = 2 -- Number of spaces in a tab
 opt.shiftwidth = 2 -- Number of spaces to use for auto-indent
-opt.expandtab = false -- Use tabs instead of spaces
+opt.expandtab = true -- Use tabs instead of spaces
 opt.autoindent = true -- Auto-indent new lines
 opt.backspace = "indent,eol,start" -- Make backspace key more powerful
 

@@ -1,10 +1,8 @@
 {
-  // Préférences de base
   "coc.preferences.formatOnSave": false,
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.messageLevel": "error",
 
-  // Suggestions
   "suggest.noselect": false,
   "suggest.timeout": 5000,
   "suggest.triggerAfterInsertEnter": true,
@@ -31,32 +29,15 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
 
   // HTML/CSS
-  "html.format.enable": true,
+  "html.format.enable": false,
   "html.autoClosingTags": true,
   "css.validate": true,
   "css.lint.unknownAtRules": "ignore",
 
-	// TABBYML
-
-
-  /* "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "html",
-    "vue",
-    "angular"
-  ],
-	*/
-
   // ESLint & Prettier
-  "eslint.validate": [],
   "eslint.enable": true,
-  "eslint.onIgnoredFiles": "off",
   "eslint.quiet": true,
   "eslint.options": { "overrideConfigFile": null },
-  "eslint.probe": [],
   "diagnostic.level": "hint",
   "prettier.singleQuote": true,
   "prettier.semi": false,
@@ -65,22 +46,10 @@
   "prettier.tabWidth": 2,
   "prettier.endOfLine": "lf",
 
-  "eslint.autoFixOnSave": false,
-	"eslint.format.enable": false,
+  // TailwindCSS
+  "tailwindCSS.validate": false,
+  "tailwindCSS.sortStrategy": "none",
+  "tailwindCSS.formatter.enable": false,
 
-	"tailwindCSS.validate": false,
-	  "tailwindCSS.sortStrategy": "none",
-  "tailwindCSS.formatter.enable": false
-
-  // TypeScript/Angular
-  // "typescript.inlayHints.parameterNames.enabled": "literals",
-  "typescript.inlayHints.parameterTypes.enabled": false,
-  "typescript.inlayHints.propertyDeclarationTypes.enabled": false,
-  "typescript.preferences.quoteStyle": "single",
-
- // Angular
-  "angular.trace.server": "messages",
-
-  // Espaces de travail
-  "workspace.ignoredFolders": ["$HOME", "**/.git/**", "**/node_modules/**", "**/dist/**"],
+  "workspace.ignoredFolders": ["$HOME", "**/.git/**", "**/node_modules/**", "**/dist/**"]
 }

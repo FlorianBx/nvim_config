@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	{ import = "florian.plugins" },
-	{ import = "florian.plugins.coc" },
+  { import = "florian.plugins.lsp" },
 }, {
 	checker = {
 		enabled = true,
