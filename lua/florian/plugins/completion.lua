@@ -3,6 +3,9 @@ return {
   dependencies = { 'onsails/lspkind.nvim' },
   version = '*',
   opts = {
+    enabled = function()
+      return vim.api.nvim_get_mode().mode ~= 'c'
+    end,
     keymap = {
       ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
       ['<C-e>'] = { 'hide', 'fallback' },
