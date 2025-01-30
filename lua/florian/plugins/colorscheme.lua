@@ -22,6 +22,9 @@ local poimandres = {
       hi VertSplit guibg=NONE
       hi SignColumn guibg=NONE
       hi EndOfBuffer guibg=NONE
+      hi! link BufferLineBackground Normal
+      hi! link BufferLineTabSeparator Comment
+      hi! link BufferLineSeparator VisibleCursor
     ]])
   end,
 }

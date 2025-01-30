@@ -7,15 +7,13 @@ return {
       "williamboman/mason-lspconfig.nvim",
       "pmizio/typescript-tools.nvim",
       "nvim-lua/plenary.nvim",
-      "nvimdev/lspsaga.nvim", -- Pour l'UI améliorée
-      "L3MON4D3/LuaSnip" -- Snippets
+      "nvimdev/lspsaga.nvim",
+      "L3MON4D3/LuaSnip"
     },
     config = function()
-      -- Configuration commune
       local common = require("florian.plugins.lsp.configs.common")
       local capabilities = common.setup()
 
-      -- Chargement des configs spécifiques
       require("florian.plugins.lsp.configs.vue").setup(capabilities)
       require("florian.plugins.lsp.configs.tailwind").setup(capabilities)
       require("florian.plugins.lsp.configs.typescript").setup(capabilities)
