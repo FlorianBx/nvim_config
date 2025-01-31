@@ -1,79 +1,68 @@
 return {
   "akinsho/bufferline.nvim",
+  version = "*",
   dependencies = "nvim-tree/nvim-web-devicons",
-  version = "*", 
   config = function()
     local colors = {
-      bg = "#1A1E29",
-      fg = "#6E738D", -- <-- Ajouté
-      active = "#42B883",
-      yellow = "#FAB795",
-      red = "#E95678"
+      bg = "#1a1e29",
+      fg = "#6e738d",
+      active = "#42b883",  -- Couleur Vue.js
+      yellow = "#e5c07b",
+      red = "#cf5d5d",
+      cyan = "#56b6c2"
     }
 
     require("bufferline").setup({
       options = {
         mode = "buffers",
+        separator_style = { "", "" },      -- Séparateurs invisibles
         indicator = {
-          icon = "▌",
-          style = "underline"
+          style = "underline",
+          icon = "▎"
         },
-        separator_style = "slant",
-        modified_icon = "  ",
-        buffer_close_icon = "",
-        close_icon = "",
+        show_buffer_icons = false,        -- Désactive les icônes de type fichier
+        show_close_icon = false,           -- Cache l'icône de fermeture
+        show_duplicate_prefix = false,     -- Ne montre pas les noms de fichiers dupliqués
         max_name_length = 24,
         tab_size = 24,
         diagnostics = "nvim_lsp",
-        -- UNE SEULE DÉFINITION DES DIAGNOSTICS --
         diagnostics_indicator = function(count, level)
-          local icon = level:match("error") and " "..count
-                     or level:match("warning") and " "..count
+          local icon = level:match("error") and " "..count or level:match("warning") and " "..count or ""
           return icon
         end,
-        offsets = {
-          {
-            filetype = "NvimTree",
-            text = "  Explorer",
-            highlight = "Directory",
-            separator = true
-          }
-        },
-        hover = {
-          enabled = true,
-          delay = 200,
-          reveal = {"close"}
-        },
         groups = {
           items = {
             require("bufferline.groups").builtin.pinned:with({ 
-              icon = "󰐃",
               auto_close = false 
             })
           }
         },
-        show_buffer_icons = false,
-        show_buffer_close_icons = false,
-        show_close_icon = false,
-        always_show_bufferline = false,
+        hover = {
+          enabled = true,
+          delay = 150,
+          reveal = { "close" }
+        }
       },
       highlights = {
         fill = { bg = colors.bg },
-        background = { bg = colors.bg, fg = colors.fg },
+        background = { fg = colors.fg, bg = colors.bg },
         buffer_selected = {
-          bg = colors.active, 
-          fg = "#FFFFFF",
+          fg = "#ffffff",
+          bg = colors.active,
           bold = true,
           italic = false
         },
         separator = { bg = colors.bg, fg = colors.bg },
-        indicator_selected = { bg = colors.bg, fg = colors.active },
+        indicator_selected = { fg = colors.active, bg = colors.bg },
         modified_selected = { fg = colors.yellow, bg = colors.active },
+        tab = { fg = colors.fg, bg = colors.bg },
+        tab_selected = { fg = colors.active, bg = colors.bg, bold = true }
       }
     })
 
-    local opts = { noremap = true, silent = true }
-    vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', opts)
-    vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', opts)
-  end,
+    -- Navigation améliorée
+    vim.keymap.set("n", "<S-Right>", "<cmd>BufferLineCycleNext<CR>")
+    vim.keymap.set("n", "<S-Left>", "<cmd>BufferLineCyclePrev<CR>")
+    vim.keymap.set("n", "<leader>bp", "<cmd>BufferLineTogglePin<CR>", { desc = "Toggle pin" })
+  end
 }
