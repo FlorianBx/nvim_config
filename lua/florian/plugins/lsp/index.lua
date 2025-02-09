@@ -7,7 +7,6 @@ return {
       "williamboman/mason-lspconfig.nvim",
       "pmizio/typescript-tools.nvim",
       "nvim-lua/plenary.nvim",
-      "nvimdev/lspsaga.nvim",
       "L3MON4D3/LuaSnip"
     },
     config = function()

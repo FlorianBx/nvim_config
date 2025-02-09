@@ -6,7 +6,7 @@ function M.setup(capabilities)
 
   lspconfig.volar.setup({
     capabilities = capabilities,
-    filetypes = { "vue", "typescript" },
+    filetypes = { "vue" },
     on_attach = function(client, bufnr)
       -- Keymaps spécifiques à Vue
       vim.keymap.set("n", "gD", vim.lsp.buf.definition, { buffer = bufnr })
