@@ -1,7 +1,7 @@
 local opt = vim.opt
 
 -- Basic UI settings
-opt.relativenumber = true -- Show relative line numbers
+opt.relativenumber = false -- Show relative line numbers
 opt.number = true -- Show current line number
 opt.cursorline = true -- Highlight the current line
 opt.signcolumn = "yes" -- Show sign column (for Git signs, Lint markers, etc.)
