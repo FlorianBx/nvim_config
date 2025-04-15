@@ -1,23 +1,17 @@
 local M = {}
 
-function M.setup()
-  local lspconfig = require("lspconfig")
-  local capabilities = require("florian.plugins.lsp.configs.common").setup()
-
-  lspconfig.tailwindcss.setup({
+function M.setup(capabilities)
+  require("lspconfig").tailwindcss.setup({
     capabilities = capabilities,
-    filetypes = { 
-      "html", 
-      "javascript", 
-      "javascriptreact", 
-      "typescript", 
-      "typescriptreact", 
-      "vue",
-      "angular"
+    filetypes = {
+      "vue", "html", "typescript", "javascript",
+      "javascriptreact", "typescriptreact", "svelte"
     },
     init_options = {
-      userLanguages = {
-        vue = "html"
+      userLanguages = { -- Support multilingue
+        vue = "html",
+        javascript = "javascript",
+        typescript = "typescript"
       }
     },
     settings = {
