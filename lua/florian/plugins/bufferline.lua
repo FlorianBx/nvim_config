@@ -7,7 +7,7 @@ return {
       bg = "#1a1e29",
       fg = "#6e738d",
       active = "#42b883",  -- Couleur Vue.js
-      yellow = "#e5c07b",
+      yellow = "#f0768b",
       red = "#cf5d5d",
       cyan = "#56b6c2"
     }
