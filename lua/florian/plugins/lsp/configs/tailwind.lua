@@ -23,22 +23,12 @@ function M.setup()
     settings = {
       tailwindCSS = {
         experimental = {
-          classRegex = {
-            "class\\s*=\\s*['\"]([^'\"]*)['\"]",
-            "className\\s*=\\s*['\"]([^'\"]*)['\"]",
-            ":class\\s*=\\s*['\"]([^'\"]*)['\"]",
-            "['\"](.*?)['\"]"
+          classRegex = { -- Patterns améliorés
+            { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+            "tw`([^`]*)",
+            "class:\\s*\"([^\"]*)"
           }
-        },
-        includeLanguages = {
-          vue = "html",
-          typescript = "javascript",
-          ["typescript.tsx"] = "javascript.jsx"
-        },
-        validate = true,
-        hovers = true,
-        suggestions = true,
-        colorDecorators = true
+        }
       }
     }
   })

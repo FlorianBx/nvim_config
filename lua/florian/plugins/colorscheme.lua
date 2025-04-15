@@ -2,17 +2,10 @@ local poimandres = {
   "olivercederborg/poimandres.nvim",
   lazy = false,
   priority = 1000,
-
-  -- poimandres setup
   config = function()
-    require("poimandres").setup({
-      -- Leave this setup function empty for default configuration
-    })
-  end,
-
-  -- Optionally set the colorscheme during initialization
-  init = function()
+    require("poimandres").setup({})
     vim.cmd("colorscheme poimandres")
+
     vim.cmd([[
       hi Normal guibg=NONE ctermbg=NONE
       hi LineNr guibg=NONE

@@ -10,16 +10,15 @@ return {
 	config = function()
 		local treesitter = require("nvim-treesitter.configs")
 
-		-- Configure Treesitter
 		treesitter.setup({
 			highlight = {
-				enable = true, -- Enable syntax highlighting
+				enable = true,
 			},
 			indent = {
-				enable = true, -- Enable indentation
+				enable = true,
 			},
 			autotag = {
-				enable = true, -- Enable autotagging with nvim-ts-autotag plugin
+				enable = true,
 			},
 			ensure_installed = {
 				"vue",
@@ -55,6 +54,12 @@ return {
 			context_commentstring = {
 				enable = true,
 				enable_autocmd = false,
+			},
+		})
+
+		vim.filetype.add({
+			extension = {
+				vue = "vue",
 			},
 		})
 	end,

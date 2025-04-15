@@ -1,123 +1,68 @@
 return {
   "akinsho/bufferline.nvim",
-  dependencies = "nvim-tree/nvim-web-devicons",
   version = "*",
+  dependencies = "nvim-tree/nvim-web-devicons",
   config = function()
+    local colors = {
+      bg = "#1a1e29",
+      fg = "#6e738d",
+      active = "#42b883",  -- Couleur Vue.js
+      yellow = "#f0768b",
+      red = "#cf5d5d",
+      cyan = "#56b6c2"
+    }
+
     require("bufferline").setup({
       options = {
         mode = "buffers",
+        separator_style = { "", "" },      -- Séparateurs invisibles
         indicator = {
-          icon = '▎',
-          style = 'icon'
+          style = "underline",
+          icon = "▎"
         },
-        separator_style = "slant",
-        modified_icon = '●',
-        buffer_close_icon = '',
-        close_icon = '',
-        left_trunc_marker = '',
-        right_trunc_marker = '',
-        max_name_length = 18,
-        max_prefix_length = 15,
-        truncate_names = true,
-        tab_size = 18,
+        show_buffer_icons = false,        -- Désactive les icônes de type fichier
+        show_close_icon = false,           -- Cache l'icône de fermeture
+        show_duplicate_prefix = false,     -- Ne montre pas les noms de fichiers dupliqués
+        max_name_length = 24,
+        tab_size = 24,
         diagnostics = "nvim_lsp",
-        diagnostics_update_in_insert = false,
-        offsets = {
-          {
-            filetype = "NvimTree",
-            text = "File Explorer",
-            text_align = "left",
-            separator = true
+        diagnostics_indicator = function(count, level)
+          local icon = level:match("error") and " "..count or level:match("warning") and " "..count or ""
+          return icon
+        end,
+        groups = {
+          items = {
+            require("bufferline.groups").builtin.pinned:with({ 
+              auto_close = false 
+            })
           }
         },
-        color_icons = true,
-        show_buffer_icons = true,
-        show_buffer_close_icons = true,
-        show_close_icon = true,
-        show_tab_indicators = true,
-        show_duplicate_prefix = true,
-        persist_buffer_sort = true,
-        enforce_regular_tabs = true,
-        always_show_bufferline = true,
+        hover = {
+          enabled = true,
+          delay = 150,
+          reveal = { "close" }
+        }
       },
       highlights = {
+        fill = { bg = colors.bg },
+        background = { fg = colors.fg, bg = colors.bg },
         buffer_selected = {
-          fg = '#ffffff',
-          bg = '#42b883',
+          fg = "#ffffff",
+          bg = colors.active,
           bold = true,
-          italic = true,
-          underline = true,
+          italic = false
         },
-        separator = {
-          fg = '#1B1E28',
-          bg = '#1B1E28',
-        },
-        separator_selected = {
-          fg = '#42b883',
-          bg = '#42b883',
-        },
-        background = {
-          fg = '#666666',
-          bg = '#1B1E28'
-        },
-        buffer_visible = {
-          fg = '#aaaaaa',
-          bg = '#1B1E28',
-          italic = false,
-        },
-        fill = {
-          fg = '#1B1E28',
-          bg = '#1B1E28',
-        },
-        close_button = {
-          fg = '#666666',
-          bg = '#1B1E28',
-        },
-        close_button_visible = {
-          fg = '#aaaaaa',
-          bg = '#1B1E28',
-        },
-        close_button_selected = {
-          fg = '#ffffff',
-          bg = '#42b883',
-        },
-        indicator_selected = {
-          fg = '#91DDCF',
-          bg = '#42b883',
-        },
-        modified = {
-          fg = '#666666',
-          bg = '#1B1E28',
-        },
-        modified_visible = {
-          fg = '#aaaaaa',
-          bg = '#1B1E28',
-        },
-        modified_selected = {
-          fg = '#91DDCF',
-          bg = '#42b883',
-        },
-        duplicate = {
-          fg = '#666666',
-          bg = '#1B1E28',
-          italic = true
-        },
-        duplicate_visible = {
-          fg = '#aaaaaa',
-          bg = '#1B1E28',
-          italic = true
-        },
-        duplicate_selected = {
-          fg = '#ffffff',
-          bg = '#42b883',
-          italic = true
-        },
+        separator = { bg = colors.bg, fg = colors.bg },
+        indicator_selected = { fg = colors.active, bg = colors.bg },
+        modified_selected = { fg = colors.yellow, bg = colors.active },
+        tab = { fg = colors.fg, bg = colors.bg },
+        tab_selected = { fg = colors.active, bg = colors.bg, bold = true }
       }
     })
 
-    -- Keymaps
-    local opts = { noremap = true, silent = true }
-    vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', opts)
-    vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', opts)
-  end,
+    -- Navigation améliorée
+    vim.keymap.set("n", "<S-Right>", "<cmd>BufferLineCycleNext<CR>")
+    vim.keymap.set("n", "<S-Left>", "<cmd>BufferLineCyclePrev<CR>")
+    vim.keymap.set("n", "<leader>bp", "<cmd>BufferLineTogglePin<CR>", { desc = "Toggle pin" })
+  end
 }
