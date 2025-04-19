@@ -1,8 +1,7 @@
 local M = {}
 
-function M.setup()
+function M.setup(capabilities)
   local lspconfig = require("lspconfig")
-  local capabilities = require("florian.plugins.lsp.configs.common").setup()
 
   lspconfig.angularls.setup({
     capabilities = capabilities,
@@ -11,9 +10,7 @@ function M.setup()
     settings = {
       angular = {
         enable = true,
-        trace = {
-          server = "messages"
-        },
+        trace = { server = "messages" },
         diagnostics = {
           enable = true,
           templateErrors = true,
@@ -36,12 +33,16 @@ function M.setup()
       }
     },
     on_attach = function(client, bufnr)
-      -- Keymaps spécifiques à Angular
-      local opts = { buffer = bufnr }
-      vim.keymap.set("n", "<leader>at", ":AngularGoToTemplateForComponent<CR>", opts)
-      vim.keymap.set("n", "<leader>ac", ":AngularGoToComponentWithTemplateFile<CR>", opts)
-      vim.keymap.set("n", "<leader>as", ":AngularGoToSpec<CR>", opts)
-      vim.keymap.set("n", "<leader>ag", ":AngularGoToDefinition<CR>", opts)
+      local ng = require("ng");
+      local keymap = vim.keymap
+      local keymapOptionsWithDesc = function(desc)
+        return { buffer = bufnr, noremap = true, silent = true, desc = desc }
+      end
+
+      -- Angular-specific KEYMAPS
+      keymap.set("n", "<leader>at", ng.goto_template_for_component, keymapOptionsWithDesc("component -> template"))
+      keymap.set("n", "<leader>ac", ng.goto_component_with_template_file, keymapOptionsWithDesc("template -> component"))
+      keymap.set("n", "<leader>as", ng.get_template_tcb, keymapOptionsWithDesc("Show TCB (Template Type Check Block) for current template"))
     end
   })
 end

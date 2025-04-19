@@ -13,6 +13,8 @@ keymap.set("n", "<leader>ew", ":w<CR>", keymapOptionsWithDesc("Save current file
 keymap.set("n", "P", '"0p', keymapOptionsWithDesc("Paste from yank register"))
 -- En mode visuel aussi
 keymap.set("v", "P", '"0p', keymapOptionsWithDesc("Paste from yank register"))
+-- Reload the actual page
+keymap.set("n", "<Leader>r", ":e!<CR>", keymapOptionsWithDesc("Reload the current page"))
 
 -- Select all
 keymap.set("n", "ga", "gg<S-v>G", keymapOptionsWithDesc("Select all text in the file"))

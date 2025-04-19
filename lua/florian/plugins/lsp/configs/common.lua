@@ -23,32 +23,6 @@ function M.setup()
     automatic_installation = true
   })
 
-  -- Configuration simplifiée des diagnostics
-  -- vim.diagnostic.config({
-  --   virtual_text = true,
-  --   float = {
-  --     border = "rounded",
-  --     source = "always",
-  --   },
-  --   signs = true,
-  --   underline = true,
-  --   update_in_insert = false,
-  --   severity_sort = true,
-  -- })
-  --
-  -- -- Configuration des icônes de diagnostic
-  -- local signs = {
-  --   Error = " ",
-  --   Warn = " ",
-  --   Hint = " ",
-  --   Info = " "
-  -- }
-  --
-  -- for type, icon in pairs(signs) do
-  --   local hl = "DiagnosticSign" .. type
-  --   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-  -- end
-
   -- Keymaps LSP unifiées
   vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
