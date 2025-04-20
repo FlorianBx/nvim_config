@@ -33,16 +33,13 @@ function M.setup(capabilities)
       }
     },
     on_attach = function(client, bufnr)
-      local ng = require("ng");
+      local ng = require("ng-croissant");
       local keymap = vim.keymap
-      local keymapOptionsWithDesc = function(desc)
-        return { buffer = bufnr, noremap = true, silent = true, desc = desc }
-      end
 
       -- Angular-specific KEYMAPS
-      keymap.set("n", "<leader>at", ng.goto_template_for_component, keymapOptionsWithDesc("component -> template"))
-      keymap.set("n", "<leader>ac", ng.goto_component_with_template_file, keymapOptionsWithDesc("template -> component"))
-      keymap.set("n", "<leader>as", ng.get_template_tcb, keymapOptionsWithDesc("Show TCB (Template Type Check Block) for current template"))
+      keymap.set("n", "<leader>ac", ng.goto_component_ts, { desc = "All -> component.ts" })
+      keymap.set("n", "<leader>at", ng.goto_component_html, { desc = "All -> component.html" })
+      keymap.set("n", "<leader>as", ng.goto_component_spec, { desc = "All -> component.spec.ts" })
     end
   })
 end

@@ -21,7 +21,7 @@ return {
   },
 
   {
-    "joeveiga/ng.nvim",
+    "florianbx/ng-croissant",
     lazy = false,
   },
 }
