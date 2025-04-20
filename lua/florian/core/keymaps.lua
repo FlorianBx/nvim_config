@@ -59,13 +59,13 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 -- Move to previous/next
-map("n", "<leader><Tab>", "<Cmd>BufferLineCyclePrev<CR>", opts)
-map("n", "<leader><S-Tab>", "<Cmd>BufferLineCycleNext<CR>", opts)
+map("n", "<a-h>", "<Cmd>BufferLineCyclePrev<CR>", opts)
+map("n", "<a-l>", "<Cmd>BufferLineCycleNext<CR>", opts)
 
 
 -- Re-order to previous/next
-map("n", "<leader><A>", "<Cmd>BufferMoveNext<CR>", opts)
-map("n", "<leader><S-A>", "<Cmd>BufferMovePrevious<CR>", opts)
+-- map("n", "<leader><A>", "<Cmd>BufferMoveNext<CR>", opts)
+-- map("n", "<leader><S-A>", "<Cmd>BufferMovePrevious<CR>", opts)
 
 -- Buffer Management
 vim.keymap.set("n", "<leader>c", "<cmd>Bdelete<CR>", { desc = "Close current buffer" })

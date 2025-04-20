@@ -59,10 +59,5 @@ return {
         tab_selected = { fg = colors.active, bg = colors.bg, bold = true }
       }
     })
-
-    -- Navigation améliorée
-    vim.keymap.set("n", "<S-Right>", "<cmd>BufferLineCycleNext<CR>")
-    vim.keymap.set("n", "<S-Left>", "<cmd>BufferLineCyclePrev<CR>")
-    vim.keymap.set("n", "<leader>bp", "<cmd>BufferLineTogglePin<CR>", { desc = "Toggle pin" })
   end
 }

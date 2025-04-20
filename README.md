@@ -1,123 +1,185 @@
-# FBNVim Configuration for VueJS/Angular/TailwindCSS/TypeScript Web Development
+# ✨ Flbx-nvim
 
-![Nvim Preview](https://raw.githubusercontent.com/BFlorian91/nvim_config/dev/nvim_prev_new.png)
+> **Minimal, modern & developer-centric Neovim config for web development (JS, TS, Vue, Angular, and more...)**
 
-This project contains a customized NeoVim setup, tailored for web development with VueJS, TailwindCSS, TypeScript, Prettier, and ESLint.
-
-## Key Features
-
-- Full support for: </br>
-  ![](https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
+> [![Neovim](https://img.shields.io/badge/NVIM-0.9+-17A2B8?style=flat&logo=neovim)](https://neovim.io/)
+[![Lazy.nvim](https://img.shields.io/badge/Plugin_Manager-Lazy.nvim-17A2B8?style=flat)](https://github.com/folke/lazy.nvim)
+[![ng-croissant](https://img.shields.io/badge/Angular-cursor?style=flat&logo=%F0%9F%A5%90&label=ng-croissant&color=red)](https://github.com/FlorianBx/ng-croissant/tree/main)
+ ![](https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
   ![](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
   ![](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
   ![](https://img.shields.io/badge/vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)
   ![](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
   ![](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-  ![](https://img.shields.io/badge/eslint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)
-  ![](https://img.shields.io/badge/prettier-%23F7B93E.svg?style=for-the-badge&logo=prettier&logoColor=black)
-- Integration with Prettier and ESLint for standardized and clean code
-- Custom keyboard shortcuts for efficient navigation and editing
 
-## Installation
+&nbsp;
 
-1. Clone this repository into your NeoVim configuration directory.
-2. Install the required plugins using [lazy.nvim](https://github.com/folke/lazy.nvim) plugins manager.
-3. Restart NeoVim to apply the changes.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/BFlorian91/nvim_config/dev/nvim_prev_new.png" alt="Nvim Preview" width="100%" />
+</p>
 
-## Keyboard Shortcuts
 
-Enhance your development efficiency with these intuitive shortcuts:
+## 🚀 Features
 
-### NeoVim Keymaps
+- Native LSP & auto-completion (nvim-lspconfig, nvim-cmp, luasnip)
+- Blazing fast search & file navigation (Telescope, NvimTree)
+- Integrated Git (Gitsigns, LazyGit)
+- Visual TODOs & diagnostics (todo-comments, trouble.nvim)
+- One-key Angular file jumps via [ng-croissant](https://github.com/FlorianBx/ng-croissant) (optional)
+- Logical, discoverable keymaps
 
-- **Quick Actions**:
-  - `jj` in insert mode to escape to normal mode.
-  - `<leader>eq` to quit and `<leader>ew` to save.
-- **Tabs and Window Management**:
-  - `ss` for horizontal split, `sv` for vertical split.
-- **Search and Rename**:
-  - `sf` to search files with Telescope.
-  - `<leader>rn` to rename symbols.
-- **Treesitter Keymaps**:
-  - Custom text objects like `e=`, `n=`, `a:`, `aa`, etc. for enhanced code manipulation.
-- **Maximizer**:
-  - `<leader>sm` to toggle maximizer.
-- **Document the code**
-  - `<leader>ng`
-- **Select all occurrences of a word**
-  -`<leader>*`
-- **Go to definition**
-  -`<leader>gt`
+---
+&nbsp;
+## 📦 Installation
 
-### vim-visual-multi Keybindings
+<details open>
+<summary><b>One-step setup (with <a href="https://github.com/folke/lazy.nvim">lazy.nvim</a>):</b></summary>
 
-Extend your multi-cursor editing capabilities with `vim-visual-multi`, enabling you to select and edit multiple instances of text simultaneously.
+```sh
+git clone https://github.com/FlorianBx/nvim_config ~/.config/nvim
+nvim
+```
+- All plugins are automatically installed via [lazy.nvim](https://github.com/folke/lazy.nvim) on first launch.
+- For best experience: [ripgrep](https://github.com/BurntSushi/ripgrep) installed (`brew install ripgrep` or your package manager). (optional)
+- Requires: Neovim **0.9 or later**.
+</details>
 
-- **Start Multi-Cursor Selection**:
-  - `<C-n>` to start selecting instances of the word under the cursor. Press `<C-n>` again to select the next occurrence.
-- **Skip and Remove Selections**:
-  - `<C-x>` to skip the current occurrence and move to the next.
-  - `<C-p>` to remove the last selected occurrence from the selection.
-- **Select All Occurrences**:
-  - `<C-Down>` to select all occurrences of the word under the cursor in the visible window.
-- **Vertical Block Selection**:
-  - `<C-v>` to start vertical block selection, allowing column-based text selection.
-- **Navigate Selections**:
-  - `n` and `N` to navigate through the selections forward and backward, respectively.
-- **Visual Multi Commands**:
-  - While in visual multi mode, you can use normal mode commands to edit text, such as `d` to delete selections or `c` to change them.
+---
+&nbsp;
+## ⚡ Keymaps Cheat Sheet
 
-For more detailed usage and commands, check the [vim-visual-multi documentation](https://github.com/mg979/vim-visual-multi/wiki).
+> _Press `<Space>` (leader key) for more.  
+> Most shortcuts are logical and grouped:_
 
-### COC (Conquer of Completion) Keymaps
+### General
 
-- **Lists and Diagnostics**:
-  - `<leader>dl` to show diagnostics list
-  - `<leader>ol` to show document outline
-  - `<leader>sl` to show workspace symbols
-  - `<leader>cl` to open COC list
-  - `<leader>cr` to restart COC
-  - `<leader>cd` to show diagnostics
-  - `K` to show error details under cursor
+| Key         | Mode   | Action                              |
+| ----------- | ------ | ----------------------------------- |
+| `jj`        | Insert | Exit insert mode (quickly)          |
+| `<leader>ew`| Normal | Save file                           |
+| `<leader>eq`| Normal | Quit window                         |
+| `<leader>r` | Normal | Reload current buffer               |
+| `ga`        | Normal | Select all                          |
+| `P`         | Normal | Paste from yank register            |
+| `P`         | Visual | Paste from yank register            |
 
-- **Code Navigation**:
-  - `gt` to jump to definition
-  - `gy` to jump to type definition
-  - `gi` to jump to implementation
-  - `gr` to jump to references
+### Window & Buffer
 
-- **Error Navigation**:
-  - `[g` to go to previous diagnostic
-  - `]g` to go to next diagnostic
+| Key           | Mode   | Action                              |
+| ------------- | ------ | ----------------------------------- |
+| `ss`          | Normal | Split window horizontally           |
+| `sv`          | Normal | Split window vertically             |
+| `sx`          | Normal | Close split                         |
+| `sw`          | Normal | Close other splits                  |
+| `<S-h>`/`<S-l>` | Normal | Resize window left/right         |
+| `<S-j>`/`<S-k>` | Normal | Resize window down/up           |
+| `<A-h>`       | Normal | Previous buffer                     |
+| `<A-l>`       | Normal | Next buffer                         |
+| `<leader>c`   | Normal | Close buffer                        |
 
-- **Git**:
-  - `<leader>gp` to preview hunk
-  - `<leader>gm` to toggle current line blame
-  - `<leader>lg` to open LazyGit
-  
-### tmux Keybindings
+### LSP & Diagnostics
 
-- **Window and Pane Management**:
-  - `C-a` as the prefix.
-  - `|` and `-` to split windows horizontally and vertically.
-  - `r` to reload tmux configuration.
-  - `j`, `k`, `l`, `h` to resize panes.
-  - `m` to toggle pane zoom.
-- **Mouse Support**:
-  - Mouse mode enabled for easy window and pane management.
-- **Copy Mode**:
-  - `v` to start selection and `y` to copy in vi mode.
-- **TMUX Plugins**:
-  - Plugins like `vim-tmux-navigator`, and `tmux-continuum` for enhanced functionality.
+| Key           | Mode   | Action                              |
+| ------------- | ------ | ----------------------------------- |
+| `gd`          | Normal | Go to definition                    |
+| `gi`          | Normal | Go to implementation                |
+| `gr`          | Normal | Go to references                    |
+| `K`           | Normal | Hover info (documentation)          |
+| `<leader>ca`  | Normal | Code actions                        |
+| `<leader>rn`  | Normal | Rename symbol                       |
+| `<leader>d`   | Normal | Show diagnostics (float)            |
+| `[d`/`]d`     | Normal | Prev/next diagnostic                |
+| `<leader>ll`  | Normal | Format buffer (LSP)                 |
 
-## Customization
+### Navigation & Search (Telescope)
 
-Feel free to add or modify shortcuts in the `keymaps.lua` file. Default shortcuts are loaded on the `VeryLazy` event.
+| Key           | Mode   | Action                              |
+| ------------- | ------ | ----------------------------------- |
+| `<leader>ff`  | Normal | Find files                          |
+| `<leader>fg`  | Normal | Live grep                           |
+| `<leader>fs`  | Normal | Grep string under cursor            |
+| `<leader>fr`  | Normal | Recent files / Telescope refs       |
+| `<leader>fb`  | Normal | Open buffers list                   |
+| `<leader>ft`  | Normal | Search TODOs                        |
+| `<leader>nh`  | Normal | Clear search highlights             |
 
-## Contributing
+### File Explorer (NvimTree)
 
-Your ideas and contributions are welcome! Create an issue or a pull request with your suggestions.
+| Key           | Mode   | Action                              |
+| ------------- | ------ | ----------------------------------- |
+| `<leader>ee`  | Normal | Toggle file explorer                |
+| `<leader>ef`  | Normal | Find file in explorer               |
+| `<leader>ec`  | Normal | Collapse explorer tree              |
+| `<leader>er`  | Normal | Refresh explorer                    |
 
-## License
+### Git
 
-Licensed under the MIT License. See [LICENCE](LICENSE) for details.
+| Key           | Mode   | Action                              |
+| ------------- | ------ | ----------------------------------- |
+| `<leader>gp`  | Normal | Preview git hunk                    |
+| `<leader>gm`  | Normal | Toggle line blame                   |
+| `<leader>lg`  | Normal | Launch LazyGit                      |
+
+### TODO & Trouble
+
+| Key           | Mode   | Action                              |
+| ------------- | ------ | ----------------------------------- |
+| `<leader>nt`  | Normal | Next TODO comment                   |
+| `<leader>pt`  | Normal | Previous TODO comment               |
+| `<leader>xx`  | Normal | Trouble main                        |
+| `<leader>xw`  | Normal | Workspace diagnostics               |
+| `<leader>xd`  | Normal | Document diagnostics                |
+| `<leader>xq`  | Normal | Quickfix list                       |
+| `<leader>xl`  | Normal | Loclist                             |
+| `<leader>xt`  | Normal | TODOs in Trouble                    |
+
+### Snippets & Completion
+
+| Key           | Mode   | Action                              |
+| ------------- | ------ | ----------------------------------- |
+| `<C-Space>`   | Insert | Trigger completion                  |
+| `<CR>`        | Insert | Confirm selected suggestion         |
+| `<Tab>`/`<S-Tab>` | Insert | Next/previous item            |
+
+### Angular (with [ng-croissant](https://github.com/FlorianBx/ng-croissant) 🥐)
+
+> *Seamless Angular navigation (if plugin installed):*
+
+| Key           | Mode   | Action                              |
+| ------------- | ------ | ----------------------------------- |
+| `<leader>ac`  | Normal | Go to component.ts                  |
+| `<leader>at`  | Normal | Go to component.html                |
+| `<leader>as`  | Normal | Go to component.spec.ts             |
+
+---
+&nbsp;
+## 🧩 Plugins
+
+- **LSP**: `nvim-lspconfig`, `nvim-cmp`, `luasnip`
+- **Navigation**: `telescope.nvim`, `nvim-tree`
+- **Git**: `gitsigns.nvim`, `lazygit.nvim`
+- **UI & Workflow**: `todo-comments.nvim`, `trouble.nvim`
+- **Angular**: [`ng-croissant`](https://github.com/FlorianBx/ng-croissant) _(optional)_
+
+_Modular plugin setup in [`lua/plugins/`](./lua/plugins/)_
+
+---
+&nbsp;
+## 🛠️ Usage & customization
+
+- All settings and keymaps are in `lua/core/keymaps.lua`.
+- Edit plugins/features as you like in `lua/plugins/`.
+- Works with [which-key.nvim](https://github.com/folke/which-key.nvim) for keymap discovery. ⚠️ ***WIP***
+
+---
+&nbsp;
+## 🙌 Credits
+
+To the awesome [Neovim](https://neovim.io/) community & every plugin author!  
+_Angular file jumping powered by [ng-croissant](https://github.com/FlorianBx/ng-croissant)._
+
+---
+&nbsp;
+## ⚖️ License
+
+MIT © FlorianBx
