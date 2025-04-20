@@ -1,11 +1,9 @@
 # ✨ Flbx-nvim
 
 > **Minimal, modern & developer-centric Neovim config for web development (JS, TS, Vue, Angular, and more...)**
+<br />
 
-> [![Neovim](https://img.shields.io/badge/NVIM-0.9+-17A2B8?style=flat&logo=neovim)](https://neovim.io/)
-[![Lazy.nvim](https://img.shields.io/badge/Plugin_Manager-Lazy.nvim-17A2B8?style=flat)](https://github.com/folke/lazy.nvim)
-[![ng-croissant](https://img.shields.io/badge/Angular-cursor?style=flat&logo=%F0%9F%A5%90&label=ng-croissant&color=red)](https://github.com/FlorianBx/ng-croissant/tree/main)
- ![](https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
+ > ![](https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
   ![](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
   ![](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
   ![](https://img.shields.io/badge/vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)
@@ -48,7 +46,7 @@ nvim
 &nbsp;
 ## ⚡ Keymaps Cheat Sheet
 
-> _Press `<Space>` (leader key) for more.  
+> _Press `<Space>` (leader key).  
 > Most shortcuts are logical and grouped:_
 
 ### General
@@ -169,7 +167,6 @@ _Modular plugin setup in [`lua/plugins/`](./lua/plugins/)_
 
 - All settings and keymaps are in `lua/core/keymaps.lua`.
 - Edit plugins/features as you like in `lua/plugins/`.
-- Works with [which-key.nvim](https://github.com/folke/which-key.nvim) for keymap discovery. ⚠️ ***WIP***
 
 ---
 &nbsp;
