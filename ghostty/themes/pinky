@@ -1,0 +1,25 @@
+# Pink Pastel Theme - for Ghostty
+
+palette = 0=#4c2c36    # very dark pink as "black"
+palette = 1=#eb8cae    # soft light pink (main accent)
+palette = 2=#f2acd3    # sweet pastel, slightly warmer pink
+palette = 3=#e7a1c3    # muted dusty pink
+palette = 4=#d668a1    # magenta-rose, for "blue" slot
+palette = 5=#eda6cb    # classic pink, for magenta
+palette = 6=#e489a9    # accent dark rose-pink
+palette = 7=#f6d4e9    # lightest pink for "white" (main text highlight)
+palette = 8=#dc91be    # muted strong pink as "bright black"
+palette = 9=#ec87b6    # bright classic pink (strong, for warnings etc.)
+palette = 10=#f7a6d8   # bright pale pink (folders/selects)
+palette = 11=#ffc6e0   # baby pink, almost white
+palette = 12=#ffb1ce   # high pastel pink (for "bright blue")
+palette = 13=#e79ec5   # another soft magenta-pink
+palette = 14=#e298b2   # desaturated pinkish tone (cyan slot)
+palette = 15=#fff0f6   # real white, tinted pink
+
+background = #432739      # main background, deep wine rose
+foreground = #f5cee6      # main text, soft baby pink
+cursor-color = #ec87b6    # cursor, bright classic pink
+cursor-text = #432739     # ensures readability above cursor
+selection-background = #eb8cae # selection, vivid rose highlight
+selection-foreground = #fff0f6 # selection text, super light pink

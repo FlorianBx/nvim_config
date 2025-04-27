@@ -1,0 +1,65 @@
+# dark blue-grey pastel (background, panel/shadows)
+palette = 0=#444c5c
+
+# very soft red (errors / git diff removed)
+palette = 1=#f3b6bb
+
+# soft muted green (executable files, success, prompt $)
+palette = 2=#80a988
+
+# pale muted aqua-blue (symlinks, device special)
+palette = 3=#9ac0ce
+
+# pastel arctic blue (directories, prompt path, etc.)
+palette = 4=#7da4ab
+
+# steel powder blue (prompt, git branch, search)
+palette = 5=#99b8d8
+
+# soft nord teal (ls symlink, globbing, man title)
+palette = 6=#7bbad5
+
+# muted periwinkle grey (bold, notifications, scrollbar)
+palette = 7=#b4bed3
+
+# ink blue-grey (inactive, hidden, tooltips)
+palette = 8=#39404d
+
+# softer muted soft-pink-red (bright error/alert)
+palette = 9=#f6c4cc
+
+# faded mint pastel (exec highlight, selection)
+palette = 10=#9fc7ad
+
+# icy blue-mint (ls archive, git diff add background)
+palette = 11=#b4deeb
+
+# light cornflower (tab highlight, code tag, ls .tar)
+palette = 12=#8eaada
+
+# blue-cyan pastel (bold active info, ls device)
+palette = 13=#94d1d9
+
+# muted arctic aqua (active, tab bar highlight)
+palette = 14=#7fade2
+
+# pale nord white-blue (lightest highlight, fg bright)
+palette = 15=#e5eef6
+
+# near-black ink blue (window background)
+background = #212631
+
+# icy blue-white (default text foreground)
+foreground = #ddeafb
+
+# powder blue (cursor color)
+cursor-color = #99b8d8
+
+# near-black ink blue (cursor text for contrast)
+cursor-text = #212631
+
+# faded nord teal (selection background)
+selection-background = #b4deeb
+
+# near-black ink blue (selection text color)
+selection-foreground = #212631
