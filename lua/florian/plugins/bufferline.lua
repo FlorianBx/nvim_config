@@ -4,60 +4,45 @@ return {
   dependencies = "nvim-tree/nvim-web-devicons",
   config = function()
     local colors = {
-      bg = "#1a1e29",
-      fg = "#6e738d",
-      active = "#42b883",  -- Couleur Vue.js
-      yellow = "#f0768b",
-      red = "#cf5d5d",
-      cyan = "#56b6c2"
+      bg = "#181a26",
+      fg = "#848bb8",
+      fg_dark = "#62688f",
+      selected = "#91b4d5",
+      modified = "#fab387",
     }
 
     require("bufferline").setup({
       options = {
         mode = "buffers",
-        separator_style = { "", "" },      -- Séparateurs invisibles
+        always_show_bufferline = true,
+        separator_style = "thin",
+        show_close_icon = false,
+        show_buffer_close_icons = false,
+        show_buffer_icons = false,
+        show_tab_indicators = false,
+        max_name_length = 18,
+        tab_size = 18,
         indicator = {
           style = "underline",
-          icon = "▎"
+          icon = "",
         },
-        show_buffer_icons = false,        -- Désactive les icônes de type fichier
-        show_close_icon = false,           -- Cache l'icône de fermeture
-        show_duplicate_prefix = false,     -- Ne montre pas les noms de fichiers dupliqués
-        max_name_length = 24,
-        tab_size = 24,
-        diagnostics = "nvim_lsp",
-        diagnostics_indicator = function(count, level)
-          local icon = level:match("error") and " "..count or level:match("warning") and " "..count or ""
-          return icon
-        end,
-        groups = {
-          items = {
-            require("bufferline.groups").builtin.pinned:with({ 
-              auto_close = false 
-            })
-          }
-        },
-        hover = {
-          enabled = true,
-          delay = 150,
-          reveal = { "close" }
-        }
+        diagnostics = false,
+        offsets = {},
+        hover = { enabled = false },
       },
       highlights = {
         fill = { bg = colors.bg },
-        background = { fg = colors.fg, bg = colors.bg },
-        buffer_selected = {
-          fg = "#ffffff",
-          bg = colors.active,
-          bold = true,
-          italic = false
-        },
-        separator = { bg = colors.bg, fg = colors.bg },
-        indicator_selected = { fg = colors.active, bg = colors.bg },
-        modified_selected = { fg = colors.yellow, bg = colors.active },
-        tab = { fg = colors.fg, bg = colors.bg },
-        tab_selected = { fg = colors.active, bg = colors.bg, bold = true }
-      }
+        background = { fg = colors.fg_dark, bg = colors.bg },
+        buffer_selected = { fg = colors.selected, bg = colors.bg, bold = true },
+        buffer_visible = { fg = colors.fg, bg = colors.bg },
+        tab = { fg = colors.fg_dark, bg = colors.bg },
+        tab_selected = { fg = colors.selected, bg = colors.bg, bold = true },
+        separator = { fg = colors.bg, bg = colors.bg },
+        separator_selected = { fg = colors.bg, bg = colors.bg },
+        modified = { fg = colors.modified, bg = colors.bg },
+        modified_selected = { fg = colors.modified, bg = colors.bg },
+        indicator_selected = { fg = colors.selected, bg = colors.bg },
+      },
     })
   end
 }

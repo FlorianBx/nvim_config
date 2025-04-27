@@ -1,0 +1,68 @@
+[manager]
+show_hidden = true
+# Navigation pane/collumns (conforme à <C-h/j/k/l>)
+open_left   = ["h", "left", "ctrl-h"]
+open_down   = ["j", "down", "ctrl-j"]
+open_up     = ["k", "up", "ctrl-k"]
+open_right  = ["l", "right", "ctrl-l"]
+
+# Split navigation (si tu utilises les splits de Yazi)
+tab_prev    = ["alt-h", "H"]
+tab_next    = ["alt-l", "L"]
+tab_new     = ["sv", "ctrl-t"]
+tab_close   = ["sx", "ctrl-w"]
+tab_only    = ["sw"]
+
+# Sélection et multi
+select      = ["<space>"]
+select_all  = ["ga"]
+
+# Actions
+open        = ["<cr>", "o"]
+parent      = ["backspace", "u"]
+copy        = ["y"]
+cut         = ["x"]
+paste       = ["p"]
+delete      = ["d", "dd"]
+rename      = ["r"]
+search      = ["ff", "/"]
+
+# Autres utiles
+sort_by_name = ["sn"]
+sort_by_time = ["st"]
+
+# Command palette/help
+show_help   = ["?", "F1"]
+
+# Refresh/Reload
+reload      = ["R", "<leader>er"]
+
+# Buffer/file jump
+jump_prev   = ["alt-h"]
+jump_next   = ["alt-l"]
+
+# Collapse/expand (genre explorer)
+collapse    = ["<leader>ec"]
+expand      = ["<leader>ef"]
+
+# Buffer/History simulation
+history_back  = ["alt-,", "["]
+history_forw  = ["alt-.", "]"]
+
+# Aperçu rapide
+preview      = ["tab"]
+
+[select]
+# Multi-selection
+toggle         = ["<space>"]
+toggle_all     = ["ga"]
+
+[search]
+# Recherche avancée (telescope like)
+activate       = ["ff", "/"]
+next           = ["n"]
+previous       = ["N"]
+
+[help]
+# Aide
+show           = ["?"]

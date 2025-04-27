@@ -16,9 +16,13 @@ return {
     vim.cmd([[ highlight NvimTreeFolderArrowClosed guifg=#42b883 ]])
     vim.cmd([[ highlight NvimTreeFolderArrowOpen guifg=#42b883 ]])
 
+    -- Separator
+    vim.cmd([[highlight WinSeparator guibg=#0f172a guifg=#0f172a]])
+
     -- NvimTree setup
     nvimtree.setup({
       view = {
+        side = "right",
         width = 35,
         relativenumber = false,
       },

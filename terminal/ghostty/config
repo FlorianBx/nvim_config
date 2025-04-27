@@ -1,0 +1,18 @@
+font-size = 14.0
+theme = vuejs_pastel 
+
+# Merges titlebar with contents
+macos-titlebar-style = native
+macos-titlebar-style = transparent
+
+# Add some nice looking padding
+window-padding-x = 10
+window-padding-y = 8
+background-opacity = 1.0
+adjust-cell-height = 65%
+
+# Cursor
+cursor-style = block
+
+# Scrollback
+scrollback-limit = 10000
