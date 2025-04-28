@@ -1,18 +1,28 @@
+# FONT SETTINGS
+font-family = BerkeleyMono Nerd Font
 font-size = 14.0
-theme = vuejs_pastel 
 
-# Merges titlebar with contents
+# THEME
+theme = vuejs_pastel
+
+# TITLEBAR
 macos-titlebar-style = native
 macos-titlebar-style = transparent
 
-# Add some nice looking padding
+# WINDOW & PADDING
 window-padding-x = 10
 window-padding-y = 8
 background-opacity = 1.0
+
+# CELL/SIZING
 adjust-cell-height = 65%
 
-# Cursor
+# CURSOR
 cursor-style = block
 
-# Scrollback
+# MOUSE
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
+
+# SCROLLBACK
 scrollback-limit = 10000
