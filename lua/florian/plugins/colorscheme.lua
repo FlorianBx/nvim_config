@@ -5,6 +5,10 @@ local poimandres = {
   config = function()
     require("poimandres").setup({})
     vim.cmd("colorscheme poimandres")
+    vim.api.nvim_set_hl(0, 'CursorLineNr', {
+      fg   = '#5de4c7',
+      bold = true,
+    })
 
     vim.cmd([[
       hi Normal guibg=NONE ctermbg=NONE

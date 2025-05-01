@@ -40,6 +40,8 @@ function M.setup(capabilities)
       keymap.set("n", "<leader>ac", ng.goto_component_ts, { desc = "All -> component.ts" })
       keymap.set("n", "<leader>at", ng.goto_component_html, { desc = "All -> component.html" })
       keymap.set("n", "<leader>as", ng.goto_component_spec, { desc = "All -> component.spec.ts" })
+      keymap.set("n", "<leader>acc", ng.goto_component_css, { desc = "All -> component.css" })
+      keymap.set("n", "<leader>ass", ng.goto_component_scss, { desc = "All -> component.scss" })
     end
   })
 end
