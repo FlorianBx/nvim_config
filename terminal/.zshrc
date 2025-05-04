@@ -131,6 +131,7 @@ alias td='task done'
 alias tn='task next'
 alias tp='task purge'
 alias tc='task completed'
+alias th='printf "task add \"Example task\" +tag due:tomorrow | YYYY/MM/DD\n"'
 
 # Dom
 alias bt="shortcuts run 'Turn the Desktop Light'"
