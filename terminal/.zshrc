@@ -111,13 +111,26 @@ alias gp='git push'
 alias gl='git pull'
 alias gb='git branch'
 alias suo="--set-upstream origin"
+alias gs="git stash"
+alias gsp="git stash pop"
 
 # Zsh / Nvim config
 alias rl="source ~/.zshrc && clear"
 alias nc="nvim ~/.config/nvim/"
 alias config="nvim ~/.zshrc"
+alias todoc="nvim ~/.taskrc"
 alias c="clear"
 alias y='yazi'
+
+# Taskwarrior
+alias ta='task add'
+alias tl='task list'
+alias tla='task all'
+alias tld='task +PENDING due:today list'
+alias td='task done'
+alias tn='task next'
+alias tp='task purge'
+alias tc='task completed'
 
 # Dom
 alias bt="shortcuts run 'Turn the Desktop Light'"
@@ -153,3 +166,8 @@ alias ff='fzf'
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/florian/.lmstudio/bin"
+# End of LM Studio CLI section
+

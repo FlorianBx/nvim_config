@@ -1,0 +1,52 @@
+# [Created by task 3.4.1 5/4/2025 16:24:43]
+data.location=/Users/florian/.task
+news.version=3.4.1
+
+# To use the default location of the XDG directories,
+# move this configuration file from ~/.taskrc to ~/.config/task/taskrc and update location config as follows:
+
+#data.location=~/.local/share/task
+#hooks.location=~/.config/task/hooks
+
+# Example: if you always add a "home" tag or a priority
+default.project=work
+default.priority=M
+default.due=tomorrow
+
+# Custom Reports
+# Type task next to see your upcoming tasks
+report.next.description=Next Task
+report.next.command=lc +PENDING due.before:today+7days
+
+# Colors and Themes
+color.active=green
+color.pending=yellow
+color.waiting=magenta
+# or include a complete theme:
+#include /usr/local/share/doc/task/rc/dark-256.theme
+
+# Date Formats and Confirmations
+date.format=ISO              # yyyy-mm-dd
+bulk=on
+confirmation=no              # no more "Are you sure?"
+
+# 6. Hooks (example before adding: force min description)
+# Place scripts in ~/.task/hooks/ if needed
+
+# Color theme (uncomment one to use)
+#include light-16.theme
+#include light-256.theme
+#include bubblegum-256.theme
+#include dark-16.theme
+#include dark-256.theme
+#include dark-red-256.theme
+#include dark-green-256.theme
+#include dark-blue-256.theme
+#include dark-violets-256.theme
+#include dark-yellow-green.theme
+#include dark-gray-256.theme
+#include dark-gray-blue-256.theme
+#include solarized-dark-256.theme
+#include solarized-light-256.theme
+#include no-color.theme
+
