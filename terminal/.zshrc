@@ -131,7 +131,7 @@ alias td='task done'
 alias tn='task next'
 alias tp='task purge'
 alias tc='task completed'
-alias th='printf "task add \"Example task\" +tag due:tomorrow | YYYY/MM/DD\n"'
+alias th='printf "task add \"Example task\" +tag due:tomorrow | YYYY-MM-DD\n"'
 
 # Dom
 alias bt="shortcuts run 'Turn the Desktop Light'"
@@ -163,12 +163,18 @@ alias nn='nvim .'
 alias vim='nvim'
 
 alias ff='fzf'
+alias youtube-dl='yt-dlp'
 
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(fnm env)"
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/florian/.lmstudio/bin"
 # End of LM Studio CLI section
 
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
