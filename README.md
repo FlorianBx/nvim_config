@@ -23,6 +23,7 @@
 - Blazing fast search & file navigation (Telescope, NvimTree)
 - Integrated Git (Gitsigns, LazyGit)
 - Visual TODOs & diagnostics (todo-comments, trouble.nvim)
+- Smart AST-based navigation with Treesitter (treewalker.nvim)
 - One-key Angular file jumps via [ng-croissant](https://github.com/FlorianBx/ng-croissant) (optional)
 - Logical, discoverable keymaps
 
@@ -118,6 +119,15 @@ nvim
 | `<leader>gm`  | Normal | Toggle line blame                   |
 | `<leader>lg`  | Normal | Launch LazyGit                      |
 
+### AST Navigation (Treewalker)
+
+| Key           | Mode      | Action                              |
+| ------------- | --------- | ----------------------------------- |
+| `<A-k>`       | Normal/Visual | Navigate up in syntax tree      |
+| `<A-j>`       | Normal/Visual | Navigate down in syntax tree    |
+| `<A-h>`       | Normal/Visual | Navigate left in syntax tree    |
+| `<A-l>`       | Normal/Visual | Navigate right in syntax tree   |
+
 ### TODO & Trouble
 
 | Key           | Mode   | Action                              |
@@ -154,7 +164,7 @@ nvim
 ## 🧩 Plugins
 
 - **LSP**: `nvim-lspconfig`, `nvim-cmp`, `luasnip`
-- **Navigation**: `telescope.nvim`, `nvim-tree`
+- **Navigation**: `telescope.nvim`, `nvim-tree`, `treewalker.nvim`
 - **Git**: `gitsigns.nvim`, `lazygit.nvim`
 - **UI & Workflow**: `todo-comments.nvim`, `trouble.nvim`
 - **Angular**: [`ng-croissant`](https://github.com/FlorianBx/ng-croissant) _(optional)_
