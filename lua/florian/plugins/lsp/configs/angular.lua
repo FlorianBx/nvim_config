@@ -3,36 +3,36 @@ local M = {}
 function M.setup(capabilities)
   local lspconfig = require("lspconfig")
 
-  lspconfig.angularls.setup({
+  lspconfig.angular.setup({
     capabilities = capabilities,
-    root_dir = lspconfig.util.root_pattern("angular.json", "project.json"),
-    filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx" },
-    settings = {
-      angular = {
-        enable = true,
-        trace = { server = "messages" },
-        diagnostics = {
-          enable = true,
-          templateErrors = true,
-        },
-        suggest = {
-          fromTripleSlashReference = true,
-          completeFunctionCalls = true,
-        },
-        format = {
-          enable = true,
-          insertSpaceAfterCommaDelimiter = true,
-          insertSpaceAfterSemicolonInForStatements = true,
-          insertSpaceBeforeAndAfterBinaryOperators = true,
-          insertSpaceAfterKeywordsInControlFlowStatements = true,
-          insertSpaceAfterFunctionKeywordForAnonymousFunctions = true,
-          insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = true,
-          placeOpenBraceOnNewLineForFunctions = false,
-          placeOpenBraceOnNewLineForControlBlocks = false,
-        },
-      }
-    },
-    on_attach = function(client, bufnr)
+    -- root_dir = lspconfig.util.root_pattern("angular.json", "project.json"),
+    filetypes = { "typescript", "html" },
+    -- settings = {
+    --   angular = {
+    --     enable = true,
+    --     trace = { server = "messages" },
+    --     diagnostics = {
+    --       enable = true,
+    --       templateErrors = true,
+    --     },
+    --     suggest = {
+    --       fromTripleSlashReference = true,
+    --       completeFunctionCalls = true,
+    --     },
+    --     format = {
+    --       enable = true,
+    --       insertSpaceAfterCommaDelimiter = true,
+    --       insertSpaceAfterSemicolonInForStatements = true,
+    --       insertSpaceBeforeAndAfterBinaryOperators = true,
+    --       insertSpaceAfterKeywordsInControlFlowStatements = true,
+    --       insertSpaceAfterFunctionKeywordForAnonymousFunctions = true,
+    --       insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = true,
+    --       placeOpenBraceOnNewLineForFunctions = false,
+    --       placeOpenBraceOnNewLineForControlBlocks = false,
+    --     },
+    --   }
+    -- },
+    on_attach = function(_, _)
       local ng = require("ng-croissant");
       local keymap = vim.keymap
 
