@@ -8,7 +8,6 @@ function M.setup(capabilities)
     capabilities = capabilities,
     filetypes = { "vue" },
     on_attach = function(client, bufnr)
-      -- Keymaps spécifiques à Vue
       vim.keymap.set("n", "gD", vim.lsp.buf.definition, { buffer = bufnr })
       vim.keymap.set("n", "gT", "<cmd>TSToolsGoToSourceDefinition<cr>", { buffer = bufnr })
     end,

@@ -175,6 +175,16 @@ export PATH="$PATH:/Users/florian/.lmstudio/bin"
 # End of LM Studio CLI section
 
 
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+# pnpm
+export PNPM_HOME="/Users/florian/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

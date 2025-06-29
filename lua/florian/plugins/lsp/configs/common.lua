@@ -15,6 +15,7 @@ function M.setup()
   require("mason-lspconfig").setup({
     ensure_installed = {
       -- "volar",           -- Vue
+      "ts_ls",
       "tailwindcss",     -- Tailwind CSS
       "html",            -- HTML
       "cssls",           -- CSS

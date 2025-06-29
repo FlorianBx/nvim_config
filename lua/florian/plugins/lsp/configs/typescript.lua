@@ -1,8 +1,6 @@
 local M = {}
 
-
-function M.setup()
-
+function M.setup(capabilities)
   vim.diagnostic.config({
     virtual_text = true,
     signs = true,
@@ -11,24 +9,48 @@ function M.setup()
     severity_sort = true,
   })
 
-  -- require("lspconfig").typescript_tools.setup({
+  -- require("typescript-tools").setup({
   --   capabilities = capabilities,
+  --   settings = {
+  --     typescript = {
+  --       inlayHints = {
+  --         includeInlayParameterNameHints = "all",
+  --         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+  --         includeInlayFunctionParameterTypeHints = true,
+  --         includeInlayVariableTypeHints = true,
+  --         includeInlayPropertyDeclarationTypeHints = true,
+  --         includeInlayFunctionLikeReturnTypeHints = true,
+  --         includeInlayEnumMemberValueHints = true,
+  --       },
+  --     },
+  --     javascript = {
+  --       inlayHints = {
+  --         includeInlayParameterNameHints = "all",
+  --         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+  --         includeInlayFunctionParameterTypeHints = true,
+  --         includeInlayVariableTypeHints = true,
+  --         includeInlayPropertyDeclarationTypeHints = true,
+  --         includeInlayFunctionLikeReturnTypeHints = true,
+  --         includeInlayEnumMemberValueHints = true,
+  --       },
+  --     },
+  --   },
   -- })
 
-  -- local keymap = vim.keymap
-  -- local keymapOptionsWithDesc = function(desc)
-  --   return { noremap = true, silent = true, desc = desc }
-  -- end
+  local keymap = vim.keymap
+  local keymapOptionsWithDesc = function(desc)
+    return { noremap = true, silent = true, desc = desc }
+  end
 
---   keymap.set("n", "<leader>to", "<cmd>TSToolsOrganizeImports<CR>", keymapOptionsWithDesc("Organize imports"))
---   keymap.set("n", "<leader>ts", "<cmd>TSToolsSortImports<CR>", keymapOptionsWithDesc("Sort imports"))
---   keymap.set("n", "<leader>tu", "<cmd>TSToolsRemoveUnusedImports<CR>", keymapOptionsWithDesc("Remove unused imports"))
---   keymap.set("n", "<leader>tU", "<cmd>TSToolsRemoveUnused<CR>", keymapOptionsWithDesc("Remove all unused statements"))
---   keymap.set("n", "<leader>tm", "<cmd>TSToolsAddMissingImports<CR>", keymapOptionsWithDesc("Add missing imports"))
---   keymap.set("n", "<leader>tf", "<cmd>TSToolsFixAll<CR>", keymapOptionsWithDesc("Fix all fixable errors"))
---   keymap.set("n", "<leader>tg", "<cmd>TSToolsGoToSourceDefinition<CR>", keymapOptionsWithDesc("Go to source definition"))
---   keymap.set("n", "<leader>tr", "<cmd>TSToolsRenameFile<CR>", keymapOptionsWithDesc("Rename file and update references"))
---   keymap.set("n", "<leader>tR", "<cmd>TSToolsFileReferences<CR>", keymapOptionsWithDesc("Find file references"))
+  keymap.set("n", "<leader>to", "<cmd>TSToolsOrganizeImports<CR>", keymapOptionsWithDesc("Organize imports"))
+  keymap.set("n", "<leader>ts", "<cmd>TSToolsSortImports<CR>", keymapOptionsWithDesc("Sort imports"))
+  keymap.set("n", "<leader>tu", "<cmd>TSToolsRemoveUnusedImports<CR>", keymapOptionsWithDesc("Remove unused imports"))
+  keymap.set("n", "<leader>tU", "<cmd>TSToolsRemoveUnused<CR>", keymapOptionsWithDesc("Remove all unused statements"))
+  keymap.set("n", "<leader>tm", "<cmd>TSToolsAddMissingImports<CR>", keymapOptionsWithDesc("Add missing imports"))
+  keymap.set("n", "<leader>tf", "<cmd>TSToolsFixAll<CR>", keymapOptionsWithDesc("Fix all fixable errors"))
+  keymap.set("n", "<leader>tg", "<cmd>TSToolsGoToSourceDefinition<CR>", keymapOptionsWithDesc("Go to source definition"))
+  keymap.set("n", "<leader>tr", "<cmd>TSToolsRenameFile<CR>", keymapOptionsWithDesc("Rename file and update references"))
+  keymap.set("n", "<leader>tR", "<cmd>TSToolsFileReferences<CR>", keymapOptionsWithDesc("Find file references"))
 end
 
 return M
