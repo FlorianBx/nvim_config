@@ -4,7 +4,11 @@ function M.setup(capabilities)
   local lspconfig = require("lspconfig")
   
   vim.diagnostic.config({
-    virtual_text = true,
+    virtual_text = {
+      severity = { min = vim.diagnostic.severity.WARN },
+      prefix = "●",
+    },
+    virtual_lines = true,
     signs = true, 
     underline = true,
     update_in_insert = false,
