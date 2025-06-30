@@ -1,30 +1,34 @@
 local M = {}
 
 function M.setup(capabilities)
-  require("lspconfig").tailwindcss.setup({
+  local lspconfig = require("lspconfig")
+
+  lspconfig.tailwindcss.setup({
     capabilities = capabilities,
-    filetypes = {
-      "vue", "html", "typescript", "javascript",
-      "javascriptreact", "typescriptreact", "svelte"
-    },
-    init_options = {
-      userLanguages = { -- Support multilingue
-        vue = "html",
-        javascript = "javascript",
-        typescript = "typescript"
-      }
-    },
+    filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
     settings = {
       tailwindCSS = {
         experimental = {
-          classRegex = { -- Patterns améliorés
-            { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+          classRegex = {
             "tw`([^`]*)",
-            "class:\\s*\"([^\"]*)"
-          }
-        }
-      }
-    }
+            "tw=\"([^\"]*)",
+            "tw={\"([^\"}]*)",
+            "tw\\.\\w+`([^`]*)",
+            "tw\\(.*?\\)`([^`]*)",
+          },
+        },
+      },
+    },
+  })
+
+  lspconfig.html.setup({
+    capabilities = capabilities,
+    filetypes = { "html" },
+  })
+
+  lspconfig.cssls.setup({
+    capabilities = capabilities,
+    filetypes = { "css", "scss", "less" },
   })
 end
 

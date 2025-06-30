@@ -26,10 +26,10 @@ keymap.set("n", "sx", "<cmd>close<CR>", keymapOptionsWithDesc("Close current spl
 keymap.set("n", "sw", "<cmd>only<CR>", keymapOptionsWithDesc("Close all other splits"))
 
 -- Resize window
-keymap.set("n", "<S-l>", "<C-w><5", keymapOptionsWithDesc("Resize window left"))
-keymap.set("n", "<S-h>", "<C-w>>5", keymapOptionsWithDesc("Resize window right"))
-keymap.set("n", "<S-k>", "<C-w>+5", keymapOptionsWithDesc("Resize window up"))
-keymap.set("n", "<S-j>", "<C-w>-5", keymapOptionsWithDesc("Resize window down"))
+keymap.set("n", "<C-S-l>", "<C-w><5", keymapOptionsWithDesc("Resize window left"))
+keymap.set("n", "<C-S-h>", "<C-w>>5", keymapOptionsWithDesc("Resize window right"))
+keymap.set("n", "<C-S-k>", "<C-w>+5", keymapOptionsWithDesc("Resize window up"))
+keymap.set("n", "<C-S-j>", "<C-w>-5", keymapOptionsWithDesc("Resize window down"))
 
 -- LSP keymaps
 keymap.set("n", "gd", vim.lsp.buf.definition, keymapOptionsWithDesc("Go to definition"))
