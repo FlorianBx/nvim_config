@@ -1,6 +1,6 @@
 # ✨ Flbx-nvim
 
-> **Minimal, modern & developer-centric Neovim config for web development (JS, TS, Vue, Angular, and more...)**
+> **Modern, performance-focused Neovim configuration for full-stack web development**
 <br />
 
  > ![](https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
@@ -19,13 +19,20 @@
 
 ## 🚀 Features
 
-- Native LSP & auto-completion (nvim-lspconfig, nvim-cmp, luasnip)
-- Blazing fast search & file navigation (Telescope, NvimTree)
-- Integrated Git (Gitsigns, LazyGit)
-- Visual TODOs & diagnostics (todo-comments, trouble.nvim)
-- Smart AST-based navigation with Treesitter (treewalker.nvim)
-- One-key Angular file jumps via [ng-croissant](https://github.com/FlorianBx/ng-croissant) (optional)
-- Logical, discoverable keymaps
+- **Native LSP & Completion**: Full LSP support with nvim-lspconfig, nvim-cmp, and LuaSnip
+- **AI-Powered Coding**: Supermaven AI completion for intelligent code suggestions
+- **Advanced File Management**: Dual file explorers (Oil.nvim & Yazi) with seamless navigation
+- **Git Integration**: Enhanced Git workflow with Gitsigns, LazyGit, and Diffview
+- **Session Management**: Automatic session persistence and restoration
+- **Project Navigation**: Harpoon for quick file jumping and project bookmarks
+- **Smart Search**: Telescope with fzf integration and live grep
+- **Performance Optimized**: Smooth scrolling, efficient treesitter, and lazy loading
+- **Documentation Generation**: Auto-generate JSDoc/TSDoc with Neogen
+- **TMUX Integration**: Seamless navigation between Neovim and TMUX panes
+- **Visual Enhancements**: Beautiful Poimandres theme with transparent backgrounds
+- **Angular Support**: One-key Angular file jumps via [ng-croissant](https://github.com/FlorianBx/ng-croissant)
+- **Typing Practice**: Built-in typing practice with Typr
+- **Smart Diagnostics**: Enhanced diagnostic display with lsp_lines.nvim
 
 ---
 &nbsp;
@@ -47,8 +54,7 @@ nvim
 &nbsp;
 ## ⚡ Keymaps Cheat Sheet
 
-> _Press `<Space>` (leader key).  
-> Most shortcuts are logical and grouped:_
+> _Press `<Space>` (leader key). Most shortcuts are logical and grouped by functionality:_
 
 ### General
 
@@ -62,19 +68,28 @@ nvim
 | `P`         | Normal | Paste from yank register            |
 | `P`         | Visual | Paste from yank register            |
 
-### Window & Buffer
+### Window & Buffer Management
+
+| Key             | Mode   | Action                              |
+| --------------- | ------ | ----------------------------------- |
+| `ss`            | Normal | Split window horizontally           |
+| `sv`            | Normal | Split window vertically             |
+| `sx`            | Normal | Close split                         |
+| `sw`            | Normal | Close other splits                  |
+| `<C-S-h>/<C-S-l>` | Normal | Resize window left/right         |
+| `<C-S-j>/<C-S-k>` | Normal | Resize window down/up           |
+| `<S-h>/<S-l>`   | Normal | Previous/next buffer                |
+| `<leader>c`     | Normal | Close buffer                        |
+
+### TMUX Navigation
 
 | Key           | Mode   | Action                              |
 | ------------- | ------ | ----------------------------------- |
-| `ss`          | Normal | Split window horizontally           |
-| `sv`          | Normal | Split window vertically             |
-| `sx`          | Normal | Close split                         |
-| `sw`          | Normal | Close other splits                  |
-| `<S-h>`/`<S-l>` | Normal | Resize window left/right         |
-| `<S-j>`/`<S-k>` | Normal | Resize window down/up           |
-| `<A-h>`       | Normal | Previous buffer                     |
-| `<A-l>`       | Normal | Next buffer                         |
-| `<leader>c`   | Normal | Close buffer                        |
+| `<C-h>`       | Normal | Navigate left (TMUX aware)          |
+| `<C-j>`       | Normal | Navigate down (TMUX aware)          |
+| `<C-k>`       | Normal | Navigate up (TMUX aware)            |
+| `<C-l>`       | Normal | Navigate right (TMUX aware)         |
+| `<C-\>`       | Normal | Navigate to previous pane           |
 
 ### LSP & Diagnostics
 
@@ -88,7 +103,7 @@ nvim
 | `<leader>rn`  | Normal | Rename symbol                       |
 | `<leader>d`   | Normal | Show diagnostics (float)            |
 | `[d`/`]d`     | Normal | Prev/next diagnostic                |
-| `<leader>ll`  | Normal | Format buffer (LSP)                 |
+| `<leader>ll`  | Normal | Format buffer                       |
 
 ### Navigation & Search (Telescope)
 
@@ -97,27 +112,55 @@ nvim
 | `<leader>ff`  | Normal | Find files                          |
 | `<leader>fg`  | Normal | Live grep                           |
 | `<leader>fs`  | Normal | Grep string under cursor            |
-| `<leader>fr`  | Normal | Recent files / Telescope refs       |
+| `<leader>fr`  | Normal | Recent files                        |
 | `<leader>fb`  | Normal | Open buffers list                   |
 | `<leader>ft`  | Normal | Search TODOs                        |
 | `<leader>nh`  | Normal | Clear search highlights             |
 
-### File Explorer (NvimTree)
+### File Explorers
+
+#### Oil.nvim (Primary)
+| Key           | Mode   | Action                              |
+| ------------- | ------ | ----------------------------------- |
+| `<leader>ee`  | Normal | Open Oil file explorer (float)      |
+
+#### Yazi (Advanced)
+| Key           | Mode   | Action                              |
+| ------------- | ------ | ----------------------------------- |
+| `<leader>-`   | Normal/Visual | Open Yazi at current file      |
+| `<leader>cw`  | Normal | Open Yazi in working directory      |
+| `<C-Up>`      | Normal | Resume last Yazi session           |
+
+### Harpoon (Quick Navigation)
 
 | Key           | Mode   | Action                              |
 | ------------- | ------ | ----------------------------------- |
-| `<leader>ee`  | Normal | Toggle file explorer                |
-| `<leader>ef`  | Normal | Find file in explorer               |
-| `<leader>ec`  | Normal | Collapse explorer tree              |
-| `<leader>er`  | Normal | Refresh explorer                    |
+| `<leader>ha`  | Normal | Add file to Harpoon                 |
+| `<leader>hh`  | Normal | Open Harpoon menu                   |
+| `<leader>1`   | Normal | Jump to Harpoon file 1              |
+| `<leader>2`   | Normal | Jump to Harpoon file 2              |
+| `<leader>3`   | Normal | Jump to Harpoon file 3              |
+| `<leader>4`   | Normal | Jump to Harpoon file 4              |
 
-### Git
+### Git Integration
 
 | Key           | Mode   | Action                              |
 | ------------- | ------ | ----------------------------------- |
 | `<leader>gp`  | Normal | Preview git hunk                    |
 | `<leader>gm`  | Normal | Toggle line blame                   |
 | `<leader>lg`  | Normal | Launch LazyGit                      |
+| `<leader>gv`  | Normal | Git Diff View                       |
+| `<leader>gt`  | Normal | Git File History                    |
+| `<leader>gc`  | Normal | Close Diff View                     |
+| `<leader>gr`  | Normal | Refresh Diff View                   |
+
+### Session Management (Persistence)
+
+| Key           | Mode   | Action                              |
+| ------------- | ------ | ----------------------------------- |
+| `<leader>wr`  | Normal | Restore workspace session           |
+| `<leader>wl`  | Normal | Load last session                   |
+| `<leader>we`  | Normal | Exclude current session             |
 
 ### AST Navigation (Treewalker)
 
@@ -127,6 +170,12 @@ nvim
 | `<A-j>`       | Normal/Visual | Navigate down in syntax tree    |
 | `<A-h>`       | Normal/Visual | Navigate left in syntax tree    |
 | `<A-l>`       | Normal/Visual | Navigate right in syntax tree   |
+
+### Documentation Generation
+
+| Key           | Mode   | Action                              |
+| ------------- | ------ | ----------------------------------- |
+| `<leader>ng`  | Normal | Generate documentation (Neogen)     |
 
 ### TODO & Trouble
 
@@ -141,17 +190,31 @@ nvim
 | `<leader>xl`  | Normal | Loclist                             |
 | `<leader>xt`  | Normal | TODOs in Trouble                    |
 
-### Snippets & Completion
+### AI Completion (Supermaven)
 
 | Key           | Mode   | Action                              |
 | ------------- | ------ | ----------------------------------- |
-| `<C-Space>`   | Insert | Trigger completion                  |
-| `<CR>`        | Insert | Confirm selected suggestion         |
-| `<Tab>`/`<S-Tab>` | Insert | Next/previous item            |
+| `<Tab>`       | Insert | Accept AI suggestion                |
+| `<C-]>`       | Insert | Clear AI suggestion                 |
 
-### Angular (with [ng-croissant](https://github.com/FlorianBx/ng-croissant) 🥐)
+### Snippets & Completion
 
-> *Seamless Angular navigation (if plugin installed):*
+| Key             | Mode   | Action                              |
+| --------------- | ------ | ----------------------------------- |
+| `<C-Space>`     | Insert | Trigger completion                  |
+| `<CR>`          | Insert | Confirm selected suggestion         |
+| `<Tab>/<S-Tab>` | Insert | Next/previous completion item       |
+
+### Typing Practice
+
+| Key           | Mode   | Action                              |
+| ------------- | ------ | ----------------------------------- |
+| `:Typr`       | Command | Start typing practice               |
+| `:TyprStats`  | Command | View typing statistics              |
+
+### Angular Development
+
+> *Seamless Angular navigation (auto-enabled in Angular projects):*
 
 | Key           | Mode   | Action                              |
 | ------------- | ------ | ----------------------------------- |
