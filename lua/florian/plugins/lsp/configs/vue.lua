@@ -4,15 +4,28 @@ function M.setup(capabilities)
   local lspconfig = require("lspconfig")
   
   vim.diagnostic.config({
-    virtual_text = {
-      severity = { min = vim.diagnostic.severity.WARN },
-      prefix = "●",
-    },
+    virtual_text = false,
     virtual_lines = true,
     signs = true, 
     underline = true,
     update_in_insert = false,
     severity_sort = true,
+    float = {
+      max_width = 80,
+      max_height = 20,
+    },
+  })
+  
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = "rounded",
+    max_width = 80,
+    max_height = 20,
+  })
+  
+  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    border = "rounded",
+    max_width = 80,
+    max_height = 15,
   })
 
   lspconfig.volar.setup({
@@ -69,7 +82,9 @@ function M.setup(capabilities)
       keymap.set("n", "<leader>va", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Vue actions" }))
 
       if client.server_capabilities.inlayHintProvider then
-        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        vim.defer_fn(function()
+          vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        end, 500)
       end
     end,
   })

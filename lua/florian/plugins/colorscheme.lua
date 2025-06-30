@@ -6,7 +6,7 @@ local poimandres = {
     require("poimandres").setup({})
     vim.cmd("colorscheme poimandres")
     vim.api.nvim_set_hl(0, 'CursorLineNr', {
-      fg   = '#5de4c7',
+      fg   = '#0084d1',
       bold = true,
     })
 

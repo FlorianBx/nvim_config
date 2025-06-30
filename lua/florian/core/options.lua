@@ -1,39 +1,44 @@
 local opt = vim.opt
 
--- Basic UI settings
-opt.relativenumber = false -- Show relative line numbers
-opt.number = true -- Show current line number
-opt.cursorline = true -- Highlight the current line
-opt.signcolumn = "yes" -- Show sign column (for Git signs, Lint markers, etc.)
+opt.relativenumber = false
+opt.number = true
+opt.cursorline = false
+opt.signcolumn = "yes"
 
--- Color and theme settings
-opt.termguicolors = true -- Enable true color support
-opt.background = "dark" -- Set background theme to dark
+opt.termguicolors = true
+opt.background = "dark"
 
--- Text editing settings
-opt.tabstop = 2 -- Number of spaces in a tab
-opt.shiftwidth = 2 -- Number of spaces to use for auto-indent
-opt.expandtab = true -- Use tabs instead of spaces
-opt.autoindent = true -- Auto-indent new lines
-opt.backspace = "indent,eol,start" -- Make backspace key more powerful
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.autoindent = true
+opt.backspace = "indent,eol,start"
 
--- Search settings
-opt.ignorecase = true -- Ignore case in search patterns
-opt.smartcase = true -- Override ignorecase if search pattern contains uppercase letters
+opt.ignorecase = true
+opt.smartcase = true
 
--- Window management settings
-opt.splitright = true -- Vertical splits open to the right
-opt.splitbelow = true -- Horizontal splits open below
+opt.splitright = true
+opt.splitbelow = true
 
--- File handling settings
-opt.wrap = false -- Do not wrap long lines
-opt.swapfile = false -- Do not create swap files
-opt.clipboard:append("unnamedplus") -- Use system clipboard
+opt.wrap = false
+opt.swapfile = false
+opt.clipboard:append("unnamedplus")
 
--- Code folding settings
-opt.foldmethod = "indent" -- Fold based on indentation
-opt.foldlevel = 99 -- Start with all folds open
+opt.foldmethod = "indent"
+opt.foldlevel = 99
 
--- Boost the reactivity of the editor (lsp)
-vim.opt.updatetime = 100
+vim.opt.updatetime = 200
 vim.opt.timeoutlen = 300
+
+opt.lazyredraw = true
+opt.ttyfast = true
+opt.synmaxcol = 300
+opt.redrawtime = 1500
+opt.regexpengine = 1
+
+opt.scrolloff = 8
+opt.sidescrolloff = 8
+opt.scroll = 10
+
+opt.cursorlineopt = "number"
+opt.cursorline = true

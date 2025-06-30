@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   "mikavilpas/yazi.nvim",
-  event = "VeryLazy",
+  cmd = "Yazi",
   dependencies = {
     "folke/snacks.nvim"
   },

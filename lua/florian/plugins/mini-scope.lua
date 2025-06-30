@@ -6,8 +6,15 @@ return {
     symbol = "▏",
     options = { try_as_border = true },
     draw = {
-      delay = 0,
+      delay = 300,
       animation = function() return 0 end,
+      priority = 2,
+    },
+    mappings = {
+      object_scope = "",
+      object_scope_with_border = "",
+      goto_top = "",
+      goto_bottom = "",
     },
   },
   init = function()
