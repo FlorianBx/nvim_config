@@ -13,13 +13,35 @@ return {
 		telescope.setup({
 			defaults = {
 				path_display = { "smart" },
-
+				vimgrep_arguments = {
+					"rg",
+					"--color=never",
+					"--no-heading",
+					"--with-filename",
+					"--line-number",
+					"--column",
+					"--smart-case",
+					"--hidden",
+					"--glob=!.git/",
+				},
+				file_ignore_patterns = {
+					"node_modules",
+					".git/",
+					"dist/",
+					"build/",
+					"*.lock",
+				},
 				mappings = {
 					i = {
 						["<C-j>"] = actions.move_selection_next,
 						["<C-k>"] = actions.move_selection_previous,
 						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 					},
+				},
+			},
+			pickers = {
+				find_files = {
+					hidden = true,
 				},
 			},
 		})

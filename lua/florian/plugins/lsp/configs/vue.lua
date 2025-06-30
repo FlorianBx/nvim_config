@@ -29,6 +29,25 @@ function M.setup(capabilities)
           missingProps = true,
           optionsWrapper = true,
         },
+        complete = {
+          casing = {
+            tags = "kebab",
+            props = "camel",
+          },
+        },
+      },
+      typescript = {
+        inlayHints = {
+          includeInlayParameterNameHints = "all",
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayVariableTypeHints = true,
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayEnumMemberValueHints = true,
+        },
+        preferences = {
+          importModuleSpecifier = "relative",
+        },
       },
     },
     on_attach = function(client, bufnr)
