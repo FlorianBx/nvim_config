@@ -1,7 +1,7 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	branch = "0.1.x",
-	cmd = "Telescope",
+	event = "VeryLazy",
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -37,6 +37,10 @@ return {
 						["<C-j>"] = actions.move_selection_next,
 						["<C-k>"] = actions.move_selection_previous,
 						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+						["<Esc>"] = actions.close,
+					},
+					n = {
+						["<Esc>"] = actions.close,
 					},
 				},
 			},

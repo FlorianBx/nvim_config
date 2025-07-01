@@ -4,28 +4,42 @@ function M.setup(capabilities)
   local lspconfig = require("lspconfig")
   
   vim.diagnostic.config({
-    virtual_text = false,
-    virtual_lines = true,
+    virtual_text = {
+      prefix = "●",
+      severity = { min = vim.diagnostic.severity.WARN },
+    },
     signs = true, 
     underline = true,
     update_in_insert = false,
     severity_sort = true,
     float = {
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
       max_width = 80,
       max_height = 20,
+      pad_top = 1,
+      pad_bottom = 1,
+      source = "always",
+      header = "",
+      prefix = "",
     },
   })
   
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "rounded",
+    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
     max_width = 80,
     max_height = 20,
+    pad_top = 1,
+    pad_bottom = 1,
+    close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
   })
   
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "rounded",
+    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
     max_width = 80,
     max_height = 15,
+    pad_top = 1,
+    pad_bottom = 1,
+    close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
   })
 
   lspconfig.volar.setup({

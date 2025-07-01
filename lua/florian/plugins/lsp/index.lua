@@ -18,7 +18,7 @@ return {
     "florianbx/ng-croissant",
     ft = { "typescript", "javascript", "html" },
     cond = function()
-      return vim.fn.glob("**/angular.json") ~= "" or (vim.fn.filereadable("package.json") == 1 and vim.fn.readfile("package.json")[1]:match("@angular") ~= nil)
+      return vim.fn.glob("**/angular.json") ~= ""
     end,
   },
 }

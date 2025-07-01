@@ -3,13 +3,22 @@ return {
   event = "VeryLazy",
   config = function()
     require("dressing").setup({
-      border = "rounded",
-      builtin = {
+      input = {
         border = "rounded",
-        winhighlight = "Normal:Normal,FloatBorder:BorderBG",
+        win_options = {
+          winblend = 0,
+          winhighlight = "NormalFloat:Normal,FloatBorder:FloatBorder",
+        },
       },
-      hover = {
-        border = "rounded",
+      select = {
+        backend = { "telescope", "builtin" },
+        builtin = {
+          border = "rounded",
+          win_options = {
+            winblend = 0,
+            winhighlight = "NormalFloat:Normal,FloatBorder:FloatBorder",
+          },
+        },
       },
     })
   end,

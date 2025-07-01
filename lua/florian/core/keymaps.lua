@@ -59,8 +59,8 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 -- Move to previous/next
-map("n", "<s-h>", "<Cmd>BufferLineCyclePrev<CR>", opts)
-map("n", "<s-l>", "<Cmd>BufferLineCycleNext<CR>", opts)
+map("n", "<s-h>", "<Cmd>bprevious<CR>", opts)
+map("n", "<s-l>", "<Cmd>bnext<CR>", opts)
 
 
 -- Re-order to previous/next

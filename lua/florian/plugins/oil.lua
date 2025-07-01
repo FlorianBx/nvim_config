@@ -11,6 +11,10 @@ return {
       max_height = 30,
     },
     default_file_explorer = false,
+    keymaps = {
+      ["q"] = "actions.close",
+      ["<Esc>"] = "actions.close",
+    },
   },
   keys = {
     { "<leader>ee", function() require("oil").open_float() end, desc = "Open Oil file explorer" },
