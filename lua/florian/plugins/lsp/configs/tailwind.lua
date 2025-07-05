@@ -1,9 +1,8 @@
 local M = {}
 
 function M.setup(capabilities)
-  local lspconfig = require("lspconfig")
 
-  lspconfig.tailwindcss.setup({
+  vim.lsp.config.tailwindcss = {
     capabilities = capabilities,
     filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
     settings = {
@@ -19,17 +18,23 @@ function M.setup(capabilities)
         },
       },
     },
-  })
-
-  lspconfig.html.setup({
+  }
+  
+  vim.lsp.enable('tailwindcss')
+  
+  vim.lsp.config.html = {
     capabilities = capabilities,
     filetypes = { "html" },
-  })
-
-  lspconfig.cssls.setup({
+  }
+  
+  vim.lsp.enable('html')
+  
+  vim.lsp.config.cssls = {
     capabilities = capabilities,
     filetypes = { "css", "scss", "less" },
-  })
+  }
+  
+  vim.lsp.enable('cssls')
 end
 
 return M

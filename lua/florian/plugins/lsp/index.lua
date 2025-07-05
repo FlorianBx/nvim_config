@@ -11,6 +11,7 @@ return {
       local capabilities = common.setup()
 
       require("florian.plugins.lsp.configs.vue").setup(capabilities)
+      require("florian.plugins.lsp.configs.typescript").setup(capabilities)
     end
   },
 

@@ -5,15 +5,19 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
+		"--branch=stable",
 		lazypath,
 	})
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	{ import = "florian.plugins" },
-  { import = "florian.plugins.lsp" },
+	{ import = "florian.plugins.ui" },
+	{ import = "florian.plugins.navigation" },
+	{ import = "florian.plugins.editor" },
+	{ import = "florian.plugins.coding" },
+	{ import = "florian.plugins.git" },
+	{ import = "florian.plugins.lsp" },
 }, {
 	checker = {
 		enabled = true,
@@ -24,12 +28,8 @@ require("lazy").setup({
 	},
 	performance = {
 		rtp = {
-			-- disable some rtp plugins
 			disabled_plugins = {
 				"gzip",
-				-- "matchit",
-				-- "matchparen",
-				-- "netrwPlugin",
 				"tarPlugin",
 				"tohtml",
 				"tutor",

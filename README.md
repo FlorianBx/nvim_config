@@ -1,255 +1,242 @@
 # ✨ Flbx-nvim
 
-> **Modern, performance-focused Neovim configuration for full-stack web development**
-<br />
+> **Modern, modular Neovim configuration optimized for Vue.js/TypeScript development**
 
- > ![](https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
-  ![](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
-  ![](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
-  ![](https://img.shields.io/badge/vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)
-  ![](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-  ![](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-
-&nbsp;
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/BFlorian91/nvim_config/dev/nvim_prev_new.png" alt="Nvim Preview" width="100%" />
-</p>
-
+![](https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
+![](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 ## 🚀 Features
 
-- **Native LSP & Completion**: Full LSP support with nvim-lspconfig, nvim-cmp, and LuaSnip
-- **AI-Powered Coding**: Supermaven AI completion for intelligent code suggestions
-- **Advanced File Management**: Dual file explorers (Oil.nvim & Yazi) with seamless navigation
-- **Git Integration**: Enhanced Git workflow with Gitsigns, LazyGit, and Diffview
-- **Session Management**: Automatic session persistence and restoration
-- **Project Navigation**: Harpoon for quick file jumping and project bookmarks
-- **Smart Search**: Telescope with fzf integration and live grep
-- **Performance Optimized**: Smooth scrolling, efficient treesitter, and lazy loading
-- **Documentation Generation**: Auto-generate JSDoc/TSDoc with Neogen
-- **TMUX Integration**: Seamless navigation between Neovim and TMUX panes
-- **Visual Enhancements**: Beautiful Poimandres theme with transparent backgrounds
-- **Angular Support**: One-key Angular file jumps via [ng-croissant](https://github.com/FlorianBx/ng-croissant)
-- **Typing Practice**: Built-in typing practice with Typr
-- **Smart Diagnostics**: Enhanced diagnostic display with lsp_lines.nvim
+- **🏗️ Modular Architecture** - Organized plugin categories for maintainability
+- **🎯 Vue.js/TypeScript Focus** - Specialized configurations for modern web development
+- **🤖 GitHub Copilot Integration** - AI-powered code completion
+- **⚡ Performance Optimized** - Smart lazy loading and efficient configurations
+- **📁 Dual File Explorers** - Oil.nvim + Yazi for seamless navigation
+- **🔍 Enhanced Git Workflow** - Gitsigns, LazyGit, and Diffview integration
+- **💾 Session Management** - Automatic workspace persistence
 
----
-&nbsp;
 ## 📦 Installation
-
-<details open>
-<summary><b>One-step setup (with <a href="https://github.com/folke/lazy.nvim">lazy.nvim</a>):</b></summary>
 
 ```sh
 git clone https://github.com/FlorianBx/nvim_config ~/.config/nvim
 nvim
 ```
-- All plugins are automatically installed via [lazy.nvim](https://github.com/folke/lazy.nvim) on first launch.
-- For best experience: [ripgrep](https://github.com/BurntSushi/ripgrep) installed (`brew install ripgrep` or your package manager). (optional)
-- Requires: Neovim **0.9 or later**.
-</details>
 
----
-&nbsp;
-## ⚡ Keymaps Cheat Sheet
+### Requirements
+- **Neovim 0.9+** - Required for modern features
+- **Git** - Plugin management
+- **Node.js** - LSP servers and formatters
+- **ripgrep** - Fast searching (`brew install ripgrep`)
+- **fd** - Fast file finding (`brew install fd`)
 
-> _Press `<Space>` (leader key). Most shortcuts are logical and grouped by functionality:_
+### Optional
+- **lazygit** - Git UI (`brew install lazygit`)
+- **yazi** - Terminal file manager (`brew install yazi`)
+- **tmux** - Terminal multiplexing
 
-### General
+## ⚡ Key Bindings
 
-| Key         | Mode   | Action                              |
-| ----------- | ------ | ----------------------------------- |
-| `jj`        | Insert | Exit insert mode (quickly)          |
-| `<leader>ew`| Normal | Save file                           |
-| `<leader>eq`| Normal | Quit window                         |
-| `<leader>r` | Normal | Reload current buffer               |
-| `ga`        | Normal | Select all                          |
-| `P`         | Normal | Paste from yank register            |
-| `P`         | Visual | Paste from yank register            |
+> **Leader key:** `<Space>`
 
-### Window & Buffer Management
+### 📝 Essential
 
-| Key             | Mode   | Action                              |
-| --------------- | ------ | ----------------------------------- |
-| `ss`            | Normal | Split window horizontally           |
-| `sv`            | Normal | Split window vertically             |
-| `sx`            | Normal | Close split                         |
-| `sw`            | Normal | Close other splits                  |
-| `<C-S-h>/<C-S-l>` | Normal | Resize window left/right         |
-| `<C-S-j>/<C-S-k>` | Normal | Resize window down/up           |
-| `<S-h>/<S-l>`   | Normal | Previous/next buffer                |
-| `<leader>c`     | Normal | Close buffer                        |
+| Key | Action |
+|-----|---------|
+| `jj` | Exit insert mode |
+| `<leader>ew` | Save file |
+| `<leader>eq` | Quit window |
+| `<leader>r` | Reload buffer |
+| `ga` | Select all |
 
-### TMUX Navigation
+### 🪟 Window & Buffer
 
-| Key           | Mode   | Action                              |
-| ------------- | ------ | ----------------------------------- |
-| `<C-h>`       | Normal | Navigate left (TMUX aware)          |
-| `<C-j>`       | Normal | Navigate down (TMUX aware)          |
-| `<C-k>`       | Normal | Navigate up (TMUX aware)            |
-| `<C-l>`       | Normal | Navigate right (TMUX aware)         |
-| `<C-\>`       | Normal | Navigate to previous pane           |
+| Key | Action |
+|-----|---------|
+| `ss` / `sv` | Split horizontal/vertical |
+| `sx` / `sw` | Close split/other splits |
+| `<S-h>` / `<S-l>` | Previous/next buffer |
+| `<leader>c` | Close buffer |
 
-### LSP & Diagnostics
+### 🔍 Navigation (Telescope)
 
-| Key           | Mode   | Action                              |
-| ------------- | ------ | ----------------------------------- |
-| `gd`          | Normal | Go to definition                    |
-| `gi`          | Normal | Go to implementation                |
-| `gr`          | Normal | Go to references                    |
-| `K`           | Normal | Hover info (documentation)          |
-| `<leader>ca`  | Normal | Code actions                        |
-| `<leader>rn`  | Normal | Rename symbol                       |
-| `<leader>d`   | Normal | Show diagnostics (float)            |
-| `[d`/`]d`     | Normal | Prev/next diagnostic                |
-| `<leader>ll`  | Normal | Format buffer                       |
+| Key | Action |
+|-----|---------|
+| `<leader>ff` | Find files |
+| `<leader>fg` | Live grep |
+| `<leader>fb` | Open buffers |
+| `<leader>fr` | Recent files |
+| `<leader>ft` | Search TODOs |
 
-### Navigation & Search (Telescope)
+### 📁 File Explorers
 
-| Key           | Mode   | Action                              |
-| ------------- | ------ | ----------------------------------- |
-| `<leader>ff`  | Normal | Find files                          |
-| `<leader>fg`  | Normal | Live grep                           |
-| `<leader>fs`  | Normal | Grep string under cursor            |
-| `<leader>fr`  | Normal | Recent files                        |
-| `<leader>fb`  | Normal | Open buffers list                   |
-| `<leader>ft`  | Normal | Search TODOs                        |
-| `<leader>nh`  | Normal | Clear search highlights             |
+| Key | Action |
+|-----|---------|
+| `<leader>ee` | Oil file explorer |
+| `<leader>-` | Yazi at current file |
+| `<leader>cw` | Yazi in working dir |
 
-### File Explorers
+### 🎯 Harpoon (Quick Navigation)
 
-#### Oil.nvim (Primary)
-| Key           | Mode   | Action                              |
-| ------------- | ------ | ----------------------------------- |
-| `<leader>ee`  | Normal | Open Oil file explorer (float)      |
+| Key | Action |
+|-----|---------|
+| `<leader>ha` | Add file to Harpoon |
+| `<leader>hh` | Open Harpoon menu |
+| `<leader>1-4` | Jump to Harpoon files |
 
-#### Yazi (Advanced)
-| Key           | Mode   | Action                              |
-| ------------- | ------ | ----------------------------------- |
-| `<leader>-`   | Normal/Visual | Open Yazi at current file      |
-| `<leader>cw`  | Normal | Open Yazi in working directory      |
-| `<C-Up>`      | Normal | Resume last Yazi session           |
+### 🔧 LSP & Diagnostics
 
-### Harpoon (Quick Navigation)
+| Key | Action |
+|-----|---------|
+| `gd` | Go to definition |
+| `gr` | Go to references |
+| `gi` | Go to implementation |
+| `K` | Show hover info |
+| `<leader>ca` | Code actions |
+| `<leader>rn` | Rename symbol |
+| `<leader>ll` | Format buffer |
+| `<leader>d` | Show diagnostics |
+| `[d` / `]d` | Prev/next diagnostic |
 
-| Key           | Mode   | Action                              |
-| ------------- | ------ | ----------------------------------- |
-| `<leader>ha`  | Normal | Add file to Harpoon                 |
-| `<leader>hh`  | Normal | Open Harpoon menu                   |
-| `<leader>1`   | Normal | Jump to Harpoon file 1              |
-| `<leader>2`   | Normal | Jump to Harpoon file 2              |
-| `<leader>3`   | Normal | Jump to Harpoon file 3              |
-| `<leader>4`   | Normal | Jump to Harpoon file 4              |
+### 🤖 AI Completion (Copilot)
 
-### Git Integration
+| Key | Mode | Action |
+|-----|------|---------|
+| `<C-l>` | Insert | Accept suggestion |
+| `<C-]>` | Insert | Dismiss suggestion |
+| `<C-\>` | Insert | Next suggestion |
+| `<C-[>` | Insert | Previous suggestion |
 
-| Key           | Mode   | Action                              |
-| ------------- | ------ | ----------------------------------- |
-| `<leader>gp`  | Normal | Preview git hunk                    |
-| `<leader>gm`  | Normal | Toggle line blame                   |
-| `<leader>lg`  | Normal | Launch LazyGit                      |
-| `<leader>gv`  | Normal | Git Diff View                       |
-| `<leader>gt`  | Normal | Git File History                    |
-| `<leader>gc`  | Normal | Close Diff View                     |
-| `<leader>gr`  | Normal | Refresh Diff View                   |
+### 📝 Snippets
 
-### Session Management (Persistence)
+| Key | Mode | Action |
+|-----|------|---------|
+| `<Tab>` | Insert | Expand or jump snippet |
+| `<S-Tab>` | Insert | Jump back in snippet |
+| `<C-e>` | Insert | Change snippet choice |
 
-| Key           | Mode   | Action                              |
-| ------------- | ------ | ----------------------------------- |
-| `<leader>wr`  | Normal | Restore workspace session           |
-| `<leader>wl`  | Normal | Load last session                   |
-| `<leader>we`  | Normal | Exclude current session             |
+### 🎨 Vue.js Snippets
 
-### AST Navigation (Treewalker)
+| Trigger | Description |
+|---------|-------------|
+| `vue3` | Vue 3 component template |
+| `vref` | Vue ref with TypeScript |
+| `vreactive` | Vue reactive with TypeScript |
+| `vcomputed` | Vue computed property |
+| `vwatch` | Vue watch function |
+| `vprops` | Vue props with TypeScript |
+| `vemits` | Vue emits with TypeScript |
 
-| Key           | Mode      | Action                              |
-| ------------- | --------- | ----------------------------------- |
-| `<A-k>`       | Normal/Visual | Navigate up in syntax tree      |
-| `<A-j>`       | Normal/Visual | Navigate down in syntax tree    |
-| `<A-h>`       | Normal/Visual | Navigate left in syntax tree    |
-| `<A-l>`       | Normal/Visual | Navigate right in syntax tree   |
+### 🅰️ Angular Development
 
-### Documentation Generation
+| Key | Action |
+|-----|---------|
+| `<leader>ac` | Go to component.ts |
+| `<leader>at` | Go to component.html |
+| `<leader>as` | Go to component.spec.ts |
+| `<leader>acc` | Go to component.css |
+| `<leader>ass` | Go to component.scss |
 
-| Key           | Mode   | Action                              |
-| ------------- | ------ | ----------------------------------- |
-| `<leader>ng`  | Normal | Generate documentation (Neogen)     |
+### 🔀 Git Integration
 
-### TODO & Trouble
+| Key | Action |
+|-----|---------|
+| `<leader>gp` | Preview git hunk |
+| `<leader>gm` | Toggle line blame |
+| `<leader>lg` | Launch LazyGit |
+| `<leader>gv` | Git diff view |
+| `<leader>gt` | Git file history |
 
-| Key           | Mode   | Action                              |
-| ------------- | ------ | ----------------------------------- |
-| `<leader>nt`  | Normal | Next TODO comment                   |
-| `<leader>pt`  | Normal | Previous TODO comment               |
-| `<leader>xx`  | Normal | Trouble main                        |
-| `<leader>xw`  | Normal | Workspace diagnostics               |
-| `<leader>xd`  | Normal | Document diagnostics                |
-| `<leader>xq`  | Normal | Quickfix list                       |
-| `<leader>xl`  | Normal | Loclist                             |
-| `<leader>xt`  | Normal | TODOs in Trouble                    |
+### 🚨 Trouble & TODOs
 
-### AI Completion (Supermaven)
+| Key | Action |
+|-----|---------|
+| `<leader>xx` | Trouble diagnostics |
+| `<leader>xw` | Workspace diagnostics |
+| `<leader>xq` | Quickfix list |
+| `<leader>nt` / `<leader>pt` | Next/prev TODO |
 
-| Key           | Mode   | Action                              |
-| ------------- | ------ | ----------------------------------- |
-| `<Tab>`       | Insert | Accept AI suggestion                |
-| `<C-]>`       | Insert | Clear AI suggestion                 |
+### 🖥️ TMUX Navigation
 
-### Snippets & Completion
+| Key | Action |
+|-----|---------|
+| `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` | Navigate panes |
+| `<C-\>` | Navigate to previous pane |
 
-| Key             | Mode   | Action                              |
-| --------------- | ------ | ----------------------------------- |
-| `<C-Space>`     | Insert | Trigger completion                  |
-| `<CR>`          | Insert | Confirm selected suggestion         |
-| `<Tab>/<S-Tab>` | Insert | Next/previous completion item       |
+### 💾 Session Management
 
-### Typing Practice
+| Key | Action |
+|-----|---------|
+| `<leader>wr` | Restore workspace |
+| `<leader>wl` | Load last session |
+| `<leader>we` | Exclude session |
 
-| Key           | Mode   | Action                              |
-| ------------- | ------ | ----------------------------------- |
-| `:Typr`       | Command | Start typing practice               |
-| `:TyprStats`  | Command | View typing statistics              |
+## 🧩 Plugin Architecture
 
-### Angular Development
+### 📂 Structure
+```
+lua/florian/plugins/
+├── ui/           # Colorscheme, which-key, dressing
+├── navigation/   # Telescope, oil, harpoon, tmux-nav
+├── editor/       # Treesitter, formatting, trouble
+├── coding/       # Completion, copilot, snippets
+├── git/          # Gitsigns, lazygit, diffview
+└── lsp/          # LSP configurations
+```
 
-> *Seamless Angular navigation (auto-enabled in Angular projects):*
+### 🎯 Core Plugins
+- **Lazy.nvim** - Plugin manager with smart loading
+- **Telescope** - Fuzzy finder with fzf integration
+- **Oil.nvim** - Edit filesystem like a buffer
+- **Copilot** - AI-powered code completion
+- **Conform.nvim** - Modern formatting with Prettier
+- **Harpoon** - Quick project navigation
+- **Trouble.nvim** - Diagnostics and quickfix
+- **LSP** - Native LSP with Mason auto-install
 
-| Key           | Mode   | Action                              |
-| ------------- | ------ | ----------------------------------- |
-| `<leader>ac`  | Normal | Go to component.ts                  |
-| `<leader>at`  | Normal | Go to component.html                |
-| `<leader>as`  | Normal | Go to component.spec.ts             |
+### 🌐 Language Support
+- **Vue.js** - Volar LSP with Vue 3 + TypeScript
+- **TypeScript/JavaScript** - Advanced IntelliSense
+- **Angular** - Component navigation with ng-croissant
+- **HTML/CSS** - Tailwind CSS integration
+- **Markdown** - Enhanced editing
 
----
-&nbsp;
-## 🧩 Plugins
+## 🎨 Customization
 
-- **LSP**: `nvim-lspconfig`, `nvim-cmp`, `luasnip`
-- **Navigation**: `telescope.nvim`, `nvim-tree`, `treewalker.nvim`
-- **Git**: `gitsigns.nvim`, `lazygit.nvim`
-- **UI & Workflow**: `todo-comments.nvim`, `trouble.nvim`
-- **Angular**: [`ng-croissant`](https://github.com/FlorianBx/ng-croissant) _(optional)_
+### 📝 Key Files
+- `lua/florian/core/keymaps.lua` - All keybindings
+- `lua/florian/core/options.lua` - Neovim settings
+- `lua/florian/plugins/` - Plugin configurations
+- `lua/florian/plugins/lsp/configs/` - LSP settings
 
-_Modular plugin setup in [`lua/plugins/`](./lua/plugins/)_
+### 🔧 Performance
+- **Lazy loading** - Fast startup (~50ms)
+- **Smart formatting** - Excludes node_modules
+- **Treesitter optimization** - Large file handling
+- **Efficient diagnostics** - Configurable virtual text
 
----
-&nbsp;
-## 🛠️ Usage & customization
+## 🆕 Recent Updates
 
-- All settings and keymaps are in `lua/core/keymaps.lua`.
-- Edit plugins/features as you like in `lua/plugins/`.
+### ✨ Latest Features
+- **🤖 GitHub Copilot** - AI-powered code completion
+- **🏗️ Modular Architecture** - Organized plugin categories
+- **⚡ Performance Optimizations** - Smart lazy loading
+- **📝 Vue.js Snippets** - Comprehensive Vue 3 templates
+- **🔧 Enhanced LSP** - TypeScript with inlay hints
+- **📁 Dual File Explorers** - Oil.nvim + Yazi integration
 
----
-&nbsp;
 ## 🙌 Credits
 
-To the awesome [Neovim](https://neovim.io/) community & every plugin author!  
-_Angular file jumping powered by [ng-croissant](https://github.com/FlorianBx/ng-croissant)._
+Thanks to the amazing Neovim community and plugin authors:
+- **[folke](https://github.com/folke)** - lazy.nvim, trouble.nvim, persistence.nvim
+- **[ThePrimeagen](https://github.com/ThePrimeagen)** - Harpoon
+- **[stevearc](https://github.com/stevearc)** - Oil.nvim, conform.nvim
+- **[sindrets](https://github.com/sindrets)** - Diffview
+- **[mikavilpas](https://github.com/mikavilpas)** - Yazi.nvim
 
 ---
-&nbsp;
+
 ## ⚖️ License
 
 MIT © FlorianBx

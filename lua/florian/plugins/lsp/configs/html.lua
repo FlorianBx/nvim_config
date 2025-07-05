@@ -1,10 +1,9 @@
 local M = {}
 
 function M.setup()
-  local lspconfig = require("lspconfig")
   local capabilities = require("florian.plugins.lsp.configs.common").setup()
 
-  lspconfig.html.setup({
+  vim.lsp.config.html = {
     capabilities = capabilities,
     filetypes = { "html", "vue", "angular" },
     init_options = {
@@ -36,9 +35,10 @@ function M.setup()
         },
       },
     },
-  })
+  }
+  
+  vim.lsp.enable('html')
 
-  -- Configuration des snippets et emmet si nécessaire
   vim.g.user_emmet_leader_key = '<C-e>'
   vim.g.user_emmet_settings = {
     html = {

@@ -1,10 +1,9 @@
 local M = {}
 
 function M.setup()
-  local lspconfig = require("lspconfig")
   local capabilities = require("florian.plugins.lsp.configs.common").setup()
 
-  lspconfig.cssls.setup({
+  vim.lsp.config.cssls = {
     capabilities = capabilities,
     settings = {
       css = {
@@ -35,9 +34,10 @@ function M.setup()
       }
     },
     filetypes = { "css", "scss", "less", "vue", "angular" },
-  })
+  }
+  
+  vim.lsp.enable('cssls')
 
-  -- Configuration des snippets CSS courants
   vim.g.user_emmet_settings = vim.g.user_emmet_settings or {}
   vim.g.user_emmet_settings.css = {
     snippets = {
