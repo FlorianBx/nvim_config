@@ -136,6 +136,8 @@ alias tp='task purge'
 alias tc='task completed'
 alias th='printf "task add \"Example task\" +tag due:tomorrow | YYYY-MM-DD\n"'
 
+alias ds-clean='find . -name .DS_Store -delete'
+
 # Dom
 alias bt="shortcuts run 'Turn the Desktop Light'"
 

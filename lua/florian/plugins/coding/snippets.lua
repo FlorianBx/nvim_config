@@ -32,19 +32,15 @@ return {
 
     luasnip.add_snippets("vue", {
       s("vue3", {
-        t("<template>"),
-        t({"", "  <div>"}),
-        t({"", "    "}), i(1, "content"),
-        t({"", "  </div>"}),
-        t({"", "</template>"}),
-        t({"", ""}),
-        t({"", "<script setup lang=\"ts\">"}),
-        t({"", ""}), i(2, "// component logic"),
+        t("<script setup lang=\"ts\">"),
+        t({"", ""}), i(1, "// component logic"),
         t({"", "</script>"}),
         t({"", ""}),
-        t({"", "<style scoped>"}),
-        t({"", ""}), i(3, "/* styles */"),
-        t({"", "</style>"}),
+        t({"", "<template>"}),
+        t({"", "  <div>"}),
+        t({"", "    "}), i(2, "content"),
+        t({"", "  </div>"}),
+        t({"", "</template>"}),
       }),
       
       s("vref", {
