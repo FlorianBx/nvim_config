@@ -13,7 +13,7 @@
 - **🎯 Vue.js/TypeScript Focus** - Specialized configurations for modern web development
 - **🤖 GitHub Copilot Integration** - AI-powered code completion
 - **⚡ Performance Optimized** - Smart lazy loading and efficient configurations
-- **📁 Dual File Explorers** - Oil.nvim + Yazi for seamless navigation
+- **📁 File Explorer** - Neotree for seamless navigation
 - **🔍 Enhanced Git Workflow** - Gitsigns, LazyGit, and Diffview integration
 - **💾 Session Management** - Automatic workspace persistence
 
@@ -33,7 +33,6 @@ nvim
 
 ### Optional
 - **lazygit** - Git UI (`brew install lazygit`)
-- **yazi** - Terminal file manager (`brew install yazi`)
 - **tmux** - Terminal multiplexing
 
 ## ⚡ Key Bindings
@@ -73,9 +72,7 @@ nvim
 
 | Key | Action |
 |-----|---------|
-| `<leader>ee` | Oil file explorer |
-| `<leader>-` | Yazi at current file |
-| `<leader>cw` | Yazi in working dir |
+| `<leader>ee` | Neotree file explorer |
 
 ### 🎯 Harpoon (Quick Navigation)
 
@@ -178,7 +175,7 @@ nvim
 ```
 lua/florian/plugins/
 ├── ui/           # Colorscheme, which-key, dressing
-├── navigation/   # Telescope, oil, harpoon, tmux-nav
+├── navigation/   # Telescope, neotree, harpoon, tmux-nav
 ├── editor/       # Treesitter, formatting, trouble
 ├── coding/       # Completion, copilot, snippets
 ├── git/          # Gitsigns, lazygit, diffview
@@ -188,7 +185,7 @@ lua/florian/plugins/
 ### 🎯 Core Plugins
 - **Lazy.nvim** - Plugin manager with smart loading
 - **Telescope** - Fuzzy finder with fzf integration
-- **Oil.nvim** - Edit filesystem like a buffer
+- **Neotree** - A file explorer for Neovim
 - **Copilot** - AI-powered code completion
 - **Conform.nvim** - Modern formatting with Prettier
 - **Harpoon** - Quick project navigation
@@ -224,16 +221,15 @@ lua/florian/plugins/
 - **⚡ Performance Optimizations** - Smart lazy loading
 - **📝 Vue.js Snippets** - Comprehensive Vue 3 templates
 - **🔧 Enhanced LSP** - TypeScript with inlay hints
-- **📁 Dual File Explorers** - Oil.nvim + Yazi integration
+- **📁 File Explorer** - Neotree integration
 
 ## 🙌 Credits
 
 Thanks to the amazing Neovim community and plugin authors:
 - **[folke](https://github.com/folke)** - lazy.nvim, trouble.nvim, persistence.nvim
 - **[ThePrimeagen](https://github.com/ThePrimeagen)** - Harpoon
-- **[stevearc](https://github.com/stevearc)** - Oil.nvim, conform.nvim
+- **[stevearc](https://github.com/stevearc)** - conform.nvim
 - **[sindrets](https://github.com/sindrets)** - Diffview
-- **[mikavilpas](https://github.com/mikavilpas)** - Yazi.nvim
 
 ---
 
