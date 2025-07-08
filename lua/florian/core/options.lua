@@ -43,6 +43,14 @@ opt.scroll = 10
 opt.cursorlineopt = "number"
 opt.cursorline = true
 
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = function()
+    vim.api.nvim_set_hl(0, "CursorLine", {})
+    vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#8eaada", bold = true })
+  end,
+})
+
 opt.winminwidth = 10
 opt.pumheight = 10
 opt.cmdheight = 0
@@ -59,14 +67,14 @@ function _G.minimal_bufferline()
   end, vim.api.nvim_list_bufs())
   
   local current = vim.api.nvim_get_current_buf()
-  local line = string.rep(" ", 2)
+  local line = "%#TabLine#  "
   
   for i, buf in ipairs(bufs) do
     local name = vim.api.nvim_buf_get_name(buf)
     local filename = name == "" and "[No Name]" or vim.fn.fnamemodify(name, ":t")
     
     if buf == current then
-      line = line .. "%#TabLineSel#   " .. filename .. "   %#TabLine#"
+      line = line .. "%#TabLineSel#   " .. filename .. "   "
     else
       line = line .. "%#TabLine#   " .. filename .. "   "
     end
@@ -76,9 +84,8 @@ function _G.minimal_bufferline()
     end
   end
   
-  return line .. "%#TabLineFill#"
+  return line .. "%#TabLine#%="
 end
 
 vim.o.tabline = "%!v:lua.minimal_bufferline()"
-
-vim.o.winbar = "%= %=%="
+-- vim.o.winbar = " "
