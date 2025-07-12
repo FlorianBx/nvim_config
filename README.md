@@ -7,6 +7,8 @@
 ![](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
+<img width="1920" height="1020" alt="Screenshot 2025-07-08 at 11 31 14 PM" src="https://github.com/user-attachments/assets/62b2ec4e-1779-4f8f-aa73-18241126a348" />
+
 ## 🚀 Features
 
 - **🏗️ Modular Architecture** - Organized plugin categories for maintainability
