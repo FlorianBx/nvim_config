@@ -88,4 +88,3 @@ function _G.minimal_bufferline()
 end
 
 vim.o.tabline = "%!v:lua.minimal_bufferline()"
--- vim.o.winbar = " "
