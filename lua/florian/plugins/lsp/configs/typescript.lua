@@ -4,7 +4,9 @@ function M.setup(capabilities)
   vim.lsp.config.ts_ls = {
     capabilities = capabilities,
     filetypes = { "typescript", "javascript" },
-    root_dir = vim.fs.root(0, { "package.json", "tsconfig.json", "jsconfig.json", ".git" }),
+    root_dir = function(fname)
+      return vim.fs.root(fname, { "package.json", "tsconfig.json", "jsconfig.json", ".git" })
+    end,
     settings = {
       typescript = {
         inlayHints = {

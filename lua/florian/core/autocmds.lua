@@ -79,7 +79,8 @@ autocmd("VimEnter", {
   callback = function(data)
     if vim.fn.isdirectory(data.file) == 1 then
       vim.defer_fn(function()
-        vim.cmd.cd(data.file)
+        local abs_path = vim.fn.fnamemodify(data.file, ":p")
+        vim.cmd.cd(abs_path)
         require("neo-tree.command").execute({ action = "show" })
       end, 200)
     end

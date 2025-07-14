@@ -44,7 +44,9 @@ function M.setup(capabilities)
   vim.lsp.config.vue_ls = {
     capabilities = capabilities,
     filetypes = { "vue", "typescript", "javascript" },
-    root_dir = vim.fs.root(0, { "package.json", "tsconfig.json", "vue.config.js", "vite.config.js", "vite.config.ts", "nuxt.config.js", "nuxt.config.ts", ".git" }),
+    root_dir = function(fname)
+      return vim.fs.root(fname, { "package.json", "tsconfig.json", "vue.config.js", "vite.config.js", "vite.config.ts", "nuxt.config.js", "nuxt.config.ts", ".git" })
+    end,
     init_options = {
       vue = {
         hybridMode = false,
