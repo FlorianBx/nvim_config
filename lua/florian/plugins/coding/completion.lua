@@ -2,12 +2,12 @@ return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
   dependencies = {
-    "L3MON4D3/LuaSnip",
+    "dcampos/nvim-snippy",
     "onsails/lspkind.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-buffer",
-    "saadparwaiz1/cmp_luasnip",
+    "dcampos/cmp-snippy",
     "hrsh7th/cmp-emoji",
   },
   config = function()
@@ -16,7 +16,7 @@ return {
     cmp.setup({
       snippet = {
         expand = function(args)
-          require("luasnip").lsp_expand(args.body)
+          require('snippy').expand_snippet(args.body)
         end,
       },
       mapping = cmp.mapping.preset.insert({
@@ -27,7 +27,7 @@ return {
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp", priority = 1000 },
-        { name = "luasnip", priority = 750 },
+        { name = "snippy", priority = 750 },
         { name = "path", priority = 500 },
       }, {
         { name = "buffer", priority = 250 },
