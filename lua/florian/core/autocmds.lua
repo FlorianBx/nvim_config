@@ -73,3 +73,16 @@ autocmd("VimResized", {
     vim.cmd("wincmd =")
   end,
 })
+
+autocmd("VimEnter", {
+  group = general_group,
+  callback = function(data)
+    if vim.fn.isdirectory(data.file) == 1 then
+      vim.defer_fn(function()
+        vim.cmd.cd(data.file)
+        require("neo-tree.command").execute({ action = "show" })
+      end, 200)
+    end
+  end,
+})
+
