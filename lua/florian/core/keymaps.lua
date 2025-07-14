@@ -41,3 +41,5 @@ keymap.set("n", "<leader>nh", ":nohlsearch<CR>", keymapOptionsWithDesc("Clear se
 keymap.set("n", "<S-h>", "<Cmd>bprevious<CR>", keymapOptionsWithDesc("Previous buffer"))
 keymap.set("n", "<S-l>", "<Cmd>bnext<CR>", keymapOptionsWithDesc("Next buffer"))
 
+
+keymap.set("n", "-", "<CMD>Oil<CR>", keymapOptionsWithDesc("Open parent directory"))

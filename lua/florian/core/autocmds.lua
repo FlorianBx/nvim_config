@@ -74,16 +74,3 @@ autocmd("VimResized", {
   end,
 })
 
-autocmd("VimEnter", {
-  group = general_group,
-  callback = function(data)
-    if vim.fn.isdirectory(data.file) == 1 then
-      vim.defer_fn(function()
-        local abs_path = vim.fn.fnamemodify(data.file, ":p")
-        vim.cmd.cd(abs_path)
-        require("neo-tree.command").execute({ action = "show" })
-      end, 200)
-    end
-  end,
-})
-
