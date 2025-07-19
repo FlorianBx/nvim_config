@@ -86,6 +86,15 @@ eval $(thefuck --alias)
 
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
+export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_OPTS='
+  --height=100%
+  --layout=reverse
+  --preview="bat --style=numbers --color=always --line-range=:500 {}"
+  --preview-window=right:60%
+'
+
+
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
@@ -98,11 +107,18 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Navigation aliases
 alias ..='cd ..'
 alias ...='cd ../..'
+alias cdf='cd "$(find . -type d | fzf)"'
+
+# cat
+alias bat='bat --theme=flbx'
 
 # Ls
 alias ls="eza --icons --group-directories-first"
 alias ll="eza --icons --group-directories-first --long"
 alias la="eza --icons --group-directories-first --long --all"
+
+# Television
+alias ff='tv files'
 
 
 # Git aliases
@@ -167,8 +183,10 @@ alias gft="git -c diff.external=difft diff"
 alias nn='nvim .'
 alias vim='nvim'
 
-alias ff='fzf'
 alias youtube-dl='yt-dlp'
+
+# Angular
+alias ngn="ng new --skip-tests --style"
 
 # Shell integrations
 eval "$(fzf --zsh)"
