@@ -1,5 +1,5 @@
 return {
-  "FlorianBx/flbx-theme",
+  "FlorianBx/flbx-colorscheme",
   lazy = false,
   priority = 1000,
   config = function()
