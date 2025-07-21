@@ -23,6 +23,12 @@ return {
             vtsls = {
               enableMoveToFileCodeAction = true,
               autoUseWorkspaceTsdk = true,
+              experimental = {
+                completion = {
+                  enableServerSideFuzzyMatch = true,
+                  entriesLimit = 50
+                }
+              },
               tsserver = {
                 globalPlugins = {
                   {
@@ -32,13 +38,30 @@ return {
                     configNamespace = "typescript",
                     enableForWorkspaceTypeScriptVersions = true,
                   },
+                },
+                maxTsServerMemory = 3072,
+                watchOptions = {
+                  excludeDirectories = { "**/node_modules", "**/.git" }
                 }
               }
             },
             typescript = {
               updateImportsOnFileMove = { enabled = "always" },
               suggest = {
-                completeFunctionCalls = true
+                completeFunctionCalls = true,
+                includeCompletionsForModuleExports = false,
+                includeAutomaticOptionalChainCompletions = false
+              },
+              preferences = {
+                includePackageJsonAutoImports = "off"
+              },
+              surveys = {
+                enabled = false
+              }
+            },
+            javascript = {
+              suggest = {
+                names = false
               }
             }
           }
@@ -67,10 +90,19 @@ return {
       })
 
       vim.diagnostic.config({
-        virtual_text = true,
+        virtual_text = {
+          spacing = 2,
+          severity = { min = vim.diagnostic.severity.WARN }
+        },
         virtual_lines = false,
         signs = true,
-        underline = true
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
+        float = {
+          source = "if_many",
+          border = "rounded"
+        }
       })
 
       for server, config in pairs(opts.server) do
