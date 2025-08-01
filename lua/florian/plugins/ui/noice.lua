@@ -17,9 +17,10 @@ return {
             { find = "%d+L, %d+B" },
             { find = "; after #%d+" },
             { find = "; before #%d+" },
+            { find = "written" },
           },
         },
-        view = "mini",
+        opts = { skip = true },
       },
     },
     presets = {
