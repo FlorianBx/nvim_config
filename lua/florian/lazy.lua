@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
 	{ import = "florian.plugins.ui" },
 	{ import = "florian.plugins.navigation" },
 	{ import = "florian.plugins.editor" },
