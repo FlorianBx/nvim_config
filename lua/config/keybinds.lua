@@ -29,3 +29,5 @@ keymap.set("n", "<S-l>", "<Cmd>bnext<CR>", keymapOptionsWithDesc("Next buffer"))
 
 
 keymap.set("n", "-", "<CMD>Oil<CR>", keymapOptionsWithDesc("Open parent directory"))
+
+keymap.set("n", "<leader>ll", function() require("conform").format({ lsp_fallback = true }) end, keymapOptionsWithDesc("Format buffer with Prettier"))
