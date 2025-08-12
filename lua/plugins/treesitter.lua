@@ -2,6 +2,9 @@ return {
   "nvim-treesitter/nvim-treesitter",
   version = false,
   build = ":TSUpdate",
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+  },
   event = { "BufReadPost", "BufNewFile", "BufWritePre", "VeryLazy" },
   lazy = vim.fn.argc(-1) == 0,
   init = function(plugin)
@@ -58,12 +61,33 @@ return {
     textobjects = {
       move = {
         enable = true,
-        goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer", ["]a"] = "@parameter.inner" },
-        goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer", ["]A"] = "@parameter.inner" },
-        goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer", ["[a"] = "@parameter.inner" },
-        goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer", ["[A"] = "@parameter.inner" },
+        set_jumps = true,
+        goto_next_start = {
+          ["]m"] = "@function.outer",
+          ["]c"] = "@class.outer",
+          ["]b"] = "@block.outer",
+          ["]a"] = "@parameter.inner",
+        },
+        goto_next_end = {
+          ["]M"] = "@function.outer",
+          ["]C"] = "@class.outer",
+          ["]B"] = "@block.outer",
+          ["]A"] = "@parameter.inner",
+        },
+        goto_previous_start = {
+          ["[m"] = "@function.outer",
+          ["[c"] = "@class.outer",
+          ["[b"] = "@block.outer",
+          ["[a"] = "@parameter.inner",
+        },
+        goto_previous_end = {
+          ["[M"] = "@function.outer",
+          ["[C"] = "@class.outer",
+          ["[B"] = "@block.outer",
+          ["[A"] = "@parameter.inner",
+        },
       },
-    },
+    }
   },
   ---@param opts TSConfig
   config = function(_, opts)
