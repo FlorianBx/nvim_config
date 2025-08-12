@@ -1,8 +1,8 @@
 return {
     "stevearc/oil.nvim",
     opts = {},
-    depedencies = {
-      "nvim-tree/nvim-web-devicons"
+    dependencies = {
+      "echasnovski/mini.surround"
     },
     config = function()
       require("oil").setup({
