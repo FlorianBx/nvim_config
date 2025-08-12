@@ -88,7 +88,7 @@ return {
       },
     })
 
-    vim.lsp.enable({ 'vue_ls' })
+    vim.lsp.enable({ 'vue_ls', 'lua_ls' })
 
     vim.diagnostic.config({
       virtual_text = true,
