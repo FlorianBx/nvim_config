@@ -9,15 +9,15 @@ return {
 
     local mason_lspconfig = require("mason-lspconfig")
     mason_lspconfig.setup({
-      ensure_installed = { "vtsls", "vue_ls" },
-      automatic_enable = { 
+      ensure_installed = { "vtsls", "vue_ls", "lua_ls" },
+      automatic_enable = {
         exclude = { "vue_ls" }
       },
     })
 
     local lspconfig = require('lspconfig')
 
-    local on_attach = function(client, bufnr)
+    local on_attach = function(_, bufnr)
       local opts = { buffer = bufnr, silent = true }
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -25,8 +25,8 @@ return {
       vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
     end
 
-    local vue_language_server_path = vim.fn.stdpath('data') .. 
-    "/mason/packages/vue-language-server/node_modules/@vue/language-server"
+    local vue_language_server_path = vim.fn.stdpath('data') ..
+        "/mason/packages/vue-language-server/node_modules/@vue/language-server"
 
     lspconfig.vtsls.setup({
       filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
@@ -64,8 +64,8 @@ return {
           end
 
           local ts_client = clients[1]
-          local param = unpack(result)
-          local id, command, payload = unpack(param)
+          local param = table.unpack(result)
+          local id, command, payload = table.unpack(param)
 
           ts_client:exec_cmd({
             title = 'vue_request_forward',
@@ -84,6 +84,39 @@ return {
             optionsWrapper = { enabled = true },
             vBindShorthand = { enabled = true },
           },
+        },
+      },
+    })
+
+    lspconfig.lua_ls.setup({
+      on_attach = on_attach,
+      settings = {
+        Lua = {
+          runtime = {
+            version = 'LuaJIT',
+            path = {
+              "?.lua",
+              "?/init.lua"
+            }
+          },
+          diagnostics = {
+            globals = { 'vim' },
+            disable = { 'missing-fields' }
+          },
+          workspace = {
+            library = {
+              vim.env.VIMRUNTIME .. "/lua",
+              vim.env.VIMRUNTIME .. "/lua/vim/lsp",
+              "${3rd}/luv/library"
+            },
+            checkThirdParty = false,
+          },
+          telemetry = {
+            enable = false,
+          },
+          completion = {
+            callSnippet = "Replace"
+          }
         },
       },
     })
