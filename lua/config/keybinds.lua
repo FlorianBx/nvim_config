@@ -16,6 +16,11 @@ keymap.set("n", "sx", "<cmd>close<CR>", keymapOptionsWithDesc("Close current spl
 keymap.set("n", "sw", "<cmd>only<CR>", keymapOptionsWithDesc("Close all other splits"))
 
 
+keymap.set("n", "<C-h>", "<C-w>h", keymapOptionsWithDesc("Move to left split"))
+keymap.set("n", "<C-j>", "<C-w>j", keymapOptionsWithDesc("Move to bottom split"))
+keymap.set("n", "<C-k>", "<C-w>k", keymapOptionsWithDesc("Move to top split"))
+keymap.set("n", "<C-l>", "<C-w>l", keymapOptionsWithDesc("Move to right split"))
+
 keymap.set("n", "<C-S-l>", "<C-w><5", keymapOptionsWithDesc("Resize window left"))
 keymap.set("n", "<C-S-h>", "<C-w>>5", keymapOptionsWithDesc("Resize window right"))
 keymap.set("n", "<C-S-k>", "<C-w>+5", keymapOptionsWithDesc("Resize window up"))
@@ -29,5 +34,11 @@ keymap.set("n", "<S-l>", "<Cmd>bnext<CR>", keymapOptionsWithDesc("Next buffer"))
 
 
 keymap.set("n", "-", "<CMD>Oil<CR>", keymapOptionsWithDesc("Open parent directory"))
+
+keymap.set("n", "<leader>th", ":split | terminal<CR>", keymapOptionsWithDesc("Open horizontal terminal"))
+keymap.set("n", "<leader>ty", ":vsplit | wincmd l | terminal<CR>", keymapOptionsWithDesc("Open vertical terminal"))
+keymap.set("n", "<leader>tt", ":tabnew | terminal<CR>", keymapOptionsWithDesc("Open terminal in new tab"))
+keymap.set("n", "<leader>tf", ":terminal<CR>", keymapOptionsWithDesc("Open terminal in current buffer"))
+keymap.set("n", "tx", ":q<CR>", keymapOptionsWithDesc("Close current terminal/window"))
 
 keymap.set("n", "<leader>ll", function() require("conform").format({ lsp_fallback = true }) end, keymapOptionsWithDesc("Format buffer with Prettier"))
