@@ -10,8 +10,8 @@ keymap.set("n", "<Leader>r", ":e!<CR>", keymapOptionsWithDesc("Reload the curren
 
 keymap.set("n", "ga", "gg<S-v>G", keymapOptionsWithDesc("Select all text in the file"))
 
-keymap.set("n", "ss", ":split<CR>", keymapOptionsWithDesc("Split window horizontally"))
-keymap.set("n", "sv", ":vsplit<CR>", keymapOptionsWithDesc("Split window vertically"))
+keymap.set("n", "ss", ":split<CR> | <C-w>j", keymapOptionsWithDesc("Split window horizontally"))
+keymap.set("n", "sv", ":vsplit<CR> | <C-w>l", keymapOptionsWithDesc("Split window vertically"))
 keymap.set("n", "sx", "<cmd>close<CR>", keymapOptionsWithDesc("Close current split"))
 keymap.set("n", "sw", "<cmd>only<CR>", keymapOptionsWithDesc("Close all other splits"))
 
