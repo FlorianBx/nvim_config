@@ -35,7 +35,6 @@ nvim
 
 ### Optional
 - **lazygit** - Git UI (`brew install lazygit`)
-- **tmux** - Terminal multiplexing
 
 ## ⚡ Key Bindings
 
@@ -156,12 +155,23 @@ nvim
 | `<leader>xq` | Quickfix list |
 | `<leader>nt` / `<leader>pt` | Next/prev TODO |
 
-### 🖥️ TMUX Navigation
+### 🖥️ Terminal Management
 
 | Key | Action |
 |-----|---------|
-| `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` | Navigate panes |
-| `<C-\>` | Navigate to previous pane |
+| `<leader>th` | Open horizontal terminal (bottom) |
+| `<leader>ty` | Open vertical terminal (right) |
+| `<leader>tt` | Open terminal in new tab |
+| `<leader>tf` | Open terminal in current buffer |
+| `tx` | Close terminal/window |
+
+### 🖥️ Native Terminal & Split Navigation
+
+| Key | Action |
+|-----|---------|
+| `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` | Navigate between splits (works in terminal too) |
+| `<Esc>` | Exit terminal mode to normal mode |
+| `<S-j>` / `<S-k>` | Navigate shell history (in terminal) |
 
 ### 💾 Session Management
 
@@ -177,7 +187,7 @@ nvim
 ```
 lua/florian/plugins/
 ├── ui/           # Colorscheme, which-key, dressing
-├── navigation/   # Telescope, neotree, harpoon, tmux-nav
+├── navigation/   # Telescope, neotree, harpoon
 ├── editor/       # Treesitter, formatting, trouble
 ├── coding/       # Completion, copilot, snippets
 ├── git/          # Gitsigns, lazygit, diffview
