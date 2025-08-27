@@ -35,7 +35,7 @@ keymap.set("n", "<S-l>", "<Cmd>bnext<CR>", keymapOptionsWithDesc("Next buffer"))
 
 keymap.set("n", "-", "<CMD>Oil<CR>", keymapOptionsWithDesc("Open parent directory"))
 
-keymap.set("n", "<leader>th", ":split | terminal<CR>", keymapOptionsWithDesc("Open horizontal terminal"))
+keymap.set("n", "<leader>th", ":split | wincmd j | terminal<CR>", keymapOptionsWithDesc("Open horizontal terminal"))
 keymap.set("n", "<leader>ty", ":vsplit | wincmd l | terminal<CR>", keymapOptionsWithDesc("Open vertical terminal"))
 keymap.set("n", "<leader>tt", ":tabnew | terminal<CR>", keymapOptionsWithDesc("Open terminal in new tab"))
 keymap.set("n", "<leader>tf", ":terminal<CR>", keymapOptionsWithDesc("Open terminal in current buffer"))
