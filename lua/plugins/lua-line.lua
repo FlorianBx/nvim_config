@@ -1,5 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
+  cond = function() return not vim.g.vscode end,
   event = "VeryLazy",
   init = function()
     vim.g.lualine_laststatus = vim.o.laststatus

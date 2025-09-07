@@ -1,5 +1,6 @@
 return {
     "stevearc/oil.nvim",
+    cond = function() return not vim.g.vscode end,
     opts = {},
     dependencies = {
       "echasnovski/mini.surround"

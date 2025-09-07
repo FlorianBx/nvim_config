@@ -1,5 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
+  cond = function() return not vim.g.vscode end,
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",

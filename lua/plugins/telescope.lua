@@ -1,5 +1,6 @@
 return {
 	"nvim-telescope/telescope.nvim",
+	cond = function() return not vim.g.vscode end,
 	branch = "0.1.x",
 	event = "VeryLazy",
 	dependencies = {

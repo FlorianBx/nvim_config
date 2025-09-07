@@ -2,7 +2,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 if vim.g.vscode then
-  require('vsconfig')
+  require('vsconfig.options')
+  require('vsconfig.keymaps')
+  require('vsconfig.plugins')
 else
   require('config.options')
   require('config.keybinds')

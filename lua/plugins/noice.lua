@@ -1,5 +1,6 @@
 return {
   "folke/noice.nvim",
+  cond = function() return not vim.g.vscode end,
   event = "VeryLazy",
   dependencies = {
     "MunifTanjim/nui.nvim",
