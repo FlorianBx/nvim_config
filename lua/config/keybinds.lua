@@ -41,4 +41,4 @@ keymap.set("n", "<leader>tt", ":tabnew | terminal<CR>", keymapOptionsWithDesc("O
 keymap.set("n", "<leader>tf", ":terminal<CR>", keymapOptionsWithDesc("Open terminal in current buffer"))
 keymap.set("n", "tx", ":q<CR>", keymapOptionsWithDesc("Close current terminal/window"))
 
-keymap.set("n", "<leader>ll", function() require("conform").format({ lsp_fallback = true }) end, keymapOptionsWithDesc("Format buffer with Prettier"))
+keymap.set("n", "<leader>ll", function() require("conform").format({ lsp_format = "fallback" }) end, keymapOptionsWithDesc("Format buffer with Prettier"))

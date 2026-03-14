@@ -2,7 +2,7 @@ return {
     "stevearc/oil.nvim",
     opts = {},
     dependencies = {
-      "echasnovski/mini.surround"
+      "echasnovski/mini.icons"
     },
     config = function()
       require("oil").setup({

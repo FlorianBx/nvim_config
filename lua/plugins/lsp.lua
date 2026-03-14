@@ -9,7 +9,7 @@ return {
 
     local mason_lspconfig = require("mason-lspconfig")
     mason_lspconfig.setup({
-      ensure_installed = { "vtsls", "vue_ls", "lua_ls" },
+      ensure_installed = { "vtsls", "vue_ls", "lua_ls", "eslint" },
       automatic_enable = {
         exclude = { "vue_ls" }
       },
@@ -21,8 +21,10 @@ return {
       local opts = { buffer = bufnr, silent = true }
       vim.keymap.set('n', 'K', function() require("pretty_hover").hover() end, opts)
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+      vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
       vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
       vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+      vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
     end
 
     local vue_language_server_path = vim.fn.stdpath('data') ..
@@ -31,8 +33,8 @@ return {
     lspconfig.vtsls.setup({
       filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
       on_attach = function(client, bufnr)
-        if vim.bo.filetype == 'vue' then
-          client.server_capabilities.semanticTokensProvider.full = false
+        if vim.bo.filetype == 'vue' and client.server_capabilities.semanticTokensProvider then
+          client.server_capabilities.semanticTokensProvider = nil
         end
         on_attach(client, bufnr)
       end,
@@ -118,6 +120,14 @@ return {
             callSnippet = "Replace"
           }
         },
+      },
+    })
+
+    lspconfig.eslint.setup({
+      on_attach = on_attach,
+      filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue' },
+      settings = {
+        workingDirectory = { mode = "auto" },
       },
     })
 
