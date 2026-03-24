@@ -1,240 +1,131 @@
-# ✨ Flbx-nvim
+# Flbx-nvim
 
-> **Modern, modular Neovim configuration optimized for Vue.js/TypeScript development**
+Neovim configuration for Vue.js/TypeScript development. Uses Rust-based tooling (oxfmt, oxlint) and a dual LSP setup for full Vue 3 + TypeScript support.
 
 ![](https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
-![](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
 ![](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![](https://img.shields.io/badge/NeoVim-57A143?style=for-the-badge&logo=neovim&logoColor=white)
 
-<img width="1920" height="1020" alt="Screenshot 2025-07-08 at 11 31 14 PM" src="https://github.com/user-attachments/assets/62b2ec4e-1779-4f8f-aa73-18241126a348" />
-
-## 🚀 Features
-
-- **🏗️ Modular Architecture** - Organized plugin categories for maintainability
-- **🎯 Vue.js/TypeScript Focus** - Specialized configurations for modern web development
-- **🤖 GitHub Copilot Integration** - AI-powered code completion
-- **⚡ Performance Optimized** - Smart lazy loading and efficient configurations
-- **📁 File Explorer** - Neotree for seamless navigation
-- **🔍 Enhanced Git Workflow** - Gitsigns, LazyGit, and Diffview integration
-- **💾 Session Management** - Automatic workspace persistence
-
-## 📦 Installation
+## Installation
 
 ```sh
 git clone https://github.com/FlorianBx/nvim_config ~/.config/nvim
 nvim
 ```
 
+Mason auto-installs LSP servers on first launch.
+
 ### Requirements
-- **Neovim 0.9+** - Required for modern features
-- **Git** - Plugin management
-- **Node.js** - LSP servers and formatters
-- **ripgrep** - Fast searching (`brew install ripgrep`)
-- **fd** - Fast file finding (`brew install fd`)
 
-### Optional
-- **lazygit** - Git UI (`brew install lazygit`)
-- **tmux** - Terminal multiplexing
+| Tool | Purpose | Install |
+|------|---------|---------|
+| Neovim 0.12+ | `vim.lsp.config` API | — |
+| Node.js | vue_ls, vtsls | — |
+| ripgrep | Live grep | `brew install ripgrep` |
+| fd | File search | `brew install fd` |
+| oxfmt | Formatter (JS/TS/Vue/CSS) | `cargo install oxfmt` |
+| oxlint | Linter (JS/TS/Vue) | `npm install -g oxlint` |
 
-## ⚡ Key Bindings
+## Language Support
 
-> **Leader key:** `<Space>`
+| Language | LSP | Formatter | Linter |
+|----------|-----|-----------|--------|
+| Vue.js | vue_ls + VTSLS + `@vue/typescript-plugin` | oxfmt | oxlint |
+| TypeScript | VTSLS | oxfmt | oxlint |
+| JavaScript | VTSLS | oxfmt | oxlint |
+| CSS | cssls | oxfmt | — |
+| HTML | html | — | — |
+| Lua | — | stylua | — |
 
-### 📝 Essential
+## Key Bindings
+
+Leader key: `<Space>`
+
+### Editor
+
+| Key | Mode | Action |
+|-----|------|--------|
+| `jj` | insert | Exit insert mode |
+| `;` | normal | Enter command mode |
+| `<leader>ew` | normal | Save file |
+| `<leader>r` | normal | Reload buffer |
+| `<leader>nh` | normal | Clear search highlights |
+| `ga` | normal | Select all |
+| `<leader>/` | normal/visual | Toggle comment |
+
+### Windows & Splits
 
 | Key | Action |
-|-----|---------|
-| `jj` | Exit insert mode |
-| `<leader>ew` | Save file |
-| `<leader>eq` | Quit window |
-| `<leader>r` | Reload buffer |
-| `ga` | Select all |
+|-----|--------|
+| `<C-h/j/k/l>` | Navigate between windows |
+| `ss` / `sv` | Split horizontal / vertical |
+| `sx` / `sw` | Close split / close others |
+| `<C-S-h/j/k/l>` | Resize window |
 
-### 🪟 Window & Buffer
-
-| Key | Action |
-|-----|---------|
-| `ss` / `sv` | Split horizontal/vertical |
-| `sx` / `sw` | Close split/other splits |
-| `<S-h>` / `<S-l>` | Previous/next buffer |
-| `<leader>c` | Close buffer |
-
-### 🔍 Navigation (Telescope)
+### Buffers
 
 | Key | Action |
-|-----|---------|
+|-----|--------|
+| `<Tab>` / `<S-Tab>` | Next / previous buffer |
+| `<leader>x` | Close buffer |
+
+### File Explorer (nvim-tree)
+
+| Key | Action |
+|-----|--------|
+| `<leader>ee` | Toggle explorer |
+| `<leader>ef` | Reveal current file |
+
+### Telescope
+
+| Key | Action |
+|-----|--------|
 | `<leader>ff` | Find files |
-| `<leader>fg` | Live grep |
-| `<leader>fb` | Open buffers |
-| `<leader>fr` | Recent files |
-| `<leader>ft` | Search TODOs |
+| `<leader>fw` | Live grep |
+| `<leader>fb` | Buffers |
+| `<leader>fo` | Recent files |
+| `<leader>fa` | Find all files (incl. hidden) |
 
-### 📁 File Explorers
-
-| Key | Action |
-|-----|---------|
-| `<leader>ee` | Neotree file explorer |
-
-### 🎯 Harpoon (Quick Navigation)
+### LSP
 
 | Key | Action |
-|-----|---------|
-| `<leader>ha` | Add file to Harpoon |
-| `<leader>hh` | Open Harpoon menu |
-| `<leader>1-4` | Jump to Harpoon files |
-
-### 🔧 LSP & Diagnostics
-
-| Key | Action |
-|-----|---------|
-| `gd` | Go to definition |
-| `gr` | Go to references |
-| `gi` | Go to implementation |
-| `K` | Show hover info |
-| `<leader>ca` | Code actions |
-| `<leader>rn` | Rename symbol |
+|-----|--------|
+| `gd` / `gD` | Definition / declaration |
+| `grr` / `gri` | References / implementation |
+| `K` | Hover info |
+| `gra` | Code actions |
+| `<leader>ra` | Rename symbol |
 | `<leader>ll` | Format buffer |
-| `<leader>d` | Show diagnostics |
-| `[d` / `]d` | Prev/next diagnostic |
+| `[d` / `]d` | Prev / next diagnostic |
 
-### 🤖 AI Completion (Copilot)
+## Plugins
 
-| Key | Mode | Action |
-|-----|------|---------|
-| `<C-l>` | Insert | Accept suggestion |
-| `<C-]>` | Insert | Dismiss suggestion |
-| `<C-\>` | Insert | Next suggestion |
-| `<C-[>` | Insert | Previous suggestion |
+| Plugin | Purpose |
+|--------|---------|
+| nvim-lspconfig | LSP server configuration |
+| conform.nvim | Format on save |
+| nvim-lint | Async linting via oxlint |
+| nvim-treesitter | Syntax highlighting |
+| tiny-inline-diagnostic | Inline diagnostic rendering |
+| telescope.nvim | Fuzzy finder |
+| nvim-tree | File explorer |
+| gitsigns.nvim | Git diff in gutter |
+| nvim-cmp + LuaSnip | Completion engine + snippets |
 
-### 📝 Snippets
+## Structure
 
-| Key | Mode | Action |
-|-----|------|---------|
-| `<Tab>` | Insert | Expand or jump snippet |
-| `<S-Tab>` | Insert | Jump back in snippet |
-| `<C-e>` | Insert | Change snippet choice |
-
-### 🎨 Vue.js Snippets
-
-| Trigger | Description |
-|---------|-------------|
-| `vue3` | Vue 3 component template |
-| `vref` | Vue ref with TypeScript |
-| `vreactive` | Vue reactive with TypeScript |
-| `vcomputed` | Vue computed property |
-| `vwatch` | Vue watch function |
-| `vprops` | Vue props with TypeScript |
-| `vemits` | Vue emits with TypeScript |
-
-### 🅰️ Angular Development
-
-| Key | Action |
-|-----|---------|
-| `<leader>ac` | Go to component.ts |
-| `<leader>at` | Go to component.html |
-| `<leader>as` | Go to component.spec.ts |
-| `<leader>acc` | Go to component.css |
-| `<leader>ass` | Go to component.scss |
-
-### 🔀 Git Integration
-
-| Key | Action |
-|-----|---------|
-| `<leader>gp` | Preview git hunk |
-| `<leader>gm` | Toggle line blame |
-| `<leader>lg` | Launch LazyGit |
-| `<leader>gv` | Git diff view |
-| `<leader>gt` | Git file history |
-
-### 🚨 Trouble & TODOs
-
-| Key | Action |
-|-----|---------|
-| `<leader>xx` | Trouble diagnostics |
-| `<leader>xw` | Workspace diagnostics |
-| `<leader>xq` | Quickfix list |
-| `<leader>nt` / `<leader>pt` | Next/prev TODO |
-
-### 🖥️ TMUX Navigation
-
-| Key | Action |
-|-----|---------|
-| `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` | Navigate panes |
-| `<C-\>` | Navigate to previous pane |
-
-### 💾 Session Management
-
-| Key | Action |
-|-----|---------|
-| `<leader>wr` | Restore workspace |
-| `<leader>wl` | Load last session |
-| `<leader>we` | Exclude session |
-
-## 🧩 Plugin Architecture
-
-### 📂 Structure
 ```
-lua/florian/plugins/
-├── ui/           # Colorscheme, which-key, dressing
-├── navigation/   # Telescope, neotree, harpoon, tmux-nav
-├── editor/       # Treesitter, formatting, trouble
-├── coding/       # Completion, copilot, snippets
-├── git/          # Gitsigns, lazygit, diffview
-└── lsp/          # LSP configurations
+lua/
+├── mappings.lua
+├── options.lua
+├── configs/
+│   ├── lspconfig.lua
+│   ├── conform.lua
+│   └── lazy.lua
+└── plugins/
+    └── init.lua
 ```
 
-### 🎯 Core Plugins
-- **Lazy.nvim** - Plugin manager with smart loading
-- **Telescope** - Fuzzy finder with fzf integration
-- **Neotree** - A file explorer for Neovim
-- **Copilot** - AI-powered code completion
-- **Conform.nvim** - Modern formatting with Prettier
-- **Harpoon** - Quick project navigation
-- **Trouble.nvim** - Diagnostics and quickfix
-- **LSP** - Native LSP with Mason auto-install
-
-### 🌐 Language Support
-- **Vue.js** - Volar LSP with Vue 3 + TypeScript
-- **TypeScript/JavaScript** - Advanced IntelliSense
-- **Angular** - Component navigation with ng-croissant
-- **HTML/CSS** - Tailwind CSS integration
-- **Markdown** - Enhanced editing
-
-## 🎨 Customization
-
-### 📝 Key Files
-- `lua/florian/core/keymaps.lua` - All keybindings
-- `lua/florian/core/options.lua` - Neovim settings
-- `lua/florian/plugins/` - Plugin configurations
-- `lua/florian/plugins/lsp/configs/` - LSP settings
-
-### 🔧 Performance
-- **Lazy loading** - Fast startup (~50ms)
-- **Smart formatting** - Excludes node_modules
-- **Treesitter optimization** - Large file handling
-- **Efficient diagnostics** - Configurable virtual text
-
-## 🆕 Recent Updates
-
-### ✨ Latest Features
-- **🤖 GitHub Copilot** - AI-powered code completion
-- **🏗️ Modular Architecture** - Organized plugin categories
-- **⚡ Performance Optimizations** - Smart lazy loading
-- **📝 Vue.js Snippets** - Comprehensive Vue 3 templates
-- **🔧 Enhanced LSP** - TypeScript with inlay hints
-- **📁 File Explorer** - Neotree integration
-
-## 🙌 Credits
-
-Thanks to the amazing Neovim community and plugin authors:
-- **[folke](https://github.com/folke)** - lazy.nvim, trouble.nvim, persistence.nvim
-- **[ThePrimeagen](https://github.com/ThePrimeagen)** - Harpoon
-- **[stevearc](https://github.com/stevearc)** - conform.nvim
-- **[sindrets](https://github.com/sindrets)** - Diffview
-
----
-
-## ⚖️ License
+## License
 
 MIT © FlorianBx
