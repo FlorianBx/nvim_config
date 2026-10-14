@@ -78,6 +78,23 @@ return {
   },
 
   {
+    "nvim-tree/nvim-tree.lua",
+    opts = {
+      view = {
+        side = "right",
+      },
+      filters = {
+        dotfiles = false,
+        git_ignored = false,
+      },
+      git = {
+        enable = true,
+        ignore = false,
+      },
+    },
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
