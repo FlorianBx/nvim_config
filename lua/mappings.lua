@@ -37,11 +37,67 @@ local function grep_path_rank(path)
   return 50
 end
 
-map("n", "<leader>fg", function()
+-- build output, deps and generated files that pollute front search results
+local noise_dirs = {
+  "node_modules", ".git", "dist", "build", "coverage", ".next", ".nuxt", ".output",
+  ".cache", ".turbo", ".vite", "storybook-static", "__snapshots__",
+}
+local noise_files = {
+  "*.min.js", "*.min.css", "*.map", "*.lockb",
+  "package-lock.json", "pnpm-lock.yaml", "yarn.lock",
+}
+
+-- backend code (Drupal, Symfony, service-ctu back) hidden from front search
+vim.list_extend(noise_dirs, { "backend", "back", "symfony", "vendor", "var" })
+vim.list_extend(noise_files, {
+  "*.php", "*.inc", "*.module", "*.install", "*.info", "*.theme", "*.test",
+  "*.po", "*.pot", "*.twig", "*.proto", "*.neon",
+})
+
+local function rg_noise_globs()
+  local args = {}
+  for _, dir in ipairs(noise_dirs) do table.insert(args, "--glob=!**/" .. dir .. "/**") end
+  for _, file in ipairs(noise_files) do table.insert(args, "--glob=!" .. file) end
+  return args
+end
+
+local function fd_noise_excludes()
+  local args = {}
+  for _, pattern in ipairs(vim.list_extend(vim.list_extend({}, noise_dirs), noise_files)) do
+    vim.list_extend(args, { "--exclude", pattern })
+  end
+  return args
+end
+
+local function grep(extra_args, title)
   require("telescope.builtin").live_grep({
-    additional_args = function() return { "--hidden" } end,
+    prompt_title = title,
+    additional_args = function() return extra_args end,
     tiebreak = function(current, existing)
       return grep_path_rank(current.filename) < grep_path_rank(existing.filename)
     end,
   })
-end, { noremap = true, silent = true, desc = "Find: grep (smart rank)" })
+end
+
+local function find_files(extra_args, title)
+  require("telescope.builtin").find_files({
+    prompt_title = title,
+    find_command = vim.list_extend({ "fd", "--type", "f", "--hidden", "--color", "never" }, extra_args),
+  })
+end
+
+map("n", "<leader>fg", function()
+  grep(vim.list_extend({ "--hidden" }, rg_noise_globs()), "Grep (front)")
+end, { noremap = true, silent = true, desc = "Find: grep front, no noise" })
+
+map("n", "<leader>fgf", function()
+  grep({ "--hidden", "--no-ignore", "--glob=!**/.git/**" }, "Grep (full)")
+end, { noremap = true, silent = true, desc = "Find: grep full, with node_modules" })
+
+map("n", "<leader>ff", function()
+  find_files(fd_noise_excludes(), "Files (front)")
+end, { noremap = true, silent = true, desc = "Find: files front, no noise" })
+
+map("n", "<leader>fff", function()
+  find_files({ "--no-ignore", "--exclude", ".git" }, "Files (full)")
+end, { noremap = true, silent = true, desc = "Find: files full, with node_modules" })
