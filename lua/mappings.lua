@@ -86,12 +86,15 @@ local function find_files(extra_args, title)
   })
 end
 
+-- Claude Code worktrees are full repo copies: slow and duplicate results in every mode
+table.insert(noise_dirs, ".claude/worktrees")
+
 map("n", "<leader>fg", function()
   grep(vim.list_extend({ "--hidden" }, rg_noise_globs()), "Grep (front)")
 end, { noremap = true, silent = true, desc = "Find: grep front, no noise" })
 
 map("n", "<leader>fgf", function()
-  grep({ "--hidden", "--no-ignore", "--glob=!**/.git/**" }, "Grep (full)")
+  grep({ "--hidden", "--no-ignore", "--glob=!**/.git/**", "--glob=!**/.claude/worktrees/**" }, "Grep (full)")
 end, { noremap = true, silent = true, desc = "Find: grep full, with node_modules" })
 
 map("n", "<leader>ff", function()
@@ -99,5 +102,5 @@ map("n", "<leader>ff", function()
 end, { noremap = true, silent = true, desc = "Find: files front, no noise" })
 
 map("n", "<leader>fff", function()
-  find_files({ "--no-ignore", "--exclude", ".git" }, "Files (full)")
+  find_files({ "--no-ignore", "--exclude", ".git", "--exclude", ".claude/worktrees" }, "Files (full)")
 end, { noremap = true, silent = true, desc = "Find: files full, with node_modules" })
