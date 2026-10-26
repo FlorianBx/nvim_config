@@ -93,6 +93,17 @@ map("n", "<leader>fg", function()
   grep(vim.list_extend({ "--hidden" }, rg_noise_globs()), "Grep (front)")
 end, { noremap = true, silent = true, desc = "Find: grep front, no noise" })
 
+-- string links the LSP cannot follow: emit names, store keys, i18n keys, events
+map({ "n", "x" }, "<leader>fw", function()
+  require("telescope.builtin").grep_string({
+    additional_args = vim.list_extend({ "--hidden" }, rg_noise_globs()),
+    word_match = "-w",
+    tiebreak = function(current, existing)
+      return grep_path_rank(current.filename) < grep_path_rank(existing.filename)
+    end,
+  })
+end, { noremap = true, silent = true, desc = "Find: grep word or selection, front" })
+
 map("n", "<leader>fgf", function()
   grep({ "--hidden", "--no-ignore", "--glob=!**/.git/**", "--glob=!**/.claude/worktrees/**" }, "Grep (full)")
 end, { noremap = true, silent = true, desc = "Find: grep full, with node_modules" })
