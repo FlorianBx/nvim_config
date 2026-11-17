@@ -109,6 +109,20 @@ return {
   },
 
   {
+    "stevearc/oil.nvim",
+    lazy = false,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      view_options = {
+        show_hidden = true,
+      },
+    },
+    keys = {
+      { "-", "<cmd>Oil<CR>", desc = "Open parent directory" },
+    },
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     -- branch "main" requires Neovim 0.12, keep "master" while on 0.11
     branch = "master",
