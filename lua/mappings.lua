@@ -23,6 +23,18 @@ map("n", "<leader>nh", ":nohlsearch<CR>", { noremap = true, silent = true, desc 
 map("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { noremap = true, silent = true, desc = "Toggle file explorer" })
 map("n", "<leader>ef", "<cmd>NvimTreeFindFile<CR>", { noremap = true, silent = true, desc = "Reveal file in explorer" })
 
+vim.keymap.del("n", "<leader>ch")
+vim.keymap.del("n", "<leader>cm")
+map("n", "<leader>c", function() require("nvchad.tabufline").close_buffer() end, { desc = "Close current buffer tab" })
+
+map("x", "<CR>", function()
+  local text = table.concat(vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos("."), { type = vim.fn.mode() }), "\n")
+  vim.fn.setreg("/", "\\V" .. (vim.fn.escape(text, "\\"):gsub("\n", "\\n")))
+  vim.v.searchforward = 1
+  vim.v.hlsearch = 1
+  vim.api.nvim_feedkeys(vim.keycode("<Esc>"), "n", false)
+end, { desc = "Search selection, keep cursor" })
+
 map("n", "<leader>ll", function() require("conform").format({ lsp_fallback = true }) end, { noremap = true, silent = true, desc = "Format buffer" })
 
 local function grep_path_rank(path)
