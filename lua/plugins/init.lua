@@ -133,6 +133,7 @@ return {
         "javascript",
         "html",
         "css",
+        "scss",
         "lua",
         "vim",
         "vimdoc",
