@@ -1,6 +1,15 @@
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " "
 
+if vim.fn.executable "node" == 0 then
+  local node_bins = vim.fn.glob(vim.env.HOME .. "/.nvm/versions/node/*/bin", false, true)
+  table.sort(node_bins, function(a, b)
+    return vim.version.lt(a:match "v([%d.]+)", b:match "v([%d.]+)")
+  end)
+  local extra = { node_bins[#node_bins], "/opt/homebrew/bin" }
+  vim.env.PATH = table.concat(extra, ":") .. ":" .. vim.env.PATH
+end
+
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
